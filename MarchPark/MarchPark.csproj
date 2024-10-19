@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>logo.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -46,8 +49,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\FRM_ADM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FRM_ADM.Designer.cs">
+      <DependentUpon>FRM_ADM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FRM_CAD_USUARIO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FRM_CAD_USUARIO.Designer.cs">
+      <DependentUpon>FRM_CAD_USUARIO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FRM_LOGIN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FRM_LOGIN.Designer.cs">
+      <DependentUpon>FRM_LOGIN.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\FRM_ADM.resx">
+      <DependentUpon>FRM_ADM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FRM_CAD_USUARIO.resx">
+      <DependentUpon>FRM_CAD_USUARIO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FRM_LOGIN.resx">
+      <DependentUpon>FRM_LOGIN.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -56,6 +86,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -66,12 +97,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Resources\foto-login.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Forms\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MarchPark.ENT\MarchPark.ENT.csproj">
@@ -82,6 +111,18 @@
       <Project>{bd803a0b-b8b8-4076-aef4-bb4ec73517d8}</Project>
       <Name>MarchPark.NEG</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\foto-login1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="logo.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,0 +1,6 @@
+C:\Github\MarchPark\MarchPark.ENT\bin\Debug\MarchPark.ENT.dll
+C:\Github\MarchPark\MarchPark.ENT\bin\Debug\MarchPark.ENT.pdb
+C:\Github\MarchPark\MarchPark.ENT\obj\Debug\MarchPark.ENT.csproj.AssemblyReference.cache
+C:\Github\MarchPark\MarchPark.ENT\obj\Debug\MarchPark.ENT.csproj.CoreCompileInputs.cache
+C:\Github\MarchPark\MarchPark.ENT\obj\Debug\MarchPark.ENT.dll
+C:\Github\MarchPark\MarchPark.ENT\obj\Debug\MarchPark.ENT.pdb

@@ -1,0 +1,94 @@
+﻿using MarchPark.DAD;
+using MarchPark.ENT.Login;
+using System;
+using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace MarchPark.NEG
+{
+    public class CRUD_NEG
+    {
+        private readonly MarchPark.DAD.CRUD_DADOS ObjDAD = new MarchPark.DAD.CRUD_DADOS();
+
+        #region ADM
+
+        /// <summary>
+        /// Faz chamada da função "SELECT_MARCH_PARK_TBL_ADM" na camada de dados.
+        /// </summary>
+        /// <param name="Ent"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public bool SELECT_MARCH_PARK_TBL_ADM(string Usuario, string Senha)
+        {
+            try
+            {
+                return ObjDAD.SELECT_MARCH_PARK_TBL_ADM(Usuario, Senha);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+        }
+
+        #endregion
+
+        #region LOGIN
+
+        /// <summary>
+        /// Faz chamada da função "SELECT_MARCH_PARK_TBL_LOGIN" na camada de dados.
+        /// </summary>
+        /// <param name="Ent"></param>
+        /// <exception cref="Exception"></exception>
+        public bool SELECT_MARCH_PARK_TBL_LOGIN(string Usuario, string Senha)
+        {
+            try
+            {
+                return ObjDAD.SELECT_MARCH_PARK_TBL_LOGIN(Usuario, Senha);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+        }
+
+        /// <summary>
+        /// Faz chamada da função "SELECT_MARCH_PARK_TBL_LOGIN_EXISTENTE" na camada de dados.
+        /// </summary>
+        /// <param name="Ent"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public List<MarchPark_TBL_LOGIN> SELECT_MARCH_PARK_TBL_LOGIN_EXISTENTE(MarchPark_TBL_LOGIN Ent)
+        {
+            try
+            {
+                return ObjDAD.SELECT_MARCH_PARK_TBL_LOGIN_EXISTENTE(Ent);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+        }
+
+        /// <summary>
+        /// Faz chamada da função "INSERT_MARCH_PARK_TBL_LOGIN" na camada de dados.
+        /// </summary>
+        /// <param name="Ent"></param>
+        /// <exception cref="Exception"></exception>
+        public void INSERT_MARCH_PARK_TBL_LOGIN(MarchPark_TBL_LOGIN Ent)
+        {
+            try
+            {
+                ObjDAD.INSERT_MARCH_PARK_TBL_LOGIN(Ent);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+        }
+
+        #endregion
+    }
+}

@@ -1,0 +1,11 @@
+C:\Github\MarchPark\MarchPark.NEG\bin\Debug\MarchPark.NEG.dll
+C:\Github\MarchPark\MarchPark.NEG\bin\Debug\MarchPark.NEG.pdb
+C:\Github\MarchPark\MarchPark.NEG\bin\Debug\MarchPark.DAD.dll
+C:\Github\MarchPark\MarchPark.NEG\bin\Debug\MarchPark.ENT.dll
+C:\Github\MarchPark\MarchPark.NEG\bin\Debug\MarchPark.DAD.pdb
+C:\Github\MarchPark\MarchPark.NEG\bin\Debug\MarchPark.ENT.pdb
+C:\Github\MarchPark\MarchPark.NEG\obj\Debug\MarchPark.NEG.csproj.AssemblyReference.cache
+C:\Github\MarchPark\MarchPark.NEG\obj\Debug\MarchPark.NEG.csproj.CoreCompileInputs.cache
+C:\Github\MarchPark\MarchPark.NEG\obj\Debug\MarchPar.5D06D1BF.Up2Date
+C:\Github\MarchPark\MarchPark.NEG\obj\Debug\MarchPark.NEG.dll
+C:\Github\MarchPark\MarchPark.NEG\obj\Debug\MarchPark.NEG.pdb

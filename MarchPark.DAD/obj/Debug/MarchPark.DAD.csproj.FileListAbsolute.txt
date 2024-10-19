@@ -1,0 +1,9 @@
+C:\Github\MarchPark\MarchPark.DAD\bin\Debug\MarchPark.DAD.dll
+C:\Github\MarchPark\MarchPark.DAD\bin\Debug\MarchPark.DAD.pdb
+C:\Github\MarchPark\MarchPark.DAD\bin\Debug\MarchPark.ENT.dll
+C:\Github\MarchPark\MarchPark.DAD\bin\Debug\MarchPark.ENT.pdb
+C:\Github\MarchPark\MarchPark.DAD\obj\Debug\MarchPark.DAD.csproj.AssemblyReference.cache
+C:\Github\MarchPark\MarchPark.DAD\obj\Debug\MarchPark.DAD.csproj.CoreCompileInputs.cache
+C:\Github\MarchPark\MarchPark.DAD\obj\Debug\MarchPar.96F709AC.Up2Date
+C:\Github\MarchPark\MarchPark.DAD\obj\Debug\MarchPark.DAD.dll
+C:\Github\MarchPark\MarchPark.DAD\obj\Debug\MarchPark.DAD.pdb
