@@ -55,11 +55,29 @@
     <Compile Include="Forms\FRM_ADM.Designer.cs">
       <DependentUpon>FRM_ADM.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FRM_CAD_CLIENTE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FRM_CAD_CLIENTE.Designer.cs">
+      <DependentUpon>FRM_CAD_CLIENTE.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FRM_CAD_USUARIO.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\FRM_CAD_USUARIO.Designer.cs">
       <DependentUpon>FRM_CAD_USUARIO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FRM_CAD_VEICULO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FRM_CAD_VEICULO.Designer.cs">
+      <DependentUpon>FRM_CAD_VEICULO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FRM_INICIAL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FRM_INICIAL.Designer.cs">
+      <DependentUpon>FRM_INICIAL.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FRM_LOGIN.cs">
       <SubType>Form</SubType>
@@ -67,16 +85,43 @@
     <Compile Include="Forms\FRM_LOGIN.Designer.cs">
       <DependentUpon>FRM_LOGIN.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FRM_PRINCIPAL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FRM_PRINCIPAL.Designer.cs">
+      <DependentUpon>FRM_PRINCIPAL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\teste.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\teste.Designer.cs">
+      <DependentUpon>teste.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\FRM_ADM.resx">
       <DependentUpon>FRM_ADM.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FRM_CAD_CLIENTE.resx">
+      <DependentUpon>FRM_CAD_CLIENTE.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FRM_CAD_USUARIO.resx">
       <DependentUpon>FRM_CAD_USUARIO.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FRM_CAD_VEICULO.resx">
+      <DependentUpon>FRM_CAD_VEICULO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FRM_INICIAL.resx">
+      <DependentUpon>FRM_INICIAL.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FRM_LOGIN.resx">
       <DependentUpon>FRM_LOGIN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FRM_PRINCIPAL.resx">
+      <DependentUpon>FRM_PRINCIPAL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\teste.resx">
+      <DependentUpon>teste.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
