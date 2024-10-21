@@ -15,13 +15,15 @@ namespace MarchPark.Forms
     /// </summary>
     public partial class FRM_PRINCIPAL : Form
     {
+        private MarchPark.NEG.CRUD_NEG ObjNEG = new NEG.CRUD_NEG();
         /// <summary>
         /// Construtor da classe FRM_PRINCIPAL
         /// Inicializa os componentes do formulário de cadastro de usuário.
         /// </summary>
-        public FRM_PRINCIPAL()
+        public FRM_PRINCIPAL(string UsuarioAtivo)
         {
             InitializeComponent();
+            LBL_USUARIO_ATIVO.Text = UsuarioAtivo;
         }
 
         /// <summary>
@@ -195,6 +197,17 @@ namespace MarchPark.Forms
             finally
             {
                 Cursor = Cursors.Default;
+            }
+        }
+
+        private void BTN_SAIR_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Deseja realmente fazer Logoff?", " MarchPark ", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                this.Hide();
+                MarchPark.Forms.FRM_LOGIN FRM_LOGIN = new MarchPark.Forms.FRM_LOGIN();
+                FRM_LOGIN.FormClosed += (s, args) => this.Close();
+                FRM_LOGIN.Show();
             }
         }
     }

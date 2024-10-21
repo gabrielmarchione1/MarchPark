@@ -143,6 +143,31 @@ namespace MarchPark.DAD
             }
         }
 
+        /// <summary>
+        /// Consulta para pegar o usuário ativo no sistema.
+        /// </summary>
+        /// <param name="Ent"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public string SELECT_NOME_USUARIO_ATIVO(MarchPark_TBL_LOGIN Ent)
+        {
+            try
+            {
+                using (MarchPark.DAD.ConnectionFactory db = new ConnectionFactory())
+                {
+                    string usuario = (from TBL_LOGIN in db.GetTable<MarchPark_TBL_LOGIN>()
+                                   where TBL_LOGIN.NOME_USUARIO == Ent.NOME_USUARIO
+                                   select TBL_LOGIN.NOME_USUARIO).FirstOrDefault().ToString();
+
+                    return usuario;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+        }
+
         #endregion
     }
 }

@@ -89,6 +89,24 @@ namespace MarchPark.NEG
             }
         }
 
+        /// <summary>
+        /// Faz chamada da função "SELECT_NOME_USUARIO_ATIVO" na camada de dados.
+        /// </summary>
+        /// <param name="Ent"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public string SELECT_NOME_USUARIO_ATIVO(MarchPark_TBL_LOGIN Ent)
+        {
+            try
+            {
+                return ObjDAD.SELECT_NOME_USUARIO_ATIVO(Ent);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+        }
+
         #endregion
     }
 }

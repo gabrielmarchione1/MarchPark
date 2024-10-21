@@ -28,15 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FRM_INICIAL));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.DGV_DADOS = new System.Windows.Forms.DataGridView();
+            this.checkBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.pageSetupDialog1 = new System.Windows.Forms.PageSetupDialog();
+            this.BTN_REGISTRAR_ENTRADA = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV_DADOS)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -53,7 +58,7 @@
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.dataGridView1);
+            this.splitContainer1.Panel2.Controls.Add(this.DGV_DADOS);
             this.splitContainer1.Size = new System.Drawing.Size(641, 500);
             this.splitContainer1.SplitterDistance = 104;
             this.splitContainer1.SplitterWidth = 1;
@@ -67,24 +72,46 @@
             this.groupBox1.Size = new System.Drawing.Size(641, 79);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
             // 
             // toolStrip1
             // 
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.BTN_REGISTRAR_ENTRADA});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(641, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // dataGridView1
+            // DGV_DADOS
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(641, 395);
-            this.dataGridView1.TabIndex = 0;
+            this.DGV_DADOS.AllowUserToAddRows = false;
+            this.DGV_DADOS.AllowUserToDeleteRows = false;
+            this.DGV_DADOS.AllowUserToResizeRows = false;
+            this.DGV_DADOS.BackgroundColor = System.Drawing.SystemColors.ActiveBorder;
+            this.DGV_DADOS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGV_DADOS.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.checkBoxColumn});
+            this.DGV_DADOS.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DGV_DADOS.Location = new System.Drawing.Point(0, 0);
+            this.DGV_DADOS.Name = "DGV_DADOS";
+            this.DGV_DADOS.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DGV_DADOS.ShowCellToolTips = false;
+            this.DGV_DADOS.Size = new System.Drawing.Size(641, 395);
+            this.DGV_DADOS.TabIndex = 3;
+            // 
+            // checkBoxColumn
+            // 
+            this.checkBoxColumn.HeaderText = "";
+            this.checkBoxColumn.Name = "checkBoxColumn";
+            // 
+            // BTN_REGISTRAR_ENTRADA
+            // 
+            this.BTN_REGISTRAR_ENTRADA.Image = ((System.Drawing.Image)(resources.GetObject("BTN_REGISTRAR_ENTRADA.Image")));
+            this.BTN_REGISTRAR_ENTRADA.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BTN_REGISTRAR_ENTRADA.Name = "BTN_REGISTRAR_ENTRADA";
+            this.BTN_REGISTRAR_ENTRADA.Size = new System.Drawing.Size(116, 22);
+            this.BTN_REGISTRAR_ENTRADA.Text = "Registrar Entrada";
             // 
             // FRM_INICIAL
             // 
@@ -106,7 +133,9 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV_DADOS)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -114,8 +143,11 @@
         #endregion
 
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.PageSetupDialog pageSetupDialog1;
+        public System.Windows.Forms.DataGridView DGV_DADOS;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn checkBoxColumn;
+        private System.Windows.Forms.ToolStripButton BTN_REGISTRAR_ENTRADA;
     }
 }

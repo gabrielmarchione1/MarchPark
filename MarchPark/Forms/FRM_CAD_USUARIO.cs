@@ -45,12 +45,12 @@ namespace MarchPark.Forms
                         if (ObjNEG.SELECT_MARCH_PARK_TBL_LOGIN_EXISTENTE(ObjEnt).Count == 0)
                         {
                             ObjNEG.INSERT_MARCH_PARK_TBL_LOGIN(ObjEnt);
-                            MessageBox.Show("Usuário cadastrado com sucesso!", " CadCli ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("Usuário cadastrado com sucesso!", " MarchPark ", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             return true;
                         }
                         else
                         {
-                            MessageBox.Show("Este nome de usuário já existe!", " CadCli ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            MessageBox.Show("Este nome de usuário já existe!", " MarchPark ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             TXT_USUARIO.Text = "";
                             MBX_SENHA.Text = "";
                             MBX_CONFIRMAR_SENHA.Text = "";
@@ -60,7 +60,7 @@ namespace MarchPark.Forms
                     }
                     else
                     {
-                        MessageBox.Show("Senhas diferentes!", " CadCli ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("Senhas diferentes!", " MarchPark ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         MBX_SENHA.Text = "";
                         MBX_CONFIRMAR_SENHA.Text = "";
                         MBX_SENHA.Focus();
@@ -69,7 +69,7 @@ namespace MarchPark.Forms
                 }
                 else
                 {
-                    MessageBox.Show("Favor, preencher todos os campos corretamente!", " CadCli ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Favor, preencher todos os campos corretamente!", " MarchPark ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return false;
                 }
             }
@@ -129,7 +129,7 @@ namespace MarchPark.Forms
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, " CadCli ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, " MarchPark ", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
@@ -154,7 +154,7 @@ namespace MarchPark.Forms
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, " CadCli ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, " MarchPark ", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
@@ -179,7 +179,7 @@ namespace MarchPark.Forms
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, " CadCli ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, " MarchPark ", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -200,7 +200,7 @@ namespace MarchPark.Forms
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, " CadCli ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, " MarchPark ", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -221,7 +221,7 @@ namespace MarchPark.Forms
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, " CadCli ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, " MarchPark ", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

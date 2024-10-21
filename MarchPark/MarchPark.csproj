@@ -168,6 +168,20 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="logo.ico" />
+    <None Include="Resources\minimizar1.png" />
+    <None Include="Resources\minimizar.png" />
+    <None Include="Resources\botao-minimizar.png" />
+    <None Include="Resources\botao-fechar.png" />
+    <None Include="Resources\pasta1.png" />
+    <None Include="Resources\limpar.png" />
+    <None Include="Resources\excel.png" />
+    <None Include="Resources\deletar.png" />
+    <None Include="Resources\consultar1.png" />
+    <None Include="Resources\cad_tel1.png" />
+    <None Include="Resources\alterar.png" />
+    <None Include="Resources\add.png" />
+    <None Include="Resources\usuario.png" />
+    <None Include="Resources\sair.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
