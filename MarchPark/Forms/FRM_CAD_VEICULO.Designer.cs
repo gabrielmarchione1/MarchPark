@@ -30,7 +30,17 @@
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.RBTN_ANTIGA = new System.Windows.Forms.RadioButton();
+            this.RBTN_MERCOSUL = new System.Windows.Forms.RadioButton();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.MBX_PLACA = new System.Windows.Forms.MaskedTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.CBX_NOME = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -44,22 +54,12 @@
             this.BTN_DELETAR = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.BTN_LIMPAR_DADOS = new System.Windows.Forms.ToolStripButton();
-            this.DGV_DADOS = new System.Windows.Forms.DataGridView();
-            this.checkBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.RBTN_MERCOSUL = new System.Windows.Forms.RadioButton();
-            this.RBTN_ANTIGA = new System.Windows.Forms.RadioButton();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
+            this.DGV_DADOS = new System.Windows.Forms.DataGridView();
+            this.checkBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -101,7 +101,7 @@
             this.groupBox1.Controls.Add(this.textBox3);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.maskedTextBox1);
+            this.groupBox1.Controls.Add(this.MBX_PLACA);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.CBX_NOME);
             this.groupBox1.Controls.Add(this.label1);
@@ -112,13 +112,101 @@
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             // 
-            // maskedTextBox1
+            // RBTN_ANTIGA
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(160, 29);
-            this.maskedTextBox1.Mask = "AAA0A00";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(51, 20);
-            this.maskedTextBox1.TabIndex = 1;
+            this.RBTN_ANTIGA.AutoSize = true;
+            this.RBTN_ANTIGA.Location = new System.Drawing.Point(242, 33);
+            this.RBTN_ANTIGA.Name = "RBTN_ANTIGA";
+            this.RBTN_ANTIGA.Size = new System.Drawing.Size(55, 17);
+            this.RBTN_ANTIGA.TabIndex = 3;
+            this.RBTN_ANTIGA.Text = "Antiga";
+            this.RBTN_ANTIGA.UseVisualStyleBackColor = true;
+            this.RBTN_ANTIGA.CheckedChanged += new System.EventHandler(this.RBTN_ANTIGA_CheckedChanged);
+            // 
+            // RBTN_MERCOSUL
+            // 
+            this.RBTN_MERCOSUL.AutoSize = true;
+            this.RBTN_MERCOSUL.Checked = true;
+            this.RBTN_MERCOSUL.Location = new System.Drawing.Point(242, 10);
+            this.RBTN_MERCOSUL.Name = "RBTN_MERCOSUL";
+            this.RBTN_MERCOSUL.Size = new System.Drawing.Size(68, 17);
+            this.RBTN_MERCOSUL.TabIndex = 2;
+            this.RBTN_MERCOSUL.Text = "Mercosul";
+            this.RBTN_MERCOSUL.UseVisualStyleBackColor = true;
+            this.RBTN_MERCOSUL.CheckedChanged += new System.EventHandler(this.RBTN_MERCOSUL_CheckedChanged);
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(406, 75);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(83, 21);
+            this.comboBox1.TabIndex = 7;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(403, 59);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(31, 13);
+            this.label6.TabIndex = 32;
+            this.label6.Text = "Tipo:";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(13, 75);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(128, 20);
+            this.textBox1.TabIndex = 4;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(309, 75);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(72, 20);
+            this.textBox2.TabIndex = 6;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(306, 59);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(26, 13);
+            this.label4.TabIndex = 29;
+            this.label4.Text = "Cor:";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(160, 75);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(120, 20);
+            this.textBox3.TabIndex = 5;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(157, 59);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(45, 13);
+            this.label5.TabIndex = 27;
+            this.label5.Text = "Modelo:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(10, 57);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(40, 13);
+            this.label3.TabIndex = 25;
+            this.label3.Text = "Marca:";
+            // 
+            // MBX_PLACA
+            // 
+            this.MBX_PLACA.Location = new System.Drawing.Point(160, 29);
+            this.MBX_PLACA.Name = "MBX_PLACA";
+            this.MBX_PLACA.Size = new System.Drawing.Size(69, 20);
+            this.MBX_PLACA.TabIndex = 1;
             // 
             // label2
             // 
@@ -228,6 +316,25 @@
             this.BTN_LIMPAR_DADOS.Size = new System.Drawing.Size(64, 22);
             this.BTN_LIMPAR_DADOS.Text = "Limpar";
             // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(94, 22);
+            this.toolStripLabel1.Text = "Pesquisar Placa: ";
+            // 
+            // toolStripTextBox1
+            // 
+            this.toolStripTextBox1.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.toolStripTextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.toolStripTextBox1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.toolStripTextBox1.Name = "toolStripTextBox1";
+            this.toolStripTextBox1.Size = new System.Drawing.Size(100, 25);
+            // 
             // DGV_DADOS
             // 
             this.DGV_DADOS.AllowUserToAddRows = false;
@@ -251,112 +358,6 @@
             this.checkBoxColumn.HeaderText = "";
             this.checkBoxColumn.Name = "checkBoxColumn";
             // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(309, 75);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(72, 20);
-            this.textBox2.TabIndex = 6;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(306, 59);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(26, 13);
-            this.label4.TabIndex = 29;
-            this.label4.Text = "Cor:";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(160, 75);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(120, 20);
-            this.textBox3.TabIndex = 5;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(157, 59);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(45, 13);
-            this.label5.TabIndex = 27;
-            this.label5.Text = "Modelo:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(10, 57);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(40, 13);
-            this.label3.TabIndex = 25;
-            this.label3.Text = "Marca:";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(13, 75);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(128, 20);
-            this.textBox1.TabIndex = 4;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(403, 59);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(31, 13);
-            this.label6.TabIndex = 32;
-            this.label6.Text = "Tipo:";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(406, 75);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(83, 21);
-            this.comboBox1.TabIndex = 7;
-            // 
-            // RBTN_MERCOSUL
-            // 
-            this.RBTN_MERCOSUL.AutoSize = true;
-            this.RBTN_MERCOSUL.Checked = true;
-            this.RBTN_MERCOSUL.Location = new System.Drawing.Point(227, 10);
-            this.RBTN_MERCOSUL.Name = "RBTN_MERCOSUL";
-            this.RBTN_MERCOSUL.Size = new System.Drawing.Size(68, 17);
-            this.RBTN_MERCOSUL.TabIndex = 2;
-            this.RBTN_MERCOSUL.Text = "Mercosul";
-            this.RBTN_MERCOSUL.UseVisualStyleBackColor = true;
-            // 
-            // RBTN_ANTIGA
-            // 
-            this.RBTN_ANTIGA.AutoSize = true;
-            this.RBTN_ANTIGA.Location = new System.Drawing.Point(227, 33);
-            this.RBTN_ANTIGA.Name = "RBTN_ANTIGA";
-            this.RBTN_ANTIGA.Size = new System.Drawing.Size(55, 17);
-            this.RBTN_ANTIGA.TabIndex = 3;
-            this.RBTN_ANTIGA.Text = "Antiga";
-            this.RBTN_ANTIGA.UseVisualStyleBackColor = true;
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripLabel1
-            // 
-            this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(94, 22);
-            this.toolStripLabel1.Text = "Pesquisar Placa: ";
-            // 
-            // toolStripTextBox1
-            // 
-            this.toolStripTextBox1.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.toolStripTextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.toolStripTextBox1.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.toolStripTextBox1.Name = "toolStripTextBox1";
-            this.toolStripTextBox1.Size = new System.Drawing.Size(100, 25);
-            // 
             // FRM_CAD_VEICULO
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -372,6 +373,7 @@
             this.Name = "FRM_CAD_VEICULO";
             this.Text = "FRM_CAD_VEICULO";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.FRM_CAD_VEICULO_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -404,7 +406,7 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn checkBoxColumn;
         private System.Windows.Forms.ComboBox CBX_NOME;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.MaskedTextBox MBX_PLACA;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ColorDialog colorDialog1;
         private System.Windows.Forms.RadioButton RBTN_ANTIGA;

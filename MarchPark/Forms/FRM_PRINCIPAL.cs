@@ -200,6 +200,90 @@ namespace MarchPark.Forms
             }
         }
 
+        /// <summary>
+        /// Evento de clique no botão da tela de relatório.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BTN_RELATORIO_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                foreach (Form form in this.MdiChildren)
+                {
+                    if (form.Text == "FRM_RELATORIO")
+                    {
+                        return;
+                    }
+                }
+
+                Cursor = Cursors.WaitCursor;
+                CloseAllToolStripMenuItem_Click(null, null);
+
+                FRM_RELATORIO child = new FRM_RELATORIO();
+                child.MdiParent = this;
+                child.Dock = DockStyle.Fill;
+                child.Show();
+
+                foreach (ToolStripMenuItem botao in menuStrip1.Items)
+                {
+                    botao.BackColor = SystemColors.ControlLight;
+                }
+
+                BTN_RELATORIO.BackColor = Color.Silver;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, " MarchPark ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                Cursor = Cursors.Default;
+            }
+        }
+
+        /// <summary>
+        /// Evento de clique no botão da tela de gerenciamento.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BTN_GERENCIAMENTO_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                foreach (Form form in this.MdiChildren)
+                {
+                    if (form.Text == "FRM_GERENCIAMENTO")
+                    {
+                        return;
+                    }
+                }
+
+                Cursor = Cursors.WaitCursor;
+                CloseAllToolStripMenuItem_Click(null, null);
+
+                FRM_GERENCIAMENTO child = new FRM_GERENCIAMENTO();
+                child.MdiParent = this;
+                child.Dock = DockStyle.Fill;
+                child.Show();
+
+                foreach (ToolStripMenuItem botao in menuStrip1.Items)
+                {
+                    botao.BackColor = SystemColors.ControlLight;
+                }
+
+                BTN_GERENCIAMENTO.BackColor = Color.Silver;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, " MarchPark ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                Cursor = Cursors.Default;
+            }
+        }
+
         private void BTN_SAIR_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Deseja realmente fazer Logoff?", " MarchPark ", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -210,5 +294,6 @@ namespace MarchPark.Forms
                 FRM_LOGIN.Show();
             }
         }
+
     }
 }

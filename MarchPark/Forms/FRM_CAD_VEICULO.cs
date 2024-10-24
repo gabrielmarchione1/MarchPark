@@ -16,5 +16,56 @@ namespace MarchPark.Forms
         {
             InitializeComponent();
         }
+
+        /// <summary>
+        /// Evento de check do radio button de placa mercosul
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void RBTN_MERCOSUL_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                MBX_PLACA.Mask = "AAA0A00";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, " MarchPark ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// Evento de check do radio button de placa antiga
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void RBTN_ANTIGA_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                MBX_PLACA.Mask = "AAA-0000";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, " MarchPark ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// Evento de load do formulário
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void FRM_CAD_VEICULO_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                MBX_PLACA.Mask = "AAA0A00";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, " MarchPark ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }            
+        }
     }
 }

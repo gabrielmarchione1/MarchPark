@@ -73,6 +73,12 @@
     <Compile Include="Forms\FRM_CAD_VEICULO.Designer.cs">
       <DependentUpon>FRM_CAD_VEICULO.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FRM_GERENCIAMENTO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FRM_GERENCIAMENTO.Designer.cs">
+      <DependentUpon>FRM_GERENCIAMENTO.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FRM_INICIAL.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,6 +96,12 @@
     </Compile>
     <Compile Include="Forms\FRM_PRINCIPAL.Designer.cs">
       <DependentUpon>FRM_PRINCIPAL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FRM_RELATORIO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FRM_RELATORIO.Designer.cs">
+      <DependentUpon>FRM_RELATORIO.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\teste.cs">
       <SubType>Form</SubType>
@@ -111,6 +123,9 @@
     <EmbeddedResource Include="Forms\FRM_CAD_VEICULO.resx">
       <DependentUpon>FRM_CAD_VEICULO.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FRM_GERENCIAMENTO.resx">
+      <DependentUpon>FRM_GERENCIAMENTO.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FRM_INICIAL.resx">
       <DependentUpon>FRM_INICIAL.cs</DependentUpon>
     </EmbeddedResource>
@@ -119,6 +134,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FRM_PRINCIPAL.resx">
       <DependentUpon>FRM_PRINCIPAL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FRM_RELATORIO.resx">
+      <DependentUpon>FRM_RELATORIO.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\teste.resx">
       <DependentUpon>teste.cs</DependentUpon>

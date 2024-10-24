@@ -32,13 +32,13 @@
             this.BTN_SAIR = new System.Windows.Forms.ToolStripButton();
             this.LBL_USUARIO_ATIVO = new System.Windows.Forms.ToolStripLabel();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.BTN_INICIAL = new System.Windows.Forms.ToolStripMenuItem();
             this.BTN_CAD_CLIENTE = new System.Windows.Forms.ToolStripMenuItem();
             this.BTN_CAD_VEICULO = new System.Windows.Forms.ToolStripMenuItem();
             this.BTN_RELATORIO = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.BTN_GERENCIAMENTO = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             this.toolStrip2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -89,6 +89,14 @@
             this.toolStrip2.TabIndex = 9;
             this.toolStrip2.Text = "toolStrip2";
             // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripLabel1.Margin = new System.Windows.Forms.Padding(55, 1, 0, 2);
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(88, 22);
+            this.toolStripLabel1.Text = "MarchPark";
+            // 
             // menuStrip1
             // 
             this.menuStrip1.AutoSize = false;
@@ -99,7 +107,7 @@
             this.BTN_CAD_CLIENTE,
             this.BTN_CAD_VEICULO,
             this.BTN_RELATORIO,
-            this.toolStripMenuItem1});
+            this.BTN_GERENCIAMENTO});
             this.menuStrip1.Location = new System.Drawing.Point(0, 25);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(197, 500);
@@ -144,23 +152,17 @@
             this.BTN_RELATORIO.Name = "BTN_RELATORIO";
             this.BTN_RELATORIO.Size = new System.Drawing.Size(193, 25);
             this.BTN_RELATORIO.Text = "Relatório";
+            this.BTN_RELATORIO.Click += new System.EventHandler(this.BTN_RELATORIO_Click);
             // 
-            // toolStripMenuItem1
+            // BTN_GERENCIAMENTO
             // 
-            this.toolStripMenuItem1.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.toolStripMenuItem1.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.toolStripMenuItem1.Margin = new System.Windows.Forms.Padding(-4, 0, 1, 2);
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(193, 25);
-            this.toolStripMenuItem1.Text = "Gerenciamento";
-            // 
-            // toolStripLabel1
-            // 
-            this.toolStripLabel1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripLabel1.Margin = new System.Windows.Forms.Padding(55, 1, 0, 2);
-            this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(88, 22);
-            this.toolStripLabel1.Text = "MarchPark";
+            this.BTN_GERENCIAMENTO.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.BTN_GERENCIAMENTO.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.BTN_GERENCIAMENTO.Margin = new System.Windows.Forms.Padding(-4, 0, 1, 2);
+            this.BTN_GERENCIAMENTO.Name = "BTN_GERENCIAMENTO";
+            this.BTN_GERENCIAMENTO.Size = new System.Drawing.Size(193, 25);
+            this.BTN_GERENCIAMENTO.Text = "Gerenciamento";
+            this.BTN_GERENCIAMENTO.Click += new System.EventHandler(this.BTN_GERENCIAMENTO_Click);
             // 
             // FRM_PRINCIPAL
             // 
@@ -201,7 +203,7 @@
         private System.Windows.Forms.ToolStripButton BTN_SAIR;
         private System.Windows.Forms.ToolStripLabel LBL_USUARIO_ATIVO;
         private System.Windows.Forms.ToolStripMenuItem BTN_RELATORIO;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem BTN_GERENCIAMENTO;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
     }
 }
