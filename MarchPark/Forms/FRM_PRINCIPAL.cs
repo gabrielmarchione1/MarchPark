@@ -23,7 +23,7 @@ namespace MarchPark.Forms
         public FRM_PRINCIPAL(string UsuarioAtivo)
         {
             InitializeComponent();
-            LBL_USUARIO_ATIVO.Text = UsuarioAtivo;
+            BTN_USUARIO_ATIVO.Text = UsuarioAtivo;
         }
 
         /// <summary>
@@ -284,6 +284,11 @@ namespace MarchPark.Forms
             }
         }
 
+        /// <summary>
+        /// Evento de clique no botão de sair (Logoff).
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BTN_SAIR_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Deseja realmente fazer Logoff?", " MarchPark ", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -295,5 +300,44 @@ namespace MarchPark.Forms
             }
         }
 
+        /// <summary>
+        /// Evento de clique no botão de usuario ativo.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BTN_USUARIO_ATIVO_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                foreach (Form form in this.MdiChildren)
+                {
+                    if (form.Text == "FRM_USUARIO_ATIVO")
+                    {
+                        return;
+                    }
+                }
+
+                Cursor = Cursors.WaitCursor;
+                CloseAllToolStripMenuItem_Click(null, null);
+
+                FRM_USUARIO_ATIVO child = new FRM_USUARIO_ATIVO();
+                child.MdiParent = this;
+                child.Dock = DockStyle.Fill;
+                child.Show();
+
+                foreach (ToolStripMenuItem botao in menuStrip1.Items)
+                {
+                    botao.BackColor = SystemColors.ControlLight;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, " MarchPark ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                Cursor = Cursors.Default;
+            }
+        }
     }
 }

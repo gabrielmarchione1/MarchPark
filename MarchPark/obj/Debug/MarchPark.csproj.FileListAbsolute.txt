@@ -24,3 +24,4 @@ C:\Github\MarchPark\MarchPark\obj\Debug\MarchPark.Forms.FRM_CAD_CLIENTE.resource
 C:\Github\MarchPark\MarchPark\obj\Debug\MarchPark.Forms.FRM_INICIAL.resources
 C:\Github\MarchPark\MarchPark\obj\Debug\MarchPark.Forms.FRM_GERENCIAMENTO.resources
 C:\Github\MarchPark\MarchPark\obj\Debug\MarchPark.Forms.FRM_RELATORIO.resources
+C:\Github\MarchPark\MarchPark\obj\Debug\MarchPark.Forms.FRM_USUARIO_ATIVO.resources

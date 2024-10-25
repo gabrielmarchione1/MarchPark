@@ -30,7 +30,7 @@
         {
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.BTN_SAIR = new System.Windows.Forms.ToolStripButton();
-            this.LBL_USUARIO_ATIVO = new System.Windows.Forms.ToolStripLabel();
+            this.BTN_USUARIO_ATIVO = new System.Windows.Forms.ToolStripButton();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -51,7 +51,7 @@
             this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.BTN_SAIR,
-            this.LBL_USUARIO_ATIVO});
+            this.BTN_USUARIO_ATIVO});
             this.toolStrip1.Location = new System.Drawing.Point(0, 525);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(838, 25);
@@ -68,14 +68,16 @@
             this.BTN_SAIR.Text = "Sair";
             this.BTN_SAIR.Click += new System.EventHandler(this.BTN_SAIR_Click);
             // 
-            // LBL_USUARIO_ATIVO
+            // BTN_USUARIO_ATIVO
             // 
-            this.LBL_USUARIO_ATIVO.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.LBL_USUARIO_ATIVO.Image = global::MarchPark.Properties.Resources.usuario;
-            this.LBL_USUARIO_ATIVO.Margin = new System.Windows.Forms.Padding(0, 1, 7, 2);
-            this.LBL_USUARIO_ATIVO.Name = "LBL_USUARIO_ATIVO";
-            this.LBL_USUARIO_ATIVO.Size = new System.Drawing.Size(102, 22);
-            this.LBL_USUARIO_ATIVO.Text = "toolStripLabel1";
+            this.BTN_USUARIO_ATIVO.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.BTN_USUARIO_ATIVO.Image = global::MarchPark.Properties.Resources.usuario;
+            this.BTN_USUARIO_ATIVO.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BTN_USUARIO_ATIVO.Margin = new System.Windows.Forms.Padding(0, 1, 7, 2);
+            this.BTN_USUARIO_ATIVO.Name = "BTN_USUARIO_ATIVO";
+            this.BTN_USUARIO_ATIVO.Size = new System.Drawing.Size(114, 22);
+            this.BTN_USUARIO_ATIVO.Text = "toolStripButton1";
+            this.BTN_USUARIO_ATIVO.Click += new System.EventHandler(this.BTN_USUARIO_ATIVO_Click);
             // 
             // toolStrip2
             // 
@@ -201,9 +203,9 @@
         private System.Windows.Forms.ToolStripMenuItem BTN_CAD_VEICULO;
         private System.Windows.Forms.ToolStripMenuItem BTN_INICIAL;
         private System.Windows.Forms.ToolStripButton BTN_SAIR;
-        private System.Windows.Forms.ToolStripLabel LBL_USUARIO_ATIVO;
         private System.Windows.Forms.ToolStripMenuItem BTN_RELATORIO;
         private System.Windows.Forms.ToolStripMenuItem BTN_GERENCIAMENTO;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
+        private System.Windows.Forms.ToolStripButton BTN_USUARIO_ATIVO;
     }
 }
