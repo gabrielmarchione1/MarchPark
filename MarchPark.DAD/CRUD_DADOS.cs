@@ -52,6 +52,10 @@ namespace MarchPark.DAD
             {
                 throw new Exception(ex.Message.ToString());
             }
+            finally
+            {
+                conn.Close();
+            }
         }
 
         #endregion
@@ -95,6 +99,10 @@ namespace MarchPark.DAD
             catch (Exception ex)
             {
                 throw new Exception(ex.Message.ToString());
+            }
+            finally
+            {
+                conn.Close();
             }
         }
 
@@ -165,6 +173,127 @@ namespace MarchPark.DAD
             catch (Exception ex)
             {
                 throw new Exception(ex.Message.ToString());
+            }
+        }
+
+        #endregion
+
+        #region USUARIO ATIVO
+
+        /// <summary>
+        /// Método para validar a senha atual do usuário.
+        /// </summary>
+        /// <param name="Ent"></param>
+        /// <exception cref="Exception"></exception>
+        public bool VALIDAR_SENHA_ATUAL_USUARIO_ATIVO(string Usuario, string Senha)
+        {
+            // Cria a conexão com o banco
+            SqlConnection conn = new SqlConnection(MarchPark.DAD.ConnectionFactory.connectionString);
+            conn.Open();
+
+            try
+            {
+                // Query SQL com collation case-sensitive
+                string sql = $@"
+                                DECLARE @usuario VARCHAR(25) = '{Usuario}'
+                                DECLARE @senha VARCHAR(25) = '{Senha}'
+
+                                SELECT * 
+                                FROM MarchPark_TBL_LOGIN
+                                WHERE NOME_USUARIO COLLATE Latin1_General_CS_AS = @usuario
+                                AND SENHA_USUARIO COLLATE Latin1_General_CS_AS = @senha;
+                                ";
+
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    // Executa a consulta e obtém os resultados
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        // Retorna true se houver resultados, false caso contrário
+                        return reader.HasRows;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        /// <summary>
+        /// Método para alterar senha/usuario do usuario ativo.
+        /// </summary>
+        /// <param name="Ent"></param>
+        /// <exception cref="Exception"></exception>
+        public bool ALTERAR_USUARIO_SENHA_ATIVO(string UsuarioAtual, string UsuarioNovo, string SenhaNova, int TipoQuery)
+        {
+            // Cria a conexão com o banco
+            SqlConnection conn = new SqlConnection(MarchPark.DAD.ConnectionFactory.connectionString);
+            conn.Open();
+
+            try
+            {
+                string sql = "";
+                switch (TipoQuery)
+                {
+                    case 1: // usuario e senha
+                        // Query SQL com collation case-sensitive
+                        sql = $@"
+                                        DECLARE @nome_usuario VARCHAR(25) = '{UsuarioAtual}'
+                                        DECLARE @nome_novo VARCHAR(25) = '{UsuarioNovo}'
+                                        DECLARE @senha VARCHAR(25) = '{SenhaNova}'
+
+                                        UPDATE MarchPark_TBL_LOGIN
+                                        SET NOME_USUARIO = @nome_novo, SENHA_USUARIO = @senha
+                                        WHERE NOME_USUARIO COLLATE Latin1_General_CS_AS = @nome_usuario
+                                        ";
+                        break;
+                    case 2: // usuario
+                        // Query SQL com collation case-sensitive
+                        sql = $@"
+                                        DECLARE @nome_usuario VARCHAR(25) = '{UsuarioAtual}'
+                                        DECLARE @nome_novo VARCHAR(25) = '{UsuarioNovo}'
+
+                                        UPDATE MarchPark_TBL_LOGIN
+                                        SET NOME_USUARIO = @nome_novo
+                                        WHERE NOME_USUARIO COLLATE Latin1_General_CS_AS = @nome_usuario
+                                        ";
+                        break;
+                    case 3: // senha
+                        // Query SQL com collation case-sensitive
+                        sql = $@"
+                                        DECLARE @nome_usuario VARCHAR(25) = '{UsuarioAtual}'
+                                        DECLARE @senha VARCHAR(25) = '{SenhaNova}'
+
+                                        UPDATE MarchPark_TBL_LOGIN
+                                        SET SENHA_USUARIO = @senha
+                                        WHERE NOME_USUARIO COLLATE Latin1_General_CS_AS = @nome_usuario
+                                        ";
+                        break;
+                }
+
+
+
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    // Executa a consulta e verifica o número de linhas afetadas
+                    int rowsAffected = cmd.ExecuteNonQuery();
+
+                    // Retorna true se uma linha foi atualizada, false caso contrário
+                    return rowsAffected > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+            finally
+            {
+                conn.Close();
             }
         }
 

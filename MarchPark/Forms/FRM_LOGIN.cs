@@ -276,7 +276,7 @@ namespace MarchPark.Forms
         private void MBX_SENHA_KeyPress(object sender, KeyPressEventArgs e)
         {
             // Verifica se a tecla pressionada é uma aspa simples, aspa dupla ou barra invertida
-            if (e.KeyChar == '\'' || e.KeyChar == '\"' || e.KeyChar == '\\')
+            if (e.KeyChar == '\'' || e.KeyChar == '\"' || e.KeyChar == '\\' || e.KeyChar == ' ')
             {
                 // Impede a entrada do caractere proibido
                 e.Handled = true;

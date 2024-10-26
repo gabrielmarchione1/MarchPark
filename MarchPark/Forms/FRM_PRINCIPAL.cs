@@ -15,7 +15,7 @@ namespace MarchPark.Forms
     /// </summary>
     public partial class FRM_PRINCIPAL : Form
     {
-        private MarchPark.NEG.CRUD_NEG ObjNEG = new NEG.CRUD_NEG();
+        private readonly MarchPark.NEG.CRUD_NEG ObjNEG = new NEG.CRUD_NEG();
         /// <summary>
         /// Construtor da classe FRM_PRINCIPAL
         /// Inicializa os componentes do formulário de cadastro de usuário.
@@ -320,7 +320,7 @@ namespace MarchPark.Forms
                 Cursor = Cursors.WaitCursor;
                 CloseAllToolStripMenuItem_Click(null, null);
 
-                FRM_USUARIO_ATIVO child = new FRM_USUARIO_ATIVO();
+                FRM_USUARIO_ATIVO child = new FRM_USUARIO_ATIVO(BTN_USUARIO_ATIVO.Text);
                 child.MdiParent = this;
                 child.Dock = DockStyle.Fill;
                 child.Show();

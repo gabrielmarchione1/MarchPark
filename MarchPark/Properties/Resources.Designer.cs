@@ -213,6 +213,26 @@ namespace MarchPark.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap olho_senha_desver {
+            get {
+                object obj = ResourceManager.GetObject("olho_senha_desver", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap olho_senha_ver {
+            get {
+                object obj = ResourceManager.GetObject("olho_senha_ver", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap pasta1 {
             get {
                 object obj = ResourceManager.GetObject("pasta1", resourceCulture);
@@ -236,6 +256,16 @@ namespace MarchPark.Properties {
         internal static System.Drawing.Bitmap usuario {
             get {
                 object obj = ResourceManager.GetObject("usuario", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap validar {
+            get {
+                object obj = ResourceManager.GetObject("validar", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

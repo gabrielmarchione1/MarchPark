@@ -195,6 +195,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="logo.ico" />
+    <None Include="Resources\olho-senha-ver.png" />
+    <None Include="Resources\olho-senha-desver.png" />
+    <None Include="Resources\validar.png" />
     <None Include="Resources\minimizar1.png" />
     <None Include="Resources\minimizar.png" />
     <None Include="Resources\botao-minimizar.png" />

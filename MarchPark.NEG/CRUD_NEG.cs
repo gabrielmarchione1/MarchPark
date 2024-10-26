@@ -108,5 +108,38 @@ namespace MarchPark.NEG
         }
 
         #endregion
+
+        #region USUARIO ATIVO
+
+        /// <summary>
+        /// Faz chamada da função "SELECT_MARCH_PARK_TBL_LOGIN" na camada de dados.
+        /// </summary>
+        /// <param name="Ent"></param>
+        /// <exception cref="Exception"></exception>
+        public bool VALIDAR_SENHA_ATUAL_USUARIO_ATIVO(string Usuario, string Senha)
+        {            
+            try
+            {
+                return ObjDAD.VALIDAR_SENHA_ATUAL_USUARIO_ATIVO(Usuario, Senha);    
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+        }
+
+        public bool ALTERAR_USUARIO_SENHA_ATIVO(string UsuarioAtual, string UsuarioNovo, string SenhaNova, int TipoQuery)
+        {
+            try
+            {
+                return ObjDAD.ALTERAR_USUARIO_SENHA_ATIVO(UsuarioAtual, UsuarioNovo, SenhaNova, TipoQuery);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+        }
+
+        #endregion
     }
 }

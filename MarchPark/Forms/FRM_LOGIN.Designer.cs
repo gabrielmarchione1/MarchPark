@@ -168,7 +168,7 @@
             this.Name = "FRM_LOGIN";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "CadCli";
+            this.Text = "MarchPark";
             ((System.ComponentModel.ISupportInitialize)(this.PICBOX)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

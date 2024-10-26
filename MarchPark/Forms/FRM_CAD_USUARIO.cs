@@ -40,30 +40,51 @@ namespace MarchPark.Forms
             {
                 if (MONTAR_ENTIDADE())
                 {
-                    if (MBX_SENHA.Text == MBX_CONFIRMAR_SENHA.Text)
+                    if (TXT_USUARIO.Text.Length >= 2)
                     {
-                        if (ObjNEG.SELECT_MARCH_PARK_TBL_LOGIN_EXISTENTE(ObjEnt).Count == 0)
+                        if (MBX_SENHA.Text == MBX_CONFIRMAR_SENHA.Text)
                         {
-                            ObjNEG.INSERT_MARCH_PARK_TBL_LOGIN(ObjEnt);
-                            MessageBox.Show("Usuário cadastrado com sucesso!", " MarchPark ", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            return true;
+                            if (MBX_SENHA.Text.Length >= 4)
+                            {
+                                if (ObjNEG.SELECT_MARCH_PARK_TBL_LOGIN_EXISTENTE(ObjEnt).Count == 0)
+                                {
+                                    ObjNEG.INSERT_MARCH_PARK_TBL_LOGIN(ObjEnt);
+                                    MessageBox.Show("Usuário cadastrado com sucesso!", " MarchPark ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    return true;
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Este nome de usuário já existe!", " MarchPark ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                    TXT_USUARIO.Text = "";
+                                    MBX_SENHA.Text = "";
+                                    MBX_CONFIRMAR_SENHA.Text = "";
+                                    TXT_USUARIO.Focus();
+                                    return false;
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("A senha deve ter no mínimo 4 caracteres.", " MarchPark ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                MBX_SENHA.Text = "";
+                                MBX_CONFIRMAR_SENHA.Text = "";
+                                MBX_SENHA.Focus();
+                                return false;
+                            }
                         }
                         else
                         {
-                            MessageBox.Show("Este nome de usuário já existe!", " MarchPark ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            TXT_USUARIO.Text = "";
+                            MessageBox.Show("Senhas diferentes!", " MarchPark ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             MBX_SENHA.Text = "";
                             MBX_CONFIRMAR_SENHA.Text = "";
-                            TXT_USUARIO.Focus();
+                            MBX_SENHA.Focus();
                             return false;
                         }
                     }
                     else
                     {
-                        MessageBox.Show("Senhas diferentes!", " MarchPark ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        MBX_SENHA.Text = "";
-                        MBX_CONFIRMAR_SENHA.Text = "";
-                        MBX_SENHA.Focus();
+                        MessageBox.Show("Nome de Usuário deve ter 2 caracteres no mínimo!", " MarchPark ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        TXT_USUARIO.Text = "";
+                        TXT_USUARIO.Focus();
                         return false;
                     }
                 }

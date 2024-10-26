@@ -163,6 +163,12 @@
   <data name="minimizar1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\minimizar1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="olho_senha_desver" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\olho-senha-desver.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="olho_senha_ver" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\olho-senha-ver.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="pasta1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pasta1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -171,5 +177,8 @@
   </data>
   <data name="usuario" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\usuario.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="validar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\validar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
