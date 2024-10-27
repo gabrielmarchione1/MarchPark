@@ -10,8 +10,15 @@ using System.Windows.Forms;
 
 namespace MarchPark.Forms
 {
+    /// <summary>
+    /// Formulário de cadastro de veículo.
+    /// </summary>
     public partial class FRM_CAD_VEICULO : Form
     {
+        /// <summary>
+        /// Construtor da classe FRM_CAD_VEICULO
+        /// Inicializa os componentes do formulário de cadastro de veículo.
+        /// </summary>
         public FRM_CAD_VEICULO()
         {
             InitializeComponent();

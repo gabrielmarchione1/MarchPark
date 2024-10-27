@@ -29,6 +29,11 @@ namespace MarchPark.Forms
             TXT_NOME_ATUAL.Text = UsuarioAtivo;
         }
 
+        /// <summary>
+        /// Método para alterar usuário.
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
         public bool ALTERAR_USUARIO()
         {
             try

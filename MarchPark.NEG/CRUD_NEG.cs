@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace MarchPark.NEG
 {
+    /// <summary>
+    /// Classe de CRUD NEGOCIOS.
+    /// </summary>
     public class CRUD_NEG
     {
         private readonly MarchPark.DAD.CRUD_DADOS ObjDAD = new MarchPark.DAD.CRUD_DADOS();

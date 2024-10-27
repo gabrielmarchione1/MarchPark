@@ -49,10 +49,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Forms\FRM_ADM.cs">
+    <Compile Include="Forms\Login\FRM_ADM.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FRM_ADM.Designer.cs">
+    <Compile Include="Forms\Login\FRM_ADM.Designer.cs">
       <DependentUpon>FRM_ADM.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FRM_CAD_CLIENTE.cs">
@@ -61,10 +61,10 @@
     <Compile Include="Forms\FRM_CAD_CLIENTE.Designer.cs">
       <DependentUpon>FRM_CAD_CLIENTE.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FRM_CAD_USUARIO.cs">
+    <Compile Include="Forms\Login\FRM_CAD_USUARIO.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FRM_CAD_USUARIO.Designer.cs">
+    <Compile Include="Forms\Login\FRM_CAD_USUARIO.Designer.cs">
       <DependentUpon>FRM_CAD_USUARIO.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FRM_CAD_VEICULO.cs">
@@ -85,10 +85,10 @@
     <Compile Include="Forms\FRM_INICIAL.Designer.cs">
       <DependentUpon>FRM_INICIAL.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FRM_LOGIN.cs">
+    <Compile Include="Forms\Login\FRM_LOGIN.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FRM_LOGIN.Designer.cs">
+    <Compile Include="Forms\Login\FRM_LOGIN.Designer.cs">
       <DependentUpon>FRM_LOGIN.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FRM_PRINCIPAL.cs">
@@ -117,13 +117,13 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\FRM_ADM.resx">
+    <EmbeddedResource Include="Forms\Login\FRM_ADM.resx">
       <DependentUpon>FRM_ADM.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FRM_CAD_CLIENTE.resx">
       <DependentUpon>FRM_CAD_CLIENTE.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FRM_CAD_USUARIO.resx">
+    <EmbeddedResource Include="Forms\Login\FRM_CAD_USUARIO.resx">
       <DependentUpon>FRM_CAD_USUARIO.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FRM_CAD_VEICULO.resx">
@@ -135,7 +135,7 @@
     <EmbeddedResource Include="Forms\FRM_INICIAL.resx">
       <DependentUpon>FRM_INICIAL.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FRM_LOGIN.resx">
+    <EmbeddedResource Include="Forms\Login\FRM_LOGIN.resx">
       <DependentUpon>FRM_LOGIN.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FRM_PRINCIPAL.resx">

@@ -18,7 +18,7 @@ namespace MarchPark.Forms
         private readonly MarchPark.NEG.CRUD_NEG ObjNEG = new NEG.CRUD_NEG();
         /// <summary>
         /// Construtor da classe FRM_PRINCIPAL
-        /// Inicializa os componentes do formulário de cadastro de usuário.
+        /// Inicializa os componentes do formulário principal.
         /// </summary>
         public FRM_PRINCIPAL(string UsuarioAtivo)
         {
@@ -291,12 +291,28 @@ namespace MarchPark.Forms
         /// <param name="e"></param>
         private void BTN_SAIR_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Deseja realmente fazer Logoff?", " MarchPark ", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            try
             {
-                this.Hide();
-                MarchPark.Forms.FRM_LOGIN FRM_LOGIN = new MarchPark.Forms.FRM_LOGIN();
-                FRM_LOGIN.FormClosed += (s, args) => this.Close();
-                FRM_LOGIN.Show();
+                Cursor = Cursors.Default;
+                if (MessageBox.Show("Deseja realmente fazer Logoff?", " MarchPark ", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    // Armazena o caminho do executável atual
+                    string applicationPath = Application.ExecutablePath;
+
+                    // Finaliza a aplicação atual
+                    Application.Exit();
+
+                    // Inicia uma nova instância da aplicação
+                    System.Diagnostics.Process.Start(applicationPath);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, " MarchPark ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                Cursor = Cursors.Default;
             }
         }
 

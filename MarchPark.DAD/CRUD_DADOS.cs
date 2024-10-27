@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace MarchPark.DAD
 {
+    /// <summary>
+    /// Classe de CRUD DADOS.
+    /// </summary>
     public class CRUD_DADOS
     {
         #region ADM
@@ -275,8 +278,6 @@ namespace MarchPark.DAD
                                         ";
                         break;
                 }
-
-
 
                 using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {

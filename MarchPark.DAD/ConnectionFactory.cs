@@ -5,6 +5,9 @@ using System.Data.SqlClient;
 
 namespace MarchPark.DAD
 {
+    /// <summary>
+    /// Classe de conexão.
+    /// </summary>
     public class ConnectionFactory : DataContext
     {
         /// <summary>
