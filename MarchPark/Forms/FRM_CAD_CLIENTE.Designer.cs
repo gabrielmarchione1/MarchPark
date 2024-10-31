@@ -30,15 +30,15 @@
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.maskedTextBox3 = new System.Windows.Forms.MaskedTextBox();
+            this.MBX_DATA_NASCIMENTO = new System.Windows.Forms.MaskedTextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.TXT_EMAIL = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
+            this.MBX_TELEFONE = new System.Windows.Forms.MaskedTextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.MBX_CPF = new System.Windows.Forms.MaskedTextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.TXT_NOME = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.BTN_ADICIONAR = new System.Windows.Forms.ToolStripButton();
@@ -51,11 +51,10 @@
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.BTN_LIMPAR_DADOS = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.BTN_IMP_BULKCOPY = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.BTN_GERAR_MODELO = new System.Windows.Forms.ToolStripButton();
             this.DGV_DADOS = new System.Windows.Forms.DataGridView();
             this.checkBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.TXT_PESQUISAR_NOME = new System.Windows.Forms.ToolStripTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -87,15 +86,15 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.maskedTextBox3);
+            this.groupBox1.Controls.Add(this.MBX_DATA_NASCIMENTO);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.TXT_EMAIL);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.maskedTextBox2);
+            this.groupBox1.Controls.Add(this.MBX_TELEFONE);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.maskedTextBox1);
+            this.groupBox1.Controls.Add(this.MBX_CPF);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.TXT_NOME);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 25);
@@ -104,14 +103,14 @@
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             // 
-            // maskedTextBox3
+            // MBX_DATA_NASCIMENTO
             // 
-            this.maskedTextBox3.Location = new System.Drawing.Point(268, 28);
-            this.maskedTextBox3.Mask = "00/00/0000";
-            this.maskedTextBox3.Name = "maskedTextBox3";
-            this.maskedTextBox3.Size = new System.Drawing.Size(68, 20);
-            this.maskedTextBox3.TabIndex = 2;
-            this.maskedTextBox3.ValidatingType = typeof(System.DateTime);
+            this.MBX_DATA_NASCIMENTO.Location = new System.Drawing.Point(268, 28);
+            this.MBX_DATA_NASCIMENTO.Mask = "00/00/0000";
+            this.MBX_DATA_NASCIMENTO.Name = "MBX_DATA_NASCIMENTO";
+            this.MBX_DATA_NASCIMENTO.Size = new System.Drawing.Size(68, 20);
+            this.MBX_DATA_NASCIMENTO.TabIndex = 2;
+            this.MBX_DATA_NASCIMENTO.ValidatingType = typeof(System.DateTime);
             // 
             // label5
             // 
@@ -122,12 +121,12 @@
             this.label5.TabIndex = 8;
             this.label5.Text = "Nascimento:";
             // 
-            // textBox2
+            // TXT_EMAIL
             // 
-            this.textBox2.Location = new System.Drawing.Point(465, 28);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(161, 20);
-            this.textBox2.TabIndex = 4;
+            this.TXT_EMAIL.Location = new System.Drawing.Point(465, 28);
+            this.TXT_EMAIL.Name = "TXT_EMAIL";
+            this.TXT_EMAIL.Size = new System.Drawing.Size(161, 20);
+            this.TXT_EMAIL.TabIndex = 4;
             // 
             // label4
             // 
@@ -138,13 +137,13 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "Email:";
             // 
-            // maskedTextBox2
+            // MBX_TELEFONE
             // 
-            this.maskedTextBox2.Location = new System.Drawing.Point(359, 28);
-            this.maskedTextBox2.Mask = "(00) 00000-0000";
-            this.maskedTextBox2.Name = "maskedTextBox2";
-            this.maskedTextBox2.Size = new System.Drawing.Size(88, 20);
-            this.maskedTextBox2.TabIndex = 3;
+            this.MBX_TELEFONE.Location = new System.Drawing.Point(359, 28);
+            this.MBX_TELEFONE.Mask = "(00) 00000-0000";
+            this.MBX_TELEFONE.Name = "MBX_TELEFONE";
+            this.MBX_TELEFONE.Size = new System.Drawing.Size(88, 20);
+            this.MBX_TELEFONE.TabIndex = 3;
             // 
             // label3
             // 
@@ -155,13 +154,13 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "Telefone:";
             // 
-            // maskedTextBox1
+            // MBX_CPF
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(162, 28);
-            this.maskedTextBox1.Mask = "000,000,000-00";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(88, 20);
-            this.maskedTextBox1.TabIndex = 1;
+            this.MBX_CPF.Location = new System.Drawing.Point(162, 28);
+            this.MBX_CPF.Mask = "000,000,000-00";
+            this.MBX_CPF.Name = "MBX_CPF";
+            this.MBX_CPF.Size = new System.Drawing.Size(88, 20);
+            this.MBX_CPF.TabIndex = 1;
             // 
             // label2
             // 
@@ -172,12 +171,12 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "CPF:";
             // 
-            // textBox1
+            // TXT_NOME
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 28);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(129, 20);
-            this.textBox1.TabIndex = 0;
+            this.TXT_NOME.Location = new System.Drawing.Point(12, 28);
+            this.TXT_NOME.Name = "TXT_NOME";
+            this.TXT_NOME.Size = new System.Drawing.Size(129, 20);
+            this.TXT_NOME.TabIndex = 0;
             // 
             // label1
             // 
@@ -201,9 +200,8 @@
             this.toolStripSeparator6,
             this.BTN_LIMPAR_DADOS,
             this.toolStripSeparator4,
-            this.BTN_IMP_BULKCOPY,
-            this.toolStripSeparator5,
-            this.BTN_GERAR_MODELO});
+            this.toolStripLabel1,
+            this.TXT_PESQUISAR_NOME});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(641, 25);
@@ -275,27 +273,6 @@
             this.toolStripSeparator4.Name = "toolStripSeparator4";
             this.toolStripSeparator4.Size = new System.Drawing.Size(6, 25);
             // 
-            // BTN_IMP_BULKCOPY
-            // 
-            this.BTN_IMP_BULKCOPY.Image = global::MarchPark.Properties.Resources.pasta1;
-            this.BTN_IMP_BULKCOPY.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BTN_IMP_BULKCOPY.Name = "BTN_IMP_BULKCOPY";
-            this.BTN_IMP_BULKCOPY.Size = new System.Drawing.Size(124, 22);
-            this.BTN_IMP_BULKCOPY.Text = "Adicionar em Lote";
-            // 
-            // toolStripSeparator5
-            // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 25);
-            // 
-            // BTN_GERAR_MODELO
-            // 
-            this.BTN_GERAR_MODELO.Image = global::MarchPark.Properties.Resources.excel;
-            this.BTN_GERAR_MODELO.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BTN_GERAR_MODELO.Name = "BTN_GERAR_MODELO";
-            this.BTN_GERAR_MODELO.Size = new System.Drawing.Size(99, 22);
-            this.BTN_GERAR_MODELO.Text = "Gerar Modelo";
-            // 
             // DGV_DADOS
             // 
             this.DGV_DADOS.AllowUserToAddRows = false;
@@ -318,6 +295,19 @@
             // 
             this.checkBoxColumn.HeaderText = "";
             this.checkBoxColumn.Name = "checkBoxColumn";
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(96, 22);
+            this.toolStripLabel1.Text = "Pesquisar Nome:";
+            // 
+            // TXT_PESQUISAR_NOME
+            // 
+            this.TXT_PESQUISAR_NOME.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.TXT_PESQUISAR_NOME.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.TXT_PESQUISAR_NOME.Name = "TXT_PESQUISAR_NOME";
+            this.TXT_PESQUISAR_NOME.Size = new System.Drawing.Size(110, 25);
             // 
             // FRM_CAD_CLIENTE
             // 
@@ -362,20 +352,19 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripButton BTN_LIMPAR_DADOS;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
-        private System.Windows.Forms.ToolStripButton BTN_IMP_BULKCOPY;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
-        private System.Windows.Forms.ToolStripButton BTN_GERAR_MODELO;
         public System.Windows.Forms.DataGridView DGV_DADOS;
         private System.Windows.Forms.DataGridViewCheckBoxColumn checkBoxColumn;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.MaskedTextBox MBX_CPF;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox TXT_NOME;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox TXT_EMAIL;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox2;
+        private System.Windows.Forms.MaskedTextBox MBX_TELEFONE;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox3;
+        private System.Windows.Forms.MaskedTextBox MBX_DATA_NASCIMENTO;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
+        private System.Windows.Forms.ToolStripTextBox TXT_PESQUISAR_NOME;
     }
 }

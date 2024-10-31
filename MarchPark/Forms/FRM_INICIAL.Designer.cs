@@ -28,27 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FRM_INICIAL));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.TXT_MARCA = new System.Windows.Forms.TextBox();
+            this.TXT_MODELO = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.CBX_PLACA = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.CBX_NOME = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.BTN_REGISTRAR_ENTRADA = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
+            this.TXT_BUSCAR_PLACA = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.BTN_LIMPAR_DADOS = new System.Windows.Forms.ToolStripButton();
             this.DGV_DADOS = new System.Windows.Forms.DataGridView();
             this.checkBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.pageSetupDialog1 = new System.Windows.Forms.PageSetupDialog();
-            this.label1 = new System.Windows.Forms.Label();
-            this.CBX_NOME = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.BTN_LIMPAR_DADOS = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -80,11 +79,11 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.textBox3);
+            this.groupBox1.Controls.Add(this.TXT_MARCA);
+            this.groupBox1.Controls.Add(this.TXT_MODELO);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.CBX_PLACA);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.CBX_NOME);
             this.groupBox1.Controls.Add(this.label1);
@@ -95,13 +94,83 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             // 
+            // TXT_MARCA
+            // 
+            this.TXT_MARCA.Enabled = false;
+            this.TXT_MARCA.Location = new System.Drawing.Point(305, 34);
+            this.TXT_MARCA.Name = "TXT_MARCA";
+            this.TXT_MARCA.Size = new System.Drawing.Size(92, 20);
+            this.TXT_MARCA.TabIndex = 33;
+            // 
+            // TXT_MODELO
+            // 
+            this.TXT_MODELO.Enabled = false;
+            this.TXT_MODELO.Location = new System.Drawing.Point(420, 34);
+            this.TXT_MODELO.Name = "TXT_MODELO";
+            this.TXT_MODELO.Size = new System.Drawing.Size(81, 20);
+            this.TXT_MODELO.TabIndex = 34;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(417, 18);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(45, 13);
+            this.label5.TabIndex = 38;
+            this.label5.Text = "Modelo:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(302, 16);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(40, 13);
+            this.label3.TabIndex = 37;
+            this.label3.Text = "Marca:";
+            // 
+            // CBX_PLACA
+            // 
+            this.CBX_PLACA.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CBX_PLACA.FormattingEnabled = true;
+            this.CBX_PLACA.Location = new System.Drawing.Point(200, 34);
+            this.CBX_PLACA.Name = "CBX_PLACA";
+            this.CBX_PLACA.Size = new System.Drawing.Size(79, 21);
+            this.CBX_PLACA.TabIndex = 3;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(197, 18);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(77, 13);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Placa Veículo:";
+            // 
+            // CBX_NOME
+            // 
+            this.CBX_NOME.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CBX_NOME.FormattingEnabled = true;
+            this.CBX_NOME.Location = new System.Drawing.Point(17, 34);
+            this.CBX_NOME.Name = "CBX_NOME";
+            this.CBX_NOME.Size = new System.Drawing.Size(157, 21);
+            this.CBX_NOME.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(14, 18);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(73, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Nome Cliente:";
+            // 
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.BTN_REGISTRAR_ENTRADA,
             this.toolStripSeparator1,
             this.toolStripLabel1,
-            this.toolStripTextBox1,
+            this.TXT_BUSCAR_PLACA,
             this.toolStripSeparator2,
             this.BTN_LIMPAR_DADOS});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
@@ -112,7 +181,7 @@
             // 
             // BTN_REGISTRAR_ENTRADA
             // 
-            this.BTN_REGISTRAR_ENTRADA.Image = ((System.Drawing.Image)(resources.GetObject("BTN_REGISTRAR_ENTRADA.Image")));
+            this.BTN_REGISTRAR_ENTRADA.Image = global::MarchPark.Properties.Resources.validar;
             this.BTN_REGISTRAR_ENTRADA.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.BTN_REGISTRAR_ENTRADA.Name = "BTN_REGISTRAR_ENTRADA";
             this.BTN_REGISTRAR_ENTRADA.Size = new System.Drawing.Size(116, 22);
@@ -129,12 +198,26 @@
             this.toolStripLabel1.Size = new System.Drawing.Size(76, 22);
             this.toolStripLabel1.Text = "Buscar Placa:";
             // 
-            // toolStripTextBox1
+            // TXT_BUSCAR_PLACA
             // 
-            this.toolStripTextBox1.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.toolStripTextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.toolStripTextBox1.Name = "toolStripTextBox1";
-            this.toolStripTextBox1.Size = new System.Drawing.Size(100, 25);
+            this.TXT_BUSCAR_PLACA.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.TXT_BUSCAR_PLACA.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.TXT_BUSCAR_PLACA.Name = "TXT_BUSCAR_PLACA";
+            this.TXT_BUSCAR_PLACA.Size = new System.Drawing.Size(100, 25);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
+            // BTN_LIMPAR_DADOS
+            // 
+            this.BTN_LIMPAR_DADOS.Image = global::MarchPark.Properties.Resources.limpar;
+            this.BTN_LIMPAR_DADOS.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BTN_LIMPAR_DADOS.Margin = new System.Windows.Forms.Padding(2, 1, 0, 2);
+            this.BTN_LIMPAR_DADOS.Name = "BTN_LIMPAR_DADOS";
+            this.BTN_LIMPAR_DADOS.Size = new System.Drawing.Size(64, 22);
+            this.BTN_LIMPAR_DADOS.Text = "Limpar";
             // 
             // DGV_DADOS
             // 
@@ -158,90 +241,6 @@
             this.checkBoxColumn.HeaderText = "";
             this.checkBoxColumn.Name = "checkBoxColumn";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(14, 18);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(73, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Nome Cliente:";
-            // 
-            // CBX_NOME
-            // 
-            this.CBX_NOME.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CBX_NOME.FormattingEnabled = true;
-            this.CBX_NOME.Location = new System.Drawing.Point(17, 34);
-            this.CBX_NOME.Name = "CBX_NOME";
-            this.CBX_NOME.Size = new System.Drawing.Size(157, 21);
-            this.CBX_NOME.TabIndex = 1;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(200, 34);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(79, 21);
-            this.comboBox1.TabIndex = 3;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(197, 18);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(77, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Placa Veículo:";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(305, 34);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(92, 20);
-            this.textBox1.TabIndex = 33;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Enabled = false;
-            this.textBox3.Location = new System.Drawing.Point(420, 34);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(81, 20);
-            this.textBox3.TabIndex = 34;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(417, 18);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(45, 13);
-            this.label5.TabIndex = 38;
-            this.label5.Text = "Modelo:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(302, 16);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(40, 13);
-            this.label3.TabIndex = 37;
-            this.label3.Text = "Marca:";
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
-            // BTN_LIMPAR_DADOS
-            // 
-            this.BTN_LIMPAR_DADOS.Image = global::MarchPark.Properties.Resources.limpar;
-            this.BTN_LIMPAR_DADOS.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BTN_LIMPAR_DADOS.Margin = new System.Windows.Forms.Padding(2, 1, 0, 2);
-            this.BTN_LIMPAR_DADOS.Name = "BTN_LIMPAR_DADOS";
-            this.BTN_LIMPAR_DADOS.Size = new System.Drawing.Size(64, 22);
-            this.BTN_LIMPAR_DADOS.Text = "Limpar";
-            // 
             // FRM_INICIAL
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -255,7 +254,7 @@
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(641, 500);
             this.Name = "FRM_INICIAL";
-            this.Text = "FRM_INICIAL";
+            this.Text = "ste";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
@@ -281,14 +280,14 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn checkBoxColumn;
         private System.Windows.Forms.ToolStripButton BTN_REGISTRAR_ENTRADA;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
+        private System.Windows.Forms.ToolStripTextBox TXT_BUSCAR_PLACA;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox CBX_PLACA;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox CBX_NOME;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox TXT_MARCA;
+        private System.Windows.Forms.TextBox TXT_MODELO;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;

@@ -32,12 +32,12 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.RBTN_ANTIGA = new System.Windows.Forms.RadioButton();
             this.RBTN_MERCOSUL = new System.Windows.Forms.RadioButton();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.CBX_TIPO_VEICULO = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.TXT_MARCA = new System.Windows.Forms.TextBox();
+            this.TXT_COR = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.TXT_MODELO = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.MBX_PLACA = new System.Windows.Forms.MaskedTextBox();
@@ -56,7 +56,7 @@
             this.BTN_LIMPAR_DADOS = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
+            this.TXT_PESQUISAR_PLACA = new System.Windows.Forms.ToolStripTextBox();
             this.DGV_DADOS = new System.Windows.Forms.DataGridView();
             this.checkBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
@@ -93,12 +93,12 @@
             // 
             this.groupBox1.Controls.Add(this.RBTN_ANTIGA);
             this.groupBox1.Controls.Add(this.RBTN_MERCOSUL);
-            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.CBX_TIPO_VEICULO);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.TXT_MARCA);
+            this.groupBox1.Controls.Add(this.TXT_COR);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.textBox3);
+            this.groupBox1.Controls.Add(this.TXT_MODELO);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.MBX_PLACA);
@@ -131,18 +131,19 @@
             this.RBTN_MERCOSUL.Name = "RBTN_MERCOSUL";
             this.RBTN_MERCOSUL.Size = new System.Drawing.Size(68, 17);
             this.RBTN_MERCOSUL.TabIndex = 2;
+            this.RBTN_MERCOSUL.TabStop = true;
             this.RBTN_MERCOSUL.Text = "Mercosul";
             this.RBTN_MERCOSUL.UseVisualStyleBackColor = true;
             this.RBTN_MERCOSUL.CheckedChanged += new System.EventHandler(this.RBTN_MERCOSUL_CheckedChanged);
             // 
-            // comboBox1
+            // CBX_TIPO_VEICULO
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(406, 75);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(83, 21);
-            this.comboBox1.TabIndex = 7;
+            this.CBX_TIPO_VEICULO.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CBX_TIPO_VEICULO.FormattingEnabled = true;
+            this.CBX_TIPO_VEICULO.Location = new System.Drawing.Point(406, 75);
+            this.CBX_TIPO_VEICULO.Name = "CBX_TIPO_VEICULO";
+            this.CBX_TIPO_VEICULO.Size = new System.Drawing.Size(83, 21);
+            this.CBX_TIPO_VEICULO.TabIndex = 7;
             // 
             // label6
             // 
@@ -153,19 +154,19 @@
             this.label6.TabIndex = 32;
             this.label6.Text = "Tipo:";
             // 
-            // textBox1
+            // TXT_MARCA
             // 
-            this.textBox1.Location = new System.Drawing.Point(13, 75);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(128, 20);
-            this.textBox1.TabIndex = 4;
+            this.TXT_MARCA.Location = new System.Drawing.Point(13, 75);
+            this.TXT_MARCA.Name = "TXT_MARCA";
+            this.TXT_MARCA.Size = new System.Drawing.Size(128, 20);
+            this.TXT_MARCA.TabIndex = 4;
             // 
-            // textBox2
+            // TXT_COR
             // 
-            this.textBox2.Location = new System.Drawing.Point(309, 75);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(72, 20);
-            this.textBox2.TabIndex = 6;
+            this.TXT_COR.Location = new System.Drawing.Point(309, 75);
+            this.TXT_COR.Name = "TXT_COR";
+            this.TXT_COR.Size = new System.Drawing.Size(72, 20);
+            this.TXT_COR.TabIndex = 6;
             // 
             // label4
             // 
@@ -176,12 +177,12 @@
             this.label4.TabIndex = 29;
             this.label4.Text = "Cor:";
             // 
-            // textBox3
+            // TXT_MODELO
             // 
-            this.textBox3.Location = new System.Drawing.Point(160, 75);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(120, 20);
-            this.textBox3.TabIndex = 5;
+            this.TXT_MODELO.Location = new System.Drawing.Point(160, 75);
+            this.TXT_MODELO.Name = "TXT_MODELO";
+            this.TXT_MODELO.Size = new System.Drawing.Size(120, 20);
+            this.TXT_MODELO.TabIndex = 5;
             // 
             // label5
             // 
@@ -249,7 +250,7 @@
             this.BTN_LIMPAR_DADOS,
             this.toolStripSeparator4,
             this.toolStripLabel1,
-            this.toolStripTextBox1});
+            this.TXT_PESQUISAR_PLACA});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(641, 25);
@@ -327,13 +328,13 @@
             this.toolStripLabel1.Size = new System.Drawing.Size(94, 22);
             this.toolStripLabel1.Text = "Pesquisar Placa: ";
             // 
-            // toolStripTextBox1
+            // TXT_PESQUISAR_PLACA
             // 
-            this.toolStripTextBox1.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.toolStripTextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.toolStripTextBox1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.toolStripTextBox1.Name = "toolStripTextBox1";
-            this.toolStripTextBox1.Size = new System.Drawing.Size(100, 25);
+            this.TXT_PESQUISAR_PLACA.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.TXT_PESQUISAR_PLACA.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.TXT_PESQUISAR_PLACA.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.TXT_PESQUISAR_PLACA.Name = "TXT_PESQUISAR_PLACA";
+            this.TXT_PESQUISAR_PLACA.Size = new System.Drawing.Size(100, 25);
             // 
             // DGV_DADOS
             // 
@@ -411,16 +412,16 @@
         private System.Windows.Forms.ColorDialog colorDialog1;
         private System.Windows.Forms.RadioButton RBTN_ANTIGA;
         private System.Windows.Forms.RadioButton RBTN_MERCOSUL;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox CBX_TIPO_VEICULO;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox TXT_MARCA;
+        private System.Windows.Forms.TextBox TXT_COR;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox TXT_MODELO;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
-        private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
+        private System.Windows.Forms.ToolStripTextBox TXT_PESQUISAR_PLACA;
     }
 }
