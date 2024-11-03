@@ -42,7 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Login\MarchPark_TBL_ADM.cs" />
+    <Compile Include="Login\MarchPark_TBL_PERMISSAO.cs" />
     <Compile Include="Login\MarchPark_TBL_LOGIN.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

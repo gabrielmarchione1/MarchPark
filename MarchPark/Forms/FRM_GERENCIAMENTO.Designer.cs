@@ -43,7 +43,9 @@
             this.label8 = new System.Windows.Forms.Label();
             this.BTN_EDITAR_USUARIO = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.CKBOX_ADMIN = new System.Windows.Forms.CheckBox();
+            this.PICBOX_CONFIRMAR_SENHA = new System.Windows.Forms.PictureBox();
+            this.PICBOX_NOVA_SENHA = new System.Windows.Forms.PictureBox();
             this.MBX_CONFIRMAR_SENHA = new System.Windows.Forms.MaskedTextBox();
             this.LBL_CONFIRMAR_SENHA = new System.Windows.Forms.Label();
             this.BTN_CADASTRAR = new System.Windows.Forms.Button();
@@ -51,19 +53,17 @@
             this.LBL_SENHA = new System.Windows.Forms.Label();
             this.TXT_USUARIO = new System.Windows.Forms.TextBox();
             this.LBL_USUARIO = new System.Windows.Forms.Label();
-            this.PICBOX_NOVA_SENHA = new System.Windows.Forms.PictureBox();
-            this.PICBOX_CONFIRMAR_SENHA = new System.Windows.Forms.PictureBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.PICBOX_SENHA_PERMISSAO = new System.Windows.Forms.PictureBox();
-            this.MBX_SENHA_PERMISSAO = new System.Windows.Forms.MaskedTextBox();
-            this.BTN_ALTERAR_SENHA_PERMISSAO = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.BTN_GER_USUARIOS = new System.Windows.Forms.Button();
-            this.CKBOX_ADMIN = new System.Windows.Forms.CheckBox();
+            this.BTN_ALTERAR_SENHA_PERMISSAO = new System.Windows.Forms.Button();
+            this.PICBOX_SENHA_PERMISSAO = new System.Windows.Forms.PictureBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.MBX_SENHA_PERMISSAO = new System.Windows.Forms.MaskedTextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PICBOX_NOVA_SENHA)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PICBOX_CONFIRMAR_SENHA)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PICBOX_NOVA_SENHA)).BeginInit();
+            this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PICBOX_SENHA_PERMISSAO)).BeginInit();
             this.SuspendLayout();
             // 
@@ -71,7 +71,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(43, 37);
+            this.label1.Location = new System.Drawing.Point(43, 22);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(177, 32);
             this.label1.TabIndex = 2;
@@ -80,7 +80,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(29, 68);
+            this.label2.Location = new System.Drawing.Point(29, 53);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(577, 13);
             this.label2.TabIndex = 3;
@@ -97,7 +97,7 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.TXT_CARRO);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Location = new System.Drawing.Point(49, 95);
+            this.groupBox1.Location = new System.Drawing.Point(49, 80);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(246, 135);
             this.groupBox1.TabIndex = 4;
@@ -137,6 +137,8 @@
             // TXT_MOTO
             // 
             this.TXT_MOTO.Location = new System.Drawing.Point(45, 88);
+            this.TXT_MOTO.MaximumSize = new System.Drawing.Size(60, 20);
+            this.TXT_MOTO.MinimumSize = new System.Drawing.Size(60, 20);
             this.TXT_MOTO.Name = "TXT_MOTO";
             this.TXT_MOTO.Size = new System.Drawing.Size(60, 20);
             this.TXT_MOTO.TabIndex = 3;
@@ -153,6 +155,8 @@
             // TXT_CARRO
             // 
             this.TXT_CARRO.Location = new System.Drawing.Point(45, 35);
+            this.TXT_CARRO.MaximumSize = new System.Drawing.Size(60, 20);
+            this.TXT_CARRO.MinimumSize = new System.Drawing.Size(60, 20);
             this.TXT_CARRO.Name = "TXT_CARRO";
             this.TXT_CARRO.Size = new System.Drawing.Size(60, 20);
             this.TXT_CARRO.TabIndex = 1;
@@ -169,7 +173,7 @@
             // BTN_EDITAR_TARIFA
             // 
             this.BTN_EDITAR_TARIFA.Font = new System.Drawing.Font("Segoe UI", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            this.BTN_EDITAR_TARIFA.Location = new System.Drawing.Point(529, 47);
+            this.BTN_EDITAR_TARIFA.Location = new System.Drawing.Point(529, 32);
             this.BTN_EDITAR_TARIFA.Name = "BTN_EDITAR_TARIFA";
             this.BTN_EDITAR_TARIFA.Size = new System.Drawing.Size(75, 23);
             this.BTN_EDITAR_TARIFA.TabIndex = 5;
@@ -179,7 +183,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(29, 277);
+            this.label7.Location = new System.Drawing.Point(29, 262);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(577, 13);
             this.label7.TabIndex = 7;
@@ -190,7 +194,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(43, 246);
+            this.label8.Location = new System.Drawing.Point(43, 231);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(235, 32);
             this.label8.TabIndex = 6;
@@ -199,7 +203,7 @@
             // BTN_EDITAR_USUARIO
             // 
             this.BTN_EDITAR_USUARIO.Font = new System.Drawing.Font("Segoe UI", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            this.BTN_EDITAR_USUARIO.Location = new System.Drawing.Point(529, 256);
+            this.BTN_EDITAR_USUARIO.Location = new System.Drawing.Point(529, 241);
             this.BTN_EDITAR_USUARIO.Name = "BTN_EDITAR_USUARIO";
             this.BTN_EDITAR_USUARIO.Size = new System.Drawing.Size(75, 23);
             this.BTN_EDITAR_USUARIO.TabIndex = 8;
@@ -220,34 +224,50 @@
             this.groupBox2.Controls.Add(this.TXT_USUARIO);
             this.groupBox2.Controls.Add(this.LBL_USUARIO);
             this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            this.groupBox2.Location = new System.Drawing.Point(49, 317);
+            this.groupBox2.Location = new System.Drawing.Point(49, 302);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(246, 171);
             this.groupBox2.TabIndex = 9;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Cadastramento:";
             // 
-            // groupBox3
+            // CKBOX_ADMIN
             // 
-            this.groupBox3.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.groupBox3.Controls.Add(this.BTN_GER_USUARIOS);
-            this.groupBox3.Controls.Add(this.BTN_ALTERAR_SENHA_PERMISSAO);
-            this.groupBox3.Controls.Add(this.PICBOX_SENHA_PERMISSAO);
-            this.groupBox3.Controls.Add(this.label9);
-            this.groupBox3.Controls.Add(this.MBX_SENHA_PERMISSAO);
-            this.groupBox3.Font = new System.Drawing.Font("Segoe UI", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            this.groupBox3.Location = new System.Drawing.Point(339, 317);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(246, 171);
-            this.groupBox3.TabIndex = 10;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Alterar Senha Permissão:";
+            this.CKBOX_ADMIN.AutoSize = true;
+            this.CKBOX_ADMIN.Location = new System.Drawing.Point(144, 50);
+            this.CKBOX_ADMIN.Name = "CKBOX_ADMIN";
+            this.CKBOX_ADMIN.Size = new System.Drawing.Size(71, 23);
+            this.CKBOX_ADMIN.TabIndex = 27;
+            this.CKBOX_ADMIN.Text = "Admin";
+            this.CKBOX_ADMIN.UseVisualStyleBackColor = true;
+            // 
+            // PICBOX_CONFIRMAR_SENHA
+            // 
+            this.PICBOX_CONFIRMAR_SENHA.Enabled = false;
+            this.PICBOX_CONFIRMAR_SENHA.Image = global::MarchPark.Properties.Resources.olho_senha_ver;
+            this.PICBOX_CONFIRMAR_SENHA.Location = new System.Drawing.Point(111, 138);
+            this.PICBOX_CONFIRMAR_SENHA.Name = "PICBOX_CONFIRMAR_SENHA";
+            this.PICBOX_CONFIRMAR_SENHA.Size = new System.Drawing.Size(18, 18);
+            this.PICBOX_CONFIRMAR_SENHA.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PICBOX_CONFIRMAR_SENHA.TabIndex = 26;
+            this.PICBOX_CONFIRMAR_SENHA.TabStop = false;
+            // 
+            // PICBOX_NOVA_SENHA
+            // 
+            this.PICBOX_NOVA_SENHA.Enabled = false;
+            this.PICBOX_NOVA_SENHA.Image = global::MarchPark.Properties.Resources.olho_senha_ver;
+            this.PICBOX_NOVA_SENHA.Location = new System.Drawing.Point(111, 98);
+            this.PICBOX_NOVA_SENHA.Name = "PICBOX_NOVA_SENHA";
+            this.PICBOX_NOVA_SENHA.Size = new System.Drawing.Size(18, 18);
+            this.PICBOX_NOVA_SENHA.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PICBOX_NOVA_SENHA.TabIndex = 25;
+            this.PICBOX_NOVA_SENHA.TabStop = false;
             // 
             // MBX_CONFIRMAR_SENHA
             // 
             this.MBX_CONFIRMAR_SENHA.Location = new System.Drawing.Point(8, 138);
-            this.MBX_CONFIRMAR_SENHA.MaximumSize = new System.Drawing.Size(0, 20);
-            this.MBX_CONFIRMAR_SENHA.MinimumSize = new System.Drawing.Size(0, 20);
+            this.MBX_CONFIRMAR_SENHA.MaximumSize = new System.Drawing.Size(97, 20);
+            this.MBX_CONFIRMAR_SENHA.MinimumSize = new System.Drawing.Size(97, 20);
             this.MBX_CONFIRMAR_SENHA.Name = "MBX_CONFIRMAR_SENHA";
             this.MBX_CONFIRMAR_SENHA.Size = new System.Drawing.Size(97, 20);
             this.MBX_CONFIRMAR_SENHA.TabIndex = 11;
@@ -276,8 +296,8 @@
             // MBX_SENHA
             // 
             this.MBX_SENHA.Location = new System.Drawing.Point(8, 96);
-            this.MBX_SENHA.MaximumSize = new System.Drawing.Size(0, 20);
-            this.MBX_SENHA.MinimumSize = new System.Drawing.Size(0, 20);
+            this.MBX_SENHA.MaximumSize = new System.Drawing.Size(97, 20);
+            this.MBX_SENHA.MinimumSize = new System.Drawing.Size(97, 20);
             this.MBX_SENHA.Name = "MBX_SENHA";
             this.MBX_SENHA.Size = new System.Drawing.Size(97, 20);
             this.MBX_SENHA.TabIndex = 9;
@@ -296,8 +316,8 @@
             // TXT_USUARIO
             // 
             this.TXT_USUARIO.Location = new System.Drawing.Point(8, 51);
-            this.TXT_USUARIO.MaximumSize = new System.Drawing.Size(0, 20);
-            this.TXT_USUARIO.MinimumSize = new System.Drawing.Size(0, 20);
+            this.TXT_USUARIO.MaximumSize = new System.Drawing.Size(97, 20);
+            this.TXT_USUARIO.MinimumSize = new System.Drawing.Size(97, 20);
             this.TXT_USUARIO.Name = "TXT_USUARIO";
             this.TXT_USUARIO.Size = new System.Drawing.Size(97, 20);
             this.TXT_USUARIO.TabIndex = 8;
@@ -312,36 +332,40 @@
             this.LBL_USUARIO.TabIndex = 10;
             this.LBL_USUARIO.Text = "Usuário:";
             // 
-            // PICBOX_NOVA_SENHA
+            // groupBox3
             // 
-            this.PICBOX_NOVA_SENHA.Enabled = false;
-            this.PICBOX_NOVA_SENHA.Image = global::MarchPark.Properties.Resources.olho_senha_ver;
-            this.PICBOX_NOVA_SENHA.Location = new System.Drawing.Point(111, 98);
-            this.PICBOX_NOVA_SENHA.Name = "PICBOX_NOVA_SENHA";
-            this.PICBOX_NOVA_SENHA.Size = new System.Drawing.Size(18, 18);
-            this.PICBOX_NOVA_SENHA.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PICBOX_NOVA_SENHA.TabIndex = 25;
-            this.PICBOX_NOVA_SENHA.TabStop = false;
+            this.groupBox3.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.groupBox3.Controls.Add(this.BTN_GER_USUARIOS);
+            this.groupBox3.Controls.Add(this.BTN_ALTERAR_SENHA_PERMISSAO);
+            this.groupBox3.Controls.Add(this.PICBOX_SENHA_PERMISSAO);
+            this.groupBox3.Controls.Add(this.label9);
+            this.groupBox3.Controls.Add(this.MBX_SENHA_PERMISSAO);
+            this.groupBox3.Font = new System.Drawing.Font("Segoe UI", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.groupBox3.Location = new System.Drawing.Point(339, 302);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(246, 171);
+            this.groupBox3.TabIndex = 10;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Alterar Senha Permissão:";
             // 
-            // PICBOX_CONFIRMAR_SENHA
+            // BTN_GER_USUARIOS
             // 
-            this.PICBOX_CONFIRMAR_SENHA.Enabled = false;
-            this.PICBOX_CONFIRMAR_SENHA.Image = global::MarchPark.Properties.Resources.olho_senha_ver;
-            this.PICBOX_CONFIRMAR_SENHA.Location = new System.Drawing.Point(111, 138);
-            this.PICBOX_CONFIRMAR_SENHA.Name = "PICBOX_CONFIRMAR_SENHA";
-            this.PICBOX_CONFIRMAR_SENHA.Size = new System.Drawing.Size(18, 18);
-            this.PICBOX_CONFIRMAR_SENHA.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PICBOX_CONFIRMAR_SENHA.TabIndex = 26;
-            this.PICBOX_CONFIRMAR_SENHA.TabStop = false;
+            this.BTN_GER_USUARIOS.Location = new System.Drawing.Point(21, 116);
+            this.BTN_GER_USUARIOS.Name = "BTN_GER_USUARIOS";
+            this.BTN_GER_USUARIOS.Size = new System.Drawing.Size(200, 31);
+            this.BTN_GER_USUARIOS.TabIndex = 29;
+            this.BTN_GER_USUARIOS.Text = "Gerenciamento de Usuários";
+            this.BTN_GER_USUARIOS.UseVisualStyleBackColor = true;
             // 
-            // label9
+            // BTN_ALTERAR_SENHA_PERMISSAO
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(17, 71);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(213, 19);
-            this.label9.TabIndex = 8;
-            this.label9.Text = "__________________________________";
+            this.BTN_ALTERAR_SENHA_PERMISSAO.Font = new System.Drawing.Font("Segoe UI", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.BTN_ALTERAR_SENHA_PERMISSAO.Location = new System.Drawing.Point(148, 29);
+            this.BTN_ALTERAR_SENHA_PERMISSAO.Name = "BTN_ALTERAR_SENHA_PERMISSAO";
+            this.BTN_ALTERAR_SENHA_PERMISSAO.Size = new System.Drawing.Size(73, 25);
+            this.BTN_ALTERAR_SENHA_PERMISSAO.TabIndex = 27;
+            this.BTN_ALTERAR_SENHA_PERMISSAO.Text = "Alterar";
+            this.BTN_ALTERAR_SENHA_PERMISSAO.UseVisualStyleBackColor = true;
             // 
             // PICBOX_SENHA_PERMISSAO
             // 
@@ -354,44 +378,24 @@
             this.PICBOX_SENHA_PERMISSAO.TabIndex = 28;
             this.PICBOX_SENHA_PERMISSAO.TabStop = false;
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(17, 71);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(213, 19);
+            this.label9.TabIndex = 8;
+            this.label9.Text = "__________________________________";
+            // 
             // MBX_SENHA_PERMISSAO
             // 
             this.MBX_SENHA_PERMISSAO.Location = new System.Drawing.Point(21, 32);
-            this.MBX_SENHA_PERMISSAO.MaximumSize = new System.Drawing.Size(0, 20);
-            this.MBX_SENHA_PERMISSAO.MinimumSize = new System.Drawing.Size(0, 20);
+            this.MBX_SENHA_PERMISSAO.MaximumSize = new System.Drawing.Size(92, 20);
+            this.MBX_SENHA_PERMISSAO.MinimumSize = new System.Drawing.Size(92, 20);
             this.MBX_SENHA_PERMISSAO.Name = "MBX_SENHA_PERMISSAO";
             this.MBX_SENHA_PERMISSAO.Size = new System.Drawing.Size(92, 20);
             this.MBX_SENHA_PERMISSAO.TabIndex = 27;
             this.MBX_SENHA_PERMISSAO.UseSystemPasswordChar = true;
-            // 
-            // BTN_ALTERAR_SENHA_PERMISSAO
-            // 
-            this.BTN_ALTERAR_SENHA_PERMISSAO.Font = new System.Drawing.Font("Segoe UI", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            this.BTN_ALTERAR_SENHA_PERMISSAO.Location = new System.Drawing.Point(148, 29);
-            this.BTN_ALTERAR_SENHA_PERMISSAO.Name = "BTN_ALTERAR_SENHA_PERMISSAO";
-            this.BTN_ALTERAR_SENHA_PERMISSAO.Size = new System.Drawing.Size(73, 25);
-            this.BTN_ALTERAR_SENHA_PERMISSAO.TabIndex = 27;
-            this.BTN_ALTERAR_SENHA_PERMISSAO.Text = "Alterar";
-            this.BTN_ALTERAR_SENHA_PERMISSAO.UseVisualStyleBackColor = true;
-            // 
-            // BTN_GER_USUARIOS
-            // 
-            this.BTN_GER_USUARIOS.Location = new System.Drawing.Point(21, 116);
-            this.BTN_GER_USUARIOS.Name = "BTN_GER_USUARIOS";
-            this.BTN_GER_USUARIOS.Size = new System.Drawing.Size(200, 31);
-            this.BTN_GER_USUARIOS.TabIndex = 29;
-            this.BTN_GER_USUARIOS.Text = "Gerenciamento de Usuários";
-            this.BTN_GER_USUARIOS.UseVisualStyleBackColor = true;
-            // 
-            // CKBOX_ADMIN
-            // 
-            this.CKBOX_ADMIN.AutoSize = true;
-            this.CKBOX_ADMIN.Location = new System.Drawing.Point(144, 50);
-            this.CKBOX_ADMIN.Name = "CKBOX_ADMIN";
-            this.CKBOX_ADMIN.Size = new System.Drawing.Size(71, 23);
-            this.CKBOX_ADMIN.TabIndex = 27;
-            this.CKBOX_ADMIN.Text = "Admin";
-            this.CKBOX_ADMIN.UseVisualStyleBackColor = true;
             // 
             // FRM_GERENCIAMENTO
             // 
@@ -420,10 +424,10 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PICBOX_CONFIRMAR_SENHA)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PICBOX_NOVA_SENHA)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PICBOX_NOVA_SENHA)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PICBOX_CONFIRMAR_SENHA)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PICBOX_SENHA_PERMISSAO)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

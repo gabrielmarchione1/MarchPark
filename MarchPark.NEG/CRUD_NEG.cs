@@ -19,16 +19,16 @@ namespace MarchPark.NEG
         #region ADM
 
         /// <summary>
-        /// Faz chamada da função "SELECT_MARCH_PARK_TBL_ADM" na camada de dados.
+        /// Faz chamada da função "SELECT_MARCH_PARK_TBL_PERMISSAO" na camada de dados.
         /// </summary>
         /// <param name="Ent"></param>
         /// <returns></returns>
         /// <exception cref="Exception"></exception>
-        public bool SELECT_MARCH_PARK_TBL_ADM(string Usuario, string Senha)
+        public bool SELECT_MARCH_PARK_TBL_PERMISSAO(string Senha)
         {
             try
             {
-                return ObjDAD.SELECT_MARCH_PARK_TBL_ADM(Usuario, Senha);
+                return ObjDAD.SELECT_MARCH_PARK_TBL_PERMISSAO(Senha);
             }
             catch (Exception ex)
             {

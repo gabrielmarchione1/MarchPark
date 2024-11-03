@@ -170,8 +170,8 @@ namespace MarchPark.Forms
             try
             {
                 Cursor = Cursors.Default;
-                MarchPark.Forms.FRM_ADM FRM_ADM = new MarchPark.Forms.FRM_ADM();
-                FRM_ADM.ShowDialog();
+                MarchPark.Forms.FRM_PERMISSAO FRM_PERMISSAO = new MarchPark.Forms.FRM_PERMISSAO();
+                FRM_PERMISSAO.ShowDialog();
             }
             catch (Exception ex)
             {

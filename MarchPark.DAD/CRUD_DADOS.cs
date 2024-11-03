@@ -17,12 +17,12 @@ namespace MarchPark.DAD
         #region ADM
 
         /// <summary>
-        /// Método para consultar ADMs.
+        /// Método para consultar senha permissao.
         /// </summary>
         /// <param name="Ent"></param>
         /// <returns></returns>
         /// <exception cref="Exception"></exception>
-        public bool SELECT_MARCH_PARK_TBL_ADM(string Usuario, string Senha)
+        public bool SELECT_MARCH_PARK_TBL_PERMISSAO(string Senha)
         {
             // Cria a conexão com o banco
             SqlConnection conn = new SqlConnection(MarchPark.DAD.ConnectionFactory.connectionString);
@@ -32,13 +32,11 @@ namespace MarchPark.DAD
             {
                 // Query SQL com collation case-sensitive
                 string sql = $@"
-                    DECLARE @usuario VARCHAR(25) = '{Usuario}'
                     DECLARE @senha VARCHAR(25) = '{Senha}'
 
                     SELECT * 
-                    FROM MarchPark_TBL_ADM
-                    WHERE USUARIO_ADM COLLATE Latin1_General_CS_AS = @usuario
-                    AND SENHA_ADM COLLATE Latin1_General_CS_AS = @senha;
+                    FROM MarchPark_TBL_PERMISSAO
+                    WHERE SENHA_PERMISSAO COLLATE Latin1_General_CS_AS = @senha;
                     ";
 
                 using (SqlCommand cmd = new SqlCommand(sql, conn))

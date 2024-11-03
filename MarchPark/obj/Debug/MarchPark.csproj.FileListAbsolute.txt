@@ -8,7 +8,6 @@ C:\Github\MarchPark\MarchPark\bin\Debug\MarchPark.ENT.pdb
 C:\Github\MarchPark\MarchPark\bin\Debug\MarchPark.NEG.pdb
 C:\Github\MarchPark\MarchPark\bin\Debug\MarchPark.DAD.pdb
 C:\Github\MarchPark\MarchPark\obj\Debug\MarchPark.csproj.AssemblyReference.cache
-C:\Github\MarchPark\MarchPark\obj\Debug\MarchPark.Forms.FRM_ADM.resources
 C:\Github\MarchPark\MarchPark\obj\Debug\MarchPark.Forms.FRM_CAD_USUARIO.resources
 C:\Github\MarchPark\MarchPark\obj\Debug\MarchPark.Forms.FRM_LOGIN.resources
 C:\Github\MarchPark\MarchPark\obj\Debug\MarchPark.Properties.Resources.resources
@@ -25,3 +24,4 @@ C:\Github\MarchPark\MarchPark\obj\Debug\MarchPark.Forms.FRM_INICIAL.resources
 C:\Github\MarchPark\MarchPark\obj\Debug\MarchPark.Forms.FRM_GERENCIAMENTO.resources
 C:\Github\MarchPark\MarchPark\obj\Debug\MarchPark.Forms.FRM_RELATORIO.resources
 C:\Github\MarchPark\MarchPark\obj\Debug\MarchPark.Forms.FRM_USUARIO_ATIVO.resources
+C:\Github\MarchPark\MarchPark\obj\Debug\MarchPark.Forms.FRM_PERMISSAO.resources
