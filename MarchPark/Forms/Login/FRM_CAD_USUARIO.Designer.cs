@@ -43,20 +43,20 @@
             // LBL_TITULO
             // 
             this.LBL_TITULO.AutoSize = true;
-            this.LBL_TITULO.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LBL_TITULO.Font = new System.Drawing.Font("Segoe UI", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.LBL_TITULO.Location = new System.Drawing.Point(59, 18);
             this.LBL_TITULO.Name = "LBL_TITULO";
-            this.LBL_TITULO.Size = new System.Drawing.Size(181, 24);
+            this.LBL_TITULO.Size = new System.Drawing.Size(189, 30);
             this.LBL_TITULO.TabIndex = 0;
             this.LBL_TITULO.Text = "Cadastrar Usuário";
             // 
             // LBL_USUARIO
             // 
             this.LBL_USUARIO.AutoSize = true;
-            this.LBL_USUARIO.Font = new System.Drawing.Font("Arial", 9.75F);
+            this.LBL_USUARIO.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Italic);
             this.LBL_USUARIO.Location = new System.Drawing.Point(23, 53);
             this.LBL_USUARIO.Name = "LBL_USUARIO";
-            this.LBL_USUARIO.Size = new System.Drawing.Size(55, 16);
+            this.LBL_USUARIO.Size = new System.Drawing.Size(54, 17);
             this.LBL_USUARIO.TabIndex = 1;
             this.LBL_USUARIO.Text = "Usuário:";
             // 
@@ -72,10 +72,10 @@
             // LBL_SENHA
             // 
             this.LBL_SENHA.AutoSize = true;
-            this.LBL_SENHA.Font = new System.Drawing.Font("Arial", 9.75F);
+            this.LBL_SENHA.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Italic);
             this.LBL_SENHA.Location = new System.Drawing.Point(23, 98);
             this.LBL_SENHA.Name = "LBL_SENHA";
-            this.LBL_SENHA.Size = new System.Drawing.Size(48, 16);
+            this.LBL_SENHA.Size = new System.Drawing.Size(44, 17);
             this.LBL_SENHA.TabIndex = 3;
             this.LBL_SENHA.Text = "Senha:";
             // 
@@ -91,7 +91,7 @@
             // 
             // BTN_CADASTRAR
             // 
-            this.BTN_CADASTRAR.Font = new System.Drawing.Font("Arial", 9.75F);
+            this.BTN_CADASTRAR.Font = new System.Drawing.Font("Segoe UI", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.BTN_CADASTRAR.Location = new System.Drawing.Point(200, 75);
             this.BTN_CADASTRAR.Name = "BTN_CADASTRAR";
             this.BTN_CADASTRAR.Size = new System.Drawing.Size(75, 23);
@@ -102,7 +102,7 @@
             // 
             // BTN_SAIR
             // 
-            this.BTN_SAIR.Font = new System.Drawing.Font("Arial", 9.75F);
+            this.BTN_SAIR.Font = new System.Drawing.Font("Segoe UI", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.BTN_SAIR.Location = new System.Drawing.Point(200, 117);
             this.BTN_SAIR.Name = "BTN_SAIR";
             this.BTN_SAIR.Size = new System.Drawing.Size(75, 23);
@@ -114,10 +114,10 @@
             // LBL_CONFIRMAR_SENHA
             // 
             this.LBL_CONFIRMAR_SENHA.AutoSize = true;
-            this.LBL_CONFIRMAR_SENHA.Font = new System.Drawing.Font("Arial", 9.75F);
+            this.LBL_CONFIRMAR_SENHA.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Italic);
             this.LBL_CONFIRMAR_SENHA.Location = new System.Drawing.Point(23, 143);
             this.LBL_CONFIRMAR_SENHA.Name = "LBL_CONFIRMAR_SENHA";
-            this.LBL_CONFIRMAR_SENHA.Size = new System.Drawing.Size(112, 16);
+            this.LBL_CONFIRMAR_SENHA.Size = new System.Drawing.Size(109, 17);
             this.LBL_CONFIRMAR_SENHA.TabIndex = 7;
             this.LBL_CONFIRMAR_SENHA.Text = "Confirme a senha:";
             // 

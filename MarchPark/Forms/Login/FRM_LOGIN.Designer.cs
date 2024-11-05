@@ -45,20 +45,20 @@
             // LBL_USUARIO
             // 
             this.LBL_USUARIO.AutoSize = true;
-            this.LBL_USUARIO.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+            this.LBL_USUARIO.Font = new System.Drawing.Font("Segoe UI", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.LBL_USUARIO.Location = new System.Drawing.Point(55, 204);
             this.LBL_USUARIO.Name = "LBL_USUARIO";
-            this.LBL_USUARIO.Size = new System.Drawing.Size(75, 19);
+            this.LBL_USUARIO.Size = new System.Drawing.Size(72, 21);
             this.LBL_USUARIO.TabIndex = 1;
             this.LBL_USUARIO.Text = "Usuário:";
             // 
             // LBL_SENHA
             // 
             this.LBL_SENHA.AutoSize = true;
-            this.LBL_SENHA.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+            this.LBL_SENHA.Font = new System.Drawing.Font("Segoe UI", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.LBL_SENHA.Location = new System.Drawing.Point(55, 255);
             this.LBL_SENHA.Name = "LBL_SENHA";
-            this.LBL_SENHA.Size = new System.Drawing.Size(64, 19);
+            this.LBL_SENHA.Size = new System.Drawing.Size(60, 21);
             this.LBL_SENHA.TabIndex = 2;
             this.LBL_SENHA.Text = "Senha:";
             // 
@@ -83,7 +83,7 @@
             // 
             // BTN_SAIR
             // 
-            this.BTN_SAIR.Font = new System.Drawing.Font("Arial", 9F);
+            this.BTN_SAIR.Font = new System.Drawing.Font("Segoe UI", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.BTN_SAIR.Location = new System.Drawing.Point(271, 278);
             this.BTN_SAIR.Name = "BTN_SAIR";
             this.BTN_SAIR.Size = new System.Drawing.Size(75, 23);
@@ -94,7 +94,7 @@
             // 
             // BTN_ENTRAR
             // 
-            this.BTN_ENTRAR.Font = new System.Drawing.Font("Arial", 9F);
+            this.BTN_ENTRAR.Font = new System.Drawing.Font("Segoe UI", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.BTN_ENTRAR.Location = new System.Drawing.Point(271, 228);
             this.BTN_ENTRAR.Name = "BTN_ENTRAR";
             this.BTN_ENTRAR.Size = new System.Drawing.Size(75, 23);
@@ -106,10 +106,10 @@
             // LBL_ADD_USUARIO
             // 
             this.LBL_ADD_USUARIO.AutoSize = true;
-            this.LBL_ADD_USUARIO.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LBL_ADD_USUARIO.Font = new System.Drawing.Font("Segoe UI", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.LBL_ADD_USUARIO.Location = new System.Drawing.Point(56, 312);
             this.LBL_ADD_USUARIO.Name = "LBL_ADD_USUARIO";
-            this.LBL_ADD_USUARIO.Size = new System.Drawing.Size(120, 16);
+            this.LBL_ADD_USUARIO.Size = new System.Drawing.Size(118, 17);
             this.LBL_ADD_USUARIO.TabIndex = 2;
             this.LBL_ADD_USUARIO.Text = "Adicionar Usuário";
             this.LBL_ADD_USUARIO.Click += new System.EventHandler(this.LBL_ADD_USUARIO_Click);
@@ -118,10 +118,10 @@
             // 
             // LBL_SUBTITULO
             // 
-            this.LBL_SUBTITULO.Font = new System.Drawing.Font("Arial", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LBL_SUBTITULO.Location = new System.Drawing.Point(56, 171);
+            this.LBL_SUBTITULO.Font = new System.Drawing.Font("Segoe UI", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.LBL_SUBTITULO.Location = new System.Drawing.Point(55, 171);
             this.LBL_SUBTITULO.Name = "LBL_SUBTITULO";
-            this.LBL_SUBTITULO.Size = new System.Drawing.Size(298, 23);
+            this.LBL_SUBTITULO.Size = new System.Drawing.Size(305, 23);
             this.LBL_SUBTITULO.TabIndex = 8;
             this.LBL_SUBTITULO.Text = "Sistema de Gerenciamento de Estacionamento";
             // 
@@ -140,10 +140,10 @@
             // LBL_TITULO
             // 
             this.LBL_TITULO.AutoSize = true;
-            this.LBL_TITULO.Font = new System.Drawing.Font("Franklin Gothic Medium", 36F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LBL_TITULO.Location = new System.Drawing.Point(80, 9);
+            this.LBL_TITULO.Font = new System.Drawing.Font("Segoe UI", 36F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.LBL_TITULO.Location = new System.Drawing.Point(74, 9);
             this.LBL_TITULO.Name = "LBL_TITULO";
-            this.LBL_TITULO.Size = new System.Drawing.Size(264, 61);
+            this.LBL_TITULO.Size = new System.Drawing.Size(272, 65);
             this.LBL_TITULO.TabIndex = 10;
             this.LBL_TITULO.Text = "MarchPark";
             this.LBL_TITULO.TextAlign = System.Drawing.ContentAlignment.TopCenter;
