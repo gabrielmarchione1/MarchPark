@@ -132,7 +132,7 @@ namespace MarchPark.Forms
             {
                 if (BTN_EDITAR_USUARIO.Text == "Editar")
                 {
-                    MarchPark.Forms.FRM_PERMISSAO FRM_PERMISSAO = new MarchPark.Forms.FRM_PERMISSAO();
+                    MarchPark.Forms.FRM_PERMISSAO FRM_PERMISSAO = new MarchPark.Forms.FRM_PERMISSAO(2);
                     FRM_PERMISSAO.ShowDialog();
 
                     if (FRM_PERMISSAO.MONTAR_ENTIDADE() == true)

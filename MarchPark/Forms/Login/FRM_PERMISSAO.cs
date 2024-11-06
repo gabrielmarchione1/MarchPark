@@ -17,14 +17,16 @@ namespace MarchPark.Forms
     {
         private readonly MarchPark.NEG.CRUD_NEG ObjNEG = new NEG.CRUD_NEG();
         private MarchPark.ENT.Login.MarchPark_TBL_PERMISSAO ObjEnt = new ENT.Login.MarchPark_TBL_PERMISSAO();
+        private int tipoAcao;
 
         /// <summary>
         /// Construtor da classe FRM_PERMISSAO
         /// Inicializa os componentes do formulário de permissao.
         /// </summary>
-        public FRM_PERMISSAO()
+        public FRM_PERMISSAO(int TipoAcao)
         {
             InitializeComponent();
+            tipoAcao = TipoAcao;
         }
 
         /// <summary>
@@ -159,10 +161,18 @@ namespace MarchPark.Forms
                 Cursor = Cursors.WaitCursor;
                 if (CONSULTAR_SENHA() == true)
                 {
-                    this.Hide();
-                    MarchPark.Forms.FRM_CAD_USUARIO FRM_CAD_USUARIO = new FRM_CAD_USUARIO();
-                    FRM_CAD_USUARIO.FormClosed += (s, args) => this.Close();
-                    FRM_CAD_USUARIO.ShowDialog();
+                    switch (tipoAcao)
+                    {
+                        case 1: // login - abrir form cad usuario
+                            this.Hide();
+                            MarchPark.Forms.FRM_CAD_USUARIO FRM_CAD_USUARIO = new FRM_CAD_USUARIO();
+                            FRM_CAD_USUARIO.FormClosed += (s, args) => this.Close();
+                            FRM_CAD_USUARIO.ShowDialog();
+                            break;
+                        case 2: // validar gerenciamento de usuario
+                            this.Close();
+                            break;                      
+                    }            
                 }
             }
             catch (Exception ex)
