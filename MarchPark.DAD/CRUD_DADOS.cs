@@ -297,5 +297,47 @@ namespace MarchPark.DAD
         }
 
         #endregion
+
+        #region GERENCIAMENTO
+
+        /// <summary>
+        /// Método para alterar a senha de permissão.
+        /// </summary>
+        /// <param name="SenhaNova"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public bool ALTERAR_SENHA_PERMISSAO(string SenhaNova)
+        {
+            // Cria a conexão com o banco
+            SqlConnection conn = new SqlConnection(MarchPark.DAD.ConnectionFactory.connectionString);
+            conn.Open();
+
+            try
+            {
+                string sql = $@"
+                                UPDATE MarchPark_TBL_PERMISSAO
+                                SET SENHA_PERMISSAO = '{SenhaNova}'
+                                ";              
+
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    // Executa a consulta e verifica o número de linhas afetadas
+                    int rowsAffected = cmd.ExecuteNonQuery();
+
+                    // Retorna true se uma linha foi atualizada, false caso contrário
+                    return rowsAffected > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        #endregion
     }
 }

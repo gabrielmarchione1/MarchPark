@@ -144,5 +144,27 @@ namespace MarchPark.NEG
         }
 
         #endregion
+
+        #region GERENCIAMENTO
+
+        /// <summary>
+        /// Faz chamada da função "ALTERAR_SENHA_PERMISSAO" na camada de dados.
+        /// </summary>
+        /// <param name="SenhaNova"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public bool ALTERAR_SENHA_PERMISSAO(string SenhaNova)
+        {
+            try
+            {
+                return ObjDAD.ALTERAR_SENHA_PERMISSAO(SenhaNova);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+        }
+
+        #endregion
     }
 }

@@ -15,6 +15,9 @@ namespace MarchPark.Forms
     /// </summary>
     public partial class FRM_GERENCIAMENTO : Form
     {
+        private readonly MarchPark.NEG.CRUD_NEG ObjNEG = new NEG.CRUD_NEG();
+        private MarchPark.ENT.Login.MarchPark_TBL_LOGIN ObjEnt = new ENT.Login.MarchPark_TBL_LOGIN();
+
         /// <summary>
         /// Construtor da classe FRM_GERENCIAMENTO
         /// Inicializa os componentes do formulário de gerenciamento.
@@ -22,6 +25,137 @@ namespace MarchPark.Forms
         public FRM_GERENCIAMENTO()
         {
             InitializeComponent();
+        }
+
+        /// <summary>
+        /// Método para alterar a senha de permissão.
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public void ALTERAR_SENHA_PERMISSAO()
+        {
+            try
+            {
+                if (MBX_SENHA_PERMISSAO.Text.Length != 0)
+                {
+                    if (MBX_SENHA_PERMISSAO.Text.Length >= 4)
+                    {
+                        ObjNEG.ALTERAR_SENHA_PERMISSAO(MBX_SENHA_PERMISSAO.Text);
+                        MessageBox.Show("Senha de permissão alterada com sucesso!", " MarchPark ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MBX_SENHA_PERMISSAO.Text = "";
+                    }
+                    else
+                    {
+                        MessageBox.Show("A senha deve ter 4 caracteres no mínimo!", " MarchPark ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Preencha corretamente!", " MarchPark ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+        }
+
+        /// <summary>
+        /// Método para cadastrar usuario.
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public void INSERIR_USUARIO()
+        {
+            try
+            {
+                if (MONTAR_ENTIDADE())
+                {
+                    if (ObjNEG.SELECT_MARCH_PARK_TBL_LOGIN_EXISTENTE(ObjEnt).Count == 0)
+                    {
+                        ObjNEG.INSERT_MARCH_PARK_TBL_LOGIN(ObjEnt);
+                        MessageBox.Show("Usuário cadastrado com sucesso!", " MarchPark ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        TXT_USUARIO.Text = "";
+                        MBX_SENHA.Text = "";
+                        MBX_CONFIRMAR_SENHA.Text = "";
+                    }
+                    else
+                    {
+                        MessageBox.Show("Este nome de usuário já existe!", " MarchPark ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        TXT_USUARIO.Text = "";
+                        MBX_SENHA.Text = "";
+                        MBX_CONFIRMAR_SENHA.Text = "";
+                        TXT_USUARIO.Focus();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+        }
+
+        /// <summary>
+        /// Método para montar entidade
+        /// </summary>
+        /// <returns>
+        /// Retorna um valor booleano indicando de a entidade foi montada com sucesso.
+        /// </returns>
+        /// <exception cref="Exception"></exception>
+        public bool MONTAR_ENTIDADE()
+        {
+            try
+            {
+                ObjEnt = new ENT.Login.MarchPark_TBL_LOGIN();
+
+                if (TXT_USUARIO.Text.Length != 0 && MBX_SENHA.Text.Length != 0 && MBX_CONFIRMAR_SENHA.Text.Length != 0)
+                {
+                    if (TXT_USUARIO.Text.Length >= 2)
+                    {
+                        if (MBX_SENHA.Text == MBX_CONFIRMAR_SENHA.Text)
+                        {
+                            if (MBX_SENHA.Text.Length >= 4)
+                            {
+                                ObjEnt.NOME_USUARIO = TXT_USUARIO.Text;
+                                ObjEnt.SENHA_USUARIO = MBX_SENHA.Text;
+                                return true; 
+                            }
+                            else
+                            {
+                                MessageBox.Show("A senha deve ter no mínimo 4 caracteres.", " MarchPark ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                MBX_SENHA.Text = "";
+                                MBX_CONFIRMAR_SENHA.Text = "";
+                                MBX_SENHA.Focus();
+                                return false;
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Senhas diferentes!", " MarchPark ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            MBX_SENHA.Text = "";
+                            MBX_CONFIRMAR_SENHA.Text = "";
+                            MBX_SENHA.Focus();
+                            return false;
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Nome de Usuário deve ter 2 caracteres no mínimo!", " MarchPark ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        TXT_USUARIO.Text = "";
+                        TXT_USUARIO.Focus();
+                        return false;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Favor, preencher todos os campos corretamente!", " MarchPark ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
         }
 
         /// <summary>
@@ -99,6 +233,11 @@ namespace MarchPark.Forms
                     LBL_RS2.Enabled = true;
                     TXT_MOTO.Enabled = true;
                     BTN_ALTERAR.Enabled = true;
+                    LBL_HORA1.Enabled = true;
+                    LBL_HORA2.Enabled = true;
+                    LBL_DESC.Enabled = true;
+                        
+                    TXT_CARRO.Focus();
 
                     BTN_EDITAR_TARIFA.Text = "Cancelar";
                 }
@@ -111,6 +250,12 @@ namespace MarchPark.Forms
                     LBL_RS2.Enabled = false;
                     TXT_MOTO.Enabled = false;
                     BTN_ALTERAR.Enabled = false;
+                    LBL_HORA1.Enabled = false;
+                    LBL_HORA2.Enabled = false;
+                    LBL_DESC.Enabled = false;
+
+                    TXT_CARRO.Text = "";
+                    TXT_MOTO.Text = "";
 
                     BTN_EDITAR_TARIFA.Text = "Editar";
                 }
@@ -150,7 +295,6 @@ namespace MarchPark.Forms
                             LBL_CONFIRMAR_SENHA.Enabled = true;
                             MBX_CONFIRMAR_SENHA.Enabled = true;
                             PICBOX_CONFIRMAR_SENHA.Enabled = true;
-                            CKBOX_ADMIN.Enabled = true;
                             BTN_CADASTRAR.Enabled = true;
                             MBX_SENHA_PERMISSAO.Enabled = true;
                             PICBOX_SENHA_PERMISSAO.Enabled = true;
@@ -175,7 +319,6 @@ namespace MarchPark.Forms
                     LBL_CONFIRMAR_SENHA.Enabled = false;
                     MBX_CONFIRMAR_SENHA.Enabled = false;
                     PICBOX_CONFIRMAR_SENHA.Enabled = false;
-                    CKBOX_ADMIN.Enabled = false;
                     BTN_CADASTRAR.Enabled = false;
                     MBX_SENHA_PERMISSAO.Enabled = false;
                     PICBOX_SENHA_PERMISSAO.Enabled = false;
@@ -183,12 +326,61 @@ namespace MarchPark.Forms
                     LBL_LINHA.Enabled = false;
                     BTN_GER_USUARIOS.Enabled = false;
 
+                    TXT_USUARIO.Text = "";
+                    MBX_SENHA.Text = "";
+                    MBX_CONFIRMAR_SENHA.Text = "";
+                    MBX_SENHA_PERMISSAO.Text = "";
+
                     BTN_EDITAR_USUARIO.Text = "Editar";
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, " MarchPark ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// Evento de clique no botão "BTN_CADASTRAR".
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BTN_CADASTRAR_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Cursor = Cursors.WaitCursor;
+                INSERIR_USUARIO();  
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, " MarchPark ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                Cursor = Cursors.Default;
+            }
+        }
+
+        /// <summary>
+        /// Evento de clique no botão "BTN_ALTERAR_SENHA_PERMISSAO".
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BTN_ALTERAR_SENHA_PERMISSAO_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Cursor = Cursors.WaitCursor;
+                ALTERAR_SENHA_PERMISSAO();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, " MarchPark ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                Cursor = Cursors.Default;
             }
         }
     }

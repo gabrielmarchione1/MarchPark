@@ -31,6 +31,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.LBL_DESC = new System.Windows.Forms.Label();
+            this.LBL_HORA2 = new System.Windows.Forms.Label();
+            this.LBL_HORA1 = new System.Windows.Forms.Label();
             this.BTN_ALTERAR = new System.Windows.Forms.Button();
             this.LBL_RS2 = new System.Windows.Forms.Label();
             this.LBL_RS1 = new System.Windows.Forms.Label();
@@ -45,7 +48,6 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.PICBOX_CONFIRMAR_SENHA = new System.Windows.Forms.PictureBox();
             this.PICBOX_SENHA = new System.Windows.Forms.PictureBox();
-            this.CKBOX_ADMIN = new System.Windows.Forms.CheckBox();
             this.MBX_CONFIRMAR_SENHA = new System.Windows.Forms.MaskedTextBox();
             this.LBL_CONFIRMAR_SENHA = new System.Windows.Forms.Label();
             this.BTN_CADASTRAR = new System.Windows.Forms.Button();
@@ -90,6 +92,9 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.groupBox1.Controls.Add(this.LBL_DESC);
+            this.groupBox1.Controls.Add(this.LBL_HORA2);
+            this.groupBox1.Controls.Add(this.LBL_HORA1);
             this.groupBox1.Controls.Add(this.BTN_ALTERAR);
             this.groupBox1.Controls.Add(this.LBL_RS2);
             this.groupBox1.Controls.Add(this.LBL_RS1);
@@ -99,9 +104,42 @@
             this.groupBox1.Controls.Add(this.LBL_CARRO);
             this.groupBox1.Location = new System.Drawing.Point(49, 80);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(246, 135);
+            this.groupBox1.Size = new System.Drawing.Size(246, 148);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
+            // 
+            // LBL_DESC
+            // 
+            this.LBL_DESC.AutoSize = true;
+            this.LBL_DESC.Enabled = false;
+            this.LBL_DESC.Font = new System.Drawing.Font("Segoe UI", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.LBL_DESC.Location = new System.Drawing.Point(5, 132);
+            this.LBL_DESC.Name = "LBL_DESC";
+            this.LBL_DESC.Size = new System.Drawing.Size(233, 13);
+            this.LBL_DESC.TabIndex = 9;
+            this.LBL_DESC.Text = "Demais horas sempre é a metade da tarifa.";
+            // 
+            // LBL_HORA2
+            // 
+            this.LBL_HORA2.AutoSize = true;
+            this.LBL_HORA2.Enabled = false;
+            this.LBL_HORA2.Font = new System.Drawing.Font("Segoe UI", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.LBL_HORA2.Location = new System.Drawing.Point(108, 91);
+            this.LBL_HORA2.Name = "LBL_HORA2";
+            this.LBL_HORA2.Size = new System.Drawing.Size(28, 13);
+            this.LBL_HORA2.TabIndex = 8;
+            this.LBL_HORA2.Text = "/ 1h";
+            // 
+            // LBL_HORA1
+            // 
+            this.LBL_HORA1.AutoSize = true;
+            this.LBL_HORA1.Enabled = false;
+            this.LBL_HORA1.Font = new System.Drawing.Font("Segoe UI", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.LBL_HORA1.Location = new System.Drawing.Point(108, 38);
+            this.LBL_HORA1.Name = "LBL_HORA1";
+            this.LBL_HORA1.Size = new System.Drawing.Size(28, 13);
+            this.LBL_HORA1.TabIndex = 7;
+            this.LBL_HORA1.Text = "/ 1h";
             // 
             // BTN_ALTERAR
             // 
@@ -223,7 +261,6 @@
             this.groupBox2.BackColor = System.Drawing.SystemColors.ControlLight;
             this.groupBox2.Controls.Add(this.PICBOX_CONFIRMAR_SENHA);
             this.groupBox2.Controls.Add(this.PICBOX_SENHA);
-            this.groupBox2.Controls.Add(this.CKBOX_ADMIN);
             this.groupBox2.Controls.Add(this.MBX_CONFIRMAR_SENHA);
             this.groupBox2.Controls.Add(this.LBL_CONFIRMAR_SENHA);
             this.groupBox2.Controls.Add(this.BTN_CADASTRAR);
@@ -264,17 +301,6 @@
             this.PICBOX_SENHA.TabStop = false;
             this.PICBOX_SENHA.Click += new System.EventHandler(this.PICBOX_NOVA_SENHA_Click);
             // 
-            // CKBOX_ADMIN
-            // 
-            this.CKBOX_ADMIN.AutoSize = true;
-            this.CKBOX_ADMIN.Enabled = false;
-            this.CKBOX_ADMIN.Location = new System.Drawing.Point(144, 50);
-            this.CKBOX_ADMIN.Name = "CKBOX_ADMIN";
-            this.CKBOX_ADMIN.Size = new System.Drawing.Size(71, 23);
-            this.CKBOX_ADMIN.TabIndex = 8;
-            this.CKBOX_ADMIN.Text = "Admin";
-            this.CKBOX_ADMIN.UseVisualStyleBackColor = true;
-            // 
             // MBX_CONFIRMAR_SENHA
             // 
             this.MBX_CONFIRMAR_SENHA.Enabled = false;
@@ -308,6 +334,7 @@
             this.BTN_CADASTRAR.TabIndex = 9;
             this.BTN_CADASTRAR.Text = "Cadastrar";
             this.BTN_CADASTRAR.UseVisualStyleBackColor = true;
+            this.BTN_CADASTRAR.Click += new System.EventHandler(this.BTN_CADASTRAR_Click);
             // 
             // MBX_SENHA
             // 
@@ -375,7 +402,7 @@
             // 
             this.PICBOX_SENHA_PERMISSAO.Enabled = false;
             this.PICBOX_SENHA_PERMISSAO.Image = global::MarchPark.Properties.Resources.olho_senha_ver;
-            this.PICBOX_SENHA_PERMISSAO.Location = new System.Drawing.Point(119, 35);
+            this.PICBOX_SENHA_PERMISSAO.Location = new System.Drawing.Point(119, 33);
             this.PICBOX_SENHA_PERMISSAO.Name = "PICBOX_SENHA_PERMISSAO";
             this.PICBOX_SENHA_PERMISSAO.Size = new System.Drawing.Size(18, 18);
             this.PICBOX_SENHA_PERMISSAO.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -403,6 +430,7 @@
             this.BTN_ALTERAR_SENHA_PERMISSAO.TabIndex = 11;
             this.BTN_ALTERAR_SENHA_PERMISSAO.Text = "Alterar";
             this.BTN_ALTERAR_SENHA_PERMISSAO.UseVisualStyleBackColor = true;
+            this.BTN_ALTERAR_SENHA_PERMISSAO.Click += new System.EventHandler(this.BTN_ALTERAR_SENHA_PERMISSAO_Click);
             // 
             // LBL_LINHA
             // 
@@ -495,6 +523,8 @@
         private System.Windows.Forms.PictureBox PICBOX_SENHA_PERMISSAO;
         private System.Windows.Forms.MaskedTextBox MBX_SENHA_PERMISSAO;
         private System.Windows.Forms.Button BTN_GER_USUARIOS;
-        private System.Windows.Forms.CheckBox CKBOX_ADMIN;
+        private System.Windows.Forms.Label LBL_DESC;
+        private System.Windows.Forms.Label LBL_HORA2;
+        private System.Windows.Forms.Label LBL_HORA1;
     }
 }
