@@ -183,6 +183,7 @@
             this.TXT_MOTO.Name = "TXT_MOTO";
             this.TXT_MOTO.Size = new System.Drawing.Size(60, 20);
             this.TXT_MOTO.TabIndex = 2;
+            this.TXT_MOTO.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TXT_MOTO_KeyDown);
             // 
             // LBL_MOTO
             // 
@@ -203,6 +204,7 @@
             this.TXT_CARRO.Name = "TXT_CARRO";
             this.TXT_CARRO.Size = new System.Drawing.Size(60, 20);
             this.TXT_CARRO.TabIndex = 1;
+            this.TXT_CARRO.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TXT_CARRO_KeyDown);
             // 
             // LBL_CARRO
             // 
@@ -312,6 +314,7 @@
             this.MBX_CONFIRMAR_SENHA.Size = new System.Drawing.Size(97, 20);
             this.MBX_CONFIRMAR_SENHA.TabIndex = 7;
             this.MBX_CONFIRMAR_SENHA.UseSystemPasswordChar = true;
+            this.MBX_CONFIRMAR_SENHA.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MBX_CONFIRMAR_SENHA_KeyDown);
             // 
             // LBL_CONFIRMAR_SENHA
             // 
@@ -347,6 +350,7 @@
             this.MBX_SENHA.Size = new System.Drawing.Size(97, 20);
             this.MBX_SENHA.TabIndex = 6;
             this.MBX_SENHA.UseSystemPasswordChar = true;
+            this.MBX_SENHA.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MBX_SENHA_KeyDown);
             // 
             // LBL_SENHA
             // 
@@ -369,6 +373,7 @@
             this.TXT_USUARIO.Name = "TXT_USUARIO";
             this.TXT_USUARIO.Size = new System.Drawing.Size(97, 20);
             this.TXT_USUARIO.TabIndex = 5;
+            this.TXT_USUARIO.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TXT_USUARIO_KeyDown);
             // 
             // LBL_USUARIO
             // 
@@ -453,6 +458,7 @@
             this.MBX_SENHA_PERMISSAO.Size = new System.Drawing.Size(92, 20);
             this.MBX_SENHA_PERMISSAO.TabIndex = 10;
             this.MBX_SENHA_PERMISSAO.UseSystemPasswordChar = true;
+            this.MBX_SENHA_PERMISSAO.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MBX_SENHA_PERMISSAO_KeyDown);
             // 
             // FRM_GERENCIAMENTO
             // 

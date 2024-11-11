@@ -372,7 +372,10 @@ namespace MarchPark.Forms
             try
             {
                 Cursor = Cursors.WaitCursor;
-                ALTERAR_SENHA_PERMISSAO();
+                if (MessageBox.Show("Realmente deseja alterar a senha de permissão?", " MarchPark ", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {                   
+                    ALTERAR_SENHA_PERMISSAO();
+                }
             }
             catch (Exception ex)
             {
@@ -381,6 +384,132 @@ namespace MarchPark.Forms
             finally
             {
                 Cursor = Cursors.Default;
+            }
+        }
+
+        /// <summary>
+        /// Evento de ação KeyDown da "TXT_CARRO".
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void TXT_CARRO_KeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (e.KeyCode == Keys.Enter)
+                {
+                    TXT_MOTO.Focus();
+                    e.SuppressKeyPress = true; // Impede que a tecla Enter execute sua ação padrão, como mover o foco ou emitir um beep
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, " MarchPark ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// Evento de ação KeyDown da "TXT_MOTO".
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void TXT_MOTO_KeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (e.KeyCode == Keys.Enter)
+                {
+                    
+                    e.SuppressKeyPress = true; // Impede que a tecla Enter execute sua ação padrão, como mover o foco ou emitir um beep
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, " MarchPark ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// Evento de ação KeyDown da "TXT_USUARIO".
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void TXT_USUARIO_KeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (e.KeyCode == Keys.Enter)
+                {
+                    MBX_SENHA.Focus();
+                    e.SuppressKeyPress = true; // Impede que a tecla Enter execute sua ação padrão, como mover o foco ou emitir um beep
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, " MarchPark ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// Evento de ação KeyDown da "MBX_SENHA".
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MBX_SENHA_KeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (e.KeyCode == Keys.Enter)
+                {
+                    MBX_CONFIRMAR_SENHA.Focus();
+                    e.SuppressKeyPress = true; // Impede que a tecla Enter execute sua ação padrão, como mover o foco ou emitir um beep
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, " MarchPark ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// Evento de ação KeyDown da "MBX_CONFIRMAR_SENHA".
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MBX_CONFIRMAR_SENHA_KeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (e.KeyCode == Keys.Enter)
+                {
+                    BTN_CADASTRAR_Click(sender, e);
+                    e.SuppressKeyPress = true; // Impede que a tecla Enter execute sua ação padrão, como mover o foco ou emitir um beep
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, " MarchPark ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// Evento de ação KeyDown da "MBX_SENHA_PERMISSAO". 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MBX_SENHA_PERMISSAO_KeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (e.KeyCode == Keys.Enter)
+                {
+                    BTN_ALTERAR_SENHA_PERMISSAO_Click(sender, e);
+                    e.SuppressKeyPress = true; // Impede que a tecla Enter execute sua ação padrão, como mover o foco ou emitir um beep
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, " MarchPark ", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
