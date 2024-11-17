@@ -338,6 +338,86 @@ namespace MarchPark.DAD
             }
         }
 
+        /// <summary>
+        /// Método para alterar a tarifa.
+        /// </summary>
+        /// <param name="TarifaCarro"></param>
+        /// <param name="TarifaMoto"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public bool ALTERAR_TARIFA(string TarifaCarro, string TarifaMoto)
+        {
+            // Cria a conexão com o banco
+            SqlConnection conn = new SqlConnection(MarchPark.DAD.ConnectionFactory.connectionString);
+            conn.Open();
+
+            try
+            {
+                string sql = $@"
+                                UPDATE MarchPark_TBL_TARIFA
+                                SET VALOR_TARIFA = 
+                                    CASE 
+                                        WHEN TIPO_VEICULO = 'Carro' THEN {TarifaCarro}  -- novo valor para carro
+                                        WHEN TIPO_VEICULO = 'Moto' THEN {TarifaMoto}    -- novo valor para moto
+                                    END
+                                ";
+
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    // Executa a consulta e verifica o número de linhas afetadas
+                    int rowsAffected = cmd.ExecuteNonQuery();
+
+                    // Retorna true se uma linha foi atualizada, false caso contrário
+                    return rowsAffected > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        /// <summary>
+        /// Método para selecionar o valor da tarifa atual.
+        /// </summary>
+        /// <param name="VeiculoTarifa"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public string SELECT_VALOR_TARIFA_ATUAL(string VeiculoTarifa)
+        {
+            // Cria a conexão com o banco
+            SqlConnection conn = new SqlConnection(MarchPark.DAD.ConnectionFactory.connectionString);
+            conn.Open();
+
+            try
+            {
+                string sql = $@"
+                                SELECT 
+	                                VALOR_TARIFA
+                                FROM MarchPark_TBL_TARIFA
+                                WHERE TIPO_VEICULO = '{VeiculoTarifa}'
+                                 ";
+
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    string a = cmd.ExecuteScalar().ToString();
+                    return cmd.ExecuteScalar().ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
         #endregion
     }
 }

@@ -165,6 +165,43 @@ namespace MarchPark.NEG
             }
         }
 
+        /// <summary>
+        /// Faz chamada da função "ALTERAR_TARIFA" na camada de dados.
+        /// </summary>
+        /// <param name="TarifaCarro"></param>
+        /// <param name="TarifaMoto"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public bool ALTERAR_TARIFA(string TarifaCarro, string TarifaMoto)
+        {
+            try
+            {
+                return ObjDAD.ALTERAR_TARIFA(TarifaCarro, TarifaMoto);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+        }
+
+        /// <summary>
+        /// Faz chamada da função "SELECT_VALOR_TARIFA_ATUAL" na camada de dados.
+        /// </summary>
+        /// <param name="VeiculoTarifa"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public string SELECT_VALOR_TARIFA_ATUAL(string VeiculoTarifa)
+        {
+            try
+            {
+                return ObjDAD.SELECT_VALOR_TARIFA_ATUAL(VeiculoTarifa);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+        }
+
         #endregion
     }
 }

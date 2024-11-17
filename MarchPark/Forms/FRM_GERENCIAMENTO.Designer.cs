@@ -31,15 +31,15 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.MBX_MOTO = new System.Windows.Forms.MaskedTextBox();
+            this.MBX_CARRO = new System.Windows.Forms.MaskedTextBox();
             this.LBL_DESC = new System.Windows.Forms.Label();
             this.LBL_HORA2 = new System.Windows.Forms.Label();
             this.LBL_HORA1 = new System.Windows.Forms.Label();
             this.BTN_ALTERAR = new System.Windows.Forms.Button();
             this.LBL_RS2 = new System.Windows.Forms.Label();
             this.LBL_RS1 = new System.Windows.Forms.Label();
-            this.TXT_MOTO = new System.Windows.Forms.TextBox();
             this.LBL_MOTO = new System.Windows.Forms.Label();
-            this.TXT_CARRO = new System.Windows.Forms.TextBox();
             this.LBL_CARRO = new System.Windows.Forms.Label();
             this.BTN_EDITAR_TARIFA = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
@@ -92,21 +92,51 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.groupBox1.Controls.Add(this.MBX_MOTO);
+            this.groupBox1.Controls.Add(this.MBX_CARRO);
             this.groupBox1.Controls.Add(this.LBL_DESC);
             this.groupBox1.Controls.Add(this.LBL_HORA2);
             this.groupBox1.Controls.Add(this.LBL_HORA1);
             this.groupBox1.Controls.Add(this.BTN_ALTERAR);
             this.groupBox1.Controls.Add(this.LBL_RS2);
             this.groupBox1.Controls.Add(this.LBL_RS1);
-            this.groupBox1.Controls.Add(this.TXT_MOTO);
             this.groupBox1.Controls.Add(this.LBL_MOTO);
-            this.groupBox1.Controls.Add(this.TXT_CARRO);
             this.groupBox1.Controls.Add(this.LBL_CARRO);
             this.groupBox1.Location = new System.Drawing.Point(49, 80);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(246, 148);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
+            // 
+            // MBX_MOTO
+            // 
+            this.MBX_MOTO.Culture = new System.Globalization.CultureInfo("");
+            this.MBX_MOTO.Enabled = false;
+            this.MBX_MOTO.Location = new System.Drawing.Point(45, 91);
+            this.MBX_MOTO.MaximumSize = new System.Drawing.Size(36, 20);
+            this.MBX_MOTO.Name = "MBX_MOTO";
+            this.MBX_MOTO.Size = new System.Drawing.Size(36, 20);
+            this.MBX_MOTO.TabIndex = 2;
+            this.MBX_MOTO.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludePromptAndLiterals;
+            this.MBX_MOTO.TextChanged += new System.EventHandler(this.MBX_MOTO_TextChanged);
+            this.MBX_MOTO.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MBX_MOTO_KeyDown);
+            this.MBX_MOTO.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MBX_MOTO_KeyPress);
+            this.MBX_MOTO.Leave += new System.EventHandler(this.MBX_MOTO_Leave);
+            // 
+            // MBX_CARRO
+            // 
+            this.MBX_CARRO.Enabled = false;
+            this.MBX_CARRO.Location = new System.Drawing.Point(45, 38);
+            this.MBX_CARRO.MaximumSize = new System.Drawing.Size(36, 20);
+            this.MBX_CARRO.MinimumSize = new System.Drawing.Size(36, 20);
+            this.MBX_CARRO.Name = "MBX_CARRO";
+            this.MBX_CARRO.Size = new System.Drawing.Size(36, 20);
+            this.MBX_CARRO.TabIndex = 1;
+            this.MBX_CARRO.ValidatingType = typeof(int);
+            this.MBX_CARRO.TextChanged += new System.EventHandler(this.MBX_CARRO_TextChanged);
+            this.MBX_CARRO.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MBX_CARRO_KeyDown);
+            this.MBX_CARRO.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MBX_CARRO_KeyPress);
+            this.MBX_CARRO.Leave += new System.EventHandler(this.MBX_CARRO_Leave);
             // 
             // LBL_DESC
             // 
@@ -124,7 +154,7 @@
             this.LBL_HORA2.AutoSize = true;
             this.LBL_HORA2.Enabled = false;
             this.LBL_HORA2.Font = new System.Drawing.Font("Segoe UI", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            this.LBL_HORA2.Location = new System.Drawing.Point(108, 91);
+            this.LBL_HORA2.Location = new System.Drawing.Point(87, 91);
             this.LBL_HORA2.Name = "LBL_HORA2";
             this.LBL_HORA2.Size = new System.Drawing.Size(28, 13);
             this.LBL_HORA2.TabIndex = 8;
@@ -135,7 +165,7 @@
             this.LBL_HORA1.AutoSize = true;
             this.LBL_HORA1.Enabled = false;
             this.LBL_HORA1.Font = new System.Drawing.Font("Segoe UI", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            this.LBL_HORA1.Location = new System.Drawing.Point(108, 38);
+            this.LBL_HORA1.Location = new System.Drawing.Point(87, 38);
             this.LBL_HORA1.Name = "LBL_HORA1";
             this.LBL_HORA1.Size = new System.Drawing.Size(28, 13);
             this.LBL_HORA1.TabIndex = 7;
@@ -151,6 +181,7 @@
             this.BTN_ALTERAR.TabIndex = 3;
             this.BTN_ALTERAR.Text = "Alterar";
             this.BTN_ALTERAR.UseVisualStyleBackColor = true;
+            this.BTN_ALTERAR.Click += new System.EventHandler(this.BTN_ALTERAR_Click);
             // 
             // LBL_RS2
             // 
@@ -174,17 +205,6 @@
             this.LBL_RS1.TabIndex = 5;
             this.LBL_RS1.Text = "R$:";
             // 
-            // TXT_MOTO
-            // 
-            this.TXT_MOTO.Enabled = false;
-            this.TXT_MOTO.Location = new System.Drawing.Point(45, 88);
-            this.TXT_MOTO.MaximumSize = new System.Drawing.Size(60, 20);
-            this.TXT_MOTO.MinimumSize = new System.Drawing.Size(60, 20);
-            this.TXT_MOTO.Name = "TXT_MOTO";
-            this.TXT_MOTO.Size = new System.Drawing.Size(60, 20);
-            this.TXT_MOTO.TabIndex = 2;
-            this.TXT_MOTO.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TXT_MOTO_KeyDown);
-            // 
             // LBL_MOTO
             // 
             this.LBL_MOTO.AutoSize = true;
@@ -194,17 +214,6 @@
             this.LBL_MOTO.Size = new System.Drawing.Size(34, 13);
             this.LBL_MOTO.TabIndex = 2;
             this.LBL_MOTO.Text = "Moto:";
-            // 
-            // TXT_CARRO
-            // 
-            this.TXT_CARRO.Enabled = false;
-            this.TXT_CARRO.Location = new System.Drawing.Point(45, 35);
-            this.TXT_CARRO.MaximumSize = new System.Drawing.Size(60, 20);
-            this.TXT_CARRO.MinimumSize = new System.Drawing.Size(60, 20);
-            this.TXT_CARRO.Name = "TXT_CARRO";
-            this.TXT_CARRO.Size = new System.Drawing.Size(60, 20);
-            this.TXT_CARRO.TabIndex = 1;
-            this.TXT_CARRO.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TXT_CARRO_KeyDown);
             // 
             // LBL_CARRO
             // 
@@ -483,6 +492,7 @@
             this.Name = "FRM_GERENCIAMENTO";
             this.Text = "FRM_GERENCIAMENTO";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.FRM_GERENCIAMENTO_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -506,8 +516,6 @@
         private System.Windows.Forms.Label LBL_CARRO;
         private System.Windows.Forms.Label LBL_RS2;
         private System.Windows.Forms.Label LBL_RS1;
-        private System.Windows.Forms.TextBox TXT_MOTO;
-        private System.Windows.Forms.TextBox TXT_CARRO;
         private System.Windows.Forms.Button BTN_ALTERAR;
         private System.Windows.Forms.Button BTN_EDITAR_TARIFA;
         private System.Windows.Forms.Label label7;
@@ -532,5 +540,7 @@
         private System.Windows.Forms.Label LBL_DESC;
         private System.Windows.Forms.Label LBL_HORA2;
         private System.Windows.Forms.Label LBL_HORA1;
+        private System.Windows.Forms.MaskedTextBox MBX_CARRO;
+        private System.Windows.Forms.MaskedTextBox MBX_MOTO;
     }
 }
