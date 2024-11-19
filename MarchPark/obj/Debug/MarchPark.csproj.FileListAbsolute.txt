@@ -25,3 +25,4 @@ C:\Github\MarchPark\MarchPark\obj\Debug\MarchPark.Forms.FRM_GERENCIAMENTO.resour
 C:\Github\MarchPark\MarchPark\obj\Debug\MarchPark.Forms.FRM_RELATORIO.resources
 C:\Github\MarchPark\MarchPark\obj\Debug\MarchPark.Forms.FRM_USUARIO_ATIVO.resources
 C:\Github\MarchPark\MarchPark\obj\Debug\MarchPark.Forms.FRM_PERMISSAO.resources
+C:\Github\MarchPark\MarchPark\obj\Debug\MarchPark.Forms.FRM_GERENC_USUARIO.resources

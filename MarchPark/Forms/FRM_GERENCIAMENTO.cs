@@ -802,5 +802,56 @@ namespace MarchPark.Forms
                 MessageBox.Show(ex.Message, " MarchPark ", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        /// <summary>
+        /// Evento para fechar o form ativo.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CloseAllForms_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Form mdiParent = Application.OpenForms.OfType<Form>().FirstOrDefault(f => f.IsMdiContainer);
+
+                foreach (Form form in mdiParent.MdiChildren)
+                {
+                    form.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, " MarchPark ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// Evento de clique no botão da tela de gerenciamento de usuário.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BTN_GER_USUARIOS_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Cursor = Cursors.WaitCursor;
+                CloseAllForms_Click(null, null);
+
+                Form mdiParent = Application.OpenForms.OfType<Form>().FirstOrDefault(f => f.IsMdiContainer);
+
+                FRM_GERENC_USUARIO child = new FRM_GERENC_USUARIO();
+                child.MdiParent = mdiParent;
+                child.Dock = DockStyle.Fill;
+                child.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, " MarchPark ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                Cursor = Cursors.Default;
+            }
+        }
     }
 }

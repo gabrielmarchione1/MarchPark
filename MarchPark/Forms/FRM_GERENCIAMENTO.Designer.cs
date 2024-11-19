@@ -433,6 +433,7 @@
             this.BTN_GER_USUARIOS.TabIndex = 12;
             this.BTN_GER_USUARIOS.Text = "Gerenciamento de Usuários";
             this.BTN_GER_USUARIOS.UseVisualStyleBackColor = true;
+            this.BTN_GER_USUARIOS.Click += new System.EventHandler(this.BTN_GER_USUARIOS_Click);
             // 
             // BTN_ALTERAR_SENHA_PERMISSAO
             // 

@@ -2,6 +2,7 @@
 using MarchPark.ENT.Login;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -195,6 +196,35 @@ namespace MarchPark.NEG
             try
             {
                 return ObjDAD.SELECT_VALOR_TARIFA_ATUAL(VeiculoTarifa);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+        }
+
+        /// <summary>
+        /// Faz chamada da função "SELECT_USUARIOS_MARCH_PARK" na camada de dados.
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public DataTable SELECT_USUARIOS_MARCH_PARK()
+        {
+            try
+            {
+                return ObjDAD.SELECT_USUARIOS_MARCH_PARK();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+        }
+
+        public bool DELETAR_USUARIOS_MARCH_PARK(List<string> ListaUsuarios)
+        {
+            try
+            {
+                return ObjDAD.DELETAR_USUARIOS_MARCH_PARK(ListaUsuarios);
             }
             catch (Exception ex)
             {

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Linq.Mapping;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -120,8 +121,8 @@ namespace MarchPark.DAD
                 using (MarchPark.DAD.ConnectionFactory db = new ConnectionFactory())
                 {
                     List<MarchPark_TBL_LOGIN> listaUsuarios = (from TBL_LOGIN in db.GetTable<MarchPark_TBL_LOGIN>()
-                                                             where TBL_LOGIN.NOME_USUARIO == Ent.NOME_USUARIO
-                                                             select TBL_LOGIN).ToList();
+                                                               where TBL_LOGIN.NOME_USUARIO == Ent.NOME_USUARIO
+                                                               select TBL_LOGIN).ToList();
                     return listaUsuarios;
                 }
             }
@@ -165,8 +166,8 @@ namespace MarchPark.DAD
                 using (MarchPark.DAD.ConnectionFactory db = new ConnectionFactory())
                 {
                     string usuario = (from TBL_LOGIN in db.GetTable<MarchPark_TBL_LOGIN>()
-                                   where TBL_LOGIN.NOME_USUARIO == Ent.NOME_USUARIO
-                                   select TBL_LOGIN.NOME_USUARIO).FirstOrDefault().ToString();
+                                      where TBL_LOGIN.NOME_USUARIO == Ent.NOME_USUARIO
+                                      select TBL_LOGIN.NOME_USUARIO).FirstOrDefault().ToString();
 
                     return usuario;
                 }
@@ -317,7 +318,7 @@ namespace MarchPark.DAD
                 string sql = $@"
                                 UPDATE MarchPark_TBL_PERMISSAO
                                 SET SENHA_PERMISSAO = '{SenhaNova}'
-                                ";              
+                                ";
 
                 using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {
@@ -406,6 +407,89 @@ namespace MarchPark.DAD
                 {
                     string a = cmd.ExecuteScalar().ToString();
                     return cmd.ExecuteScalar().ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        /// <summary>
+        /// Método para selecionar todos os usuarios do sistema.
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public DataTable SELECT_USUARIOS_MARCH_PARK()
+        {
+            // Cria a conexão com o banco
+            SqlConnection conn = new SqlConnection(MarchPark.DAD.ConnectionFactory.connectionString);
+            conn.Open();
+
+            try
+            {
+                DataTable dt = new DataTable();
+                //SqlDataAdapter adapter = new SqlDataAdapter();
+
+                string sql = $@"
+                                 SELECT 
+                                    NOME_USUARIO AS 'Usuários'
+                                 FROM MarchPark_TBL_LOGIN
+                                 ORDER BY NOME_USUARIO
+                                 ";
+
+                //SqlCommand cmd = new SqlCommand(sql, conn);
+                //cmd.CommandTimeout = 30000;
+                //adapter.SelectCommand = cmd; // define o comando SQL para o SqlDataAdapter
+                //adapter.Fill(dt); // preenche o DataTable com os resultados da consulta
+                //return dt;
+
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                    {
+                        adapter.Fill(dt);
+                        return dt;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        public bool DELETAR_USUARIOS_MARCH_PARK(List<string> ListaUsuarios)
+        {
+            // Cria a conexão com o banco
+            SqlConnection conn = new SqlConnection(MarchPark.DAD.ConnectionFactory.connectionString);
+            conn.Open();
+
+            try
+            {
+                string usuariosWhereIn = string.Join(", ", ListaUsuarios.ConvertAll(u => $"'{u}'"));
+
+                string sql = $@"
+                                DELETE 
+                                FROM MarchPark_TBL_LOGIN
+                                WHERE NOME_USUARIO IN ({usuariosWhereIn})
+                                ";
+
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    // Executa a consulta e verifica o número de linhas afetadas
+                    int rowsAffected = cmd.ExecuteNonQuery();
+
+                    // Retorna true se uma linha foi atualizada, false caso contrário
+                    return rowsAffected > 0;
                 }
             }
             catch (Exception ex)
