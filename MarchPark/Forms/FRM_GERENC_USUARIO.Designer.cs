@@ -40,6 +40,7 @@
             // 
             this.checkBoxColumn.HeaderText = "";
             this.checkBoxColumn.Name = "checkBoxColumn";
+            this.checkBoxColumn.ReadOnly = true;
             // 
             // DGV_DADOS
             // 
@@ -98,6 +99,7 @@
             this.Text = "FRM_GERENC_USUARIO";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FRM_GERENC_USUARIO_Load);
+            this.Shown += new System.EventHandler(this.FRM_GERENC_USUARIO_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.DGV_DADOS)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();

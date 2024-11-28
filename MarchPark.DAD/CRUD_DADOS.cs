@@ -467,6 +467,12 @@ namespace MarchPark.DAD
             }
         }
 
+        /// <summary>
+        /// Método para deletar usuários do sistema.
+        /// </summary>
+        /// <param name="ListaUsuarios"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
         public bool DELETAR_USUARIOS_MARCH_PARK(List<string> ListaUsuarios)
         {
             // Cria a conexão com o banco
@@ -501,6 +507,170 @@ namespace MarchPark.DAD
                 conn.Close();
             }
         }
+
+        #endregion
+
+        #region CAD CLIENTE
+
+        /// <summary>
+        /// Método para consultar clientes.
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public DataTable SELECT_CLIENTES()
+        {
+            // Cria a conexão com o banco
+            SqlConnection conn = new SqlConnection(MarchPark.DAD.ConnectionFactory.connectionString);
+            conn.Open();
+
+            try
+            {
+                DataTable dt = new DataTable();
+                SqlDataAdapter adapter = new SqlDataAdapter();
+
+                string sql = $@"
+                                 SELECT
+                                    ID_CLIENTE,
+	                                NOME_CLIENTE AS NOME,
+	                                CONCAT(CPF_CLIENTE, CPF_CONTROLE) AS CPF,
+	                                DATA_NASCIMENTO AS NASCIMENTO,
+	                                CONCAT(NUMERO_DDD, NUMERO_TELEFONE) AS TELEFONE,
+	                                ENDERECO_EMAIL AS EMAIL
+                                FROM MarchPark_TBL_CLIENTE
+                                 ";
+
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.CommandTimeout = 30000;
+                adapter.SelectCommand = cmd; // define o comando SQL para o SqlDataAdapter
+                adapter.Fill(dt); // preenche o DataTable com os resultados da consulta
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        /// <summary>
+        /// Método para pesquisar clientes especifícos.
+        /// </summary>
+        /// <param name="NomeDigitado"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public DataTable PESQUISAR_CLIENTES_ESPECIFICO(string NomeDigitado)
+        {
+            // Cria a conexão com o banco
+            SqlConnection conn = new SqlConnection(MarchPark.DAD.ConnectionFactory.connectionString);
+            conn.Open();
+
+            try
+            {
+                DataTable dt = new DataTable();
+                SqlDataAdapter adapter = new SqlDataAdapter();
+
+                string sql = $@"
+                                  SELECT
+                                      ID_CLIENTE,
+                                      NOME_CLIENTE AS NOME,
+                                      CONCAT(CPF_CLIENTE, CPF_CONTROLE) AS CPF,
+                                      DATA_NASCIMENTO AS NASCIMENTO,
+                                      CONCAT(NUMERO_DDD, NUMERO_TELEFONE) AS TELEFONE,
+                                      ENDERECO_EMAIL AS EMAIL
+                                  FROM MarchPark_TBL_CLIENTE
+                                  WHERE NOME_CLIENTE LIKE '{NomeDigitado}%'
+                                 ";
+
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.CommandTimeout = 30000;
+                adapter.SelectCommand = cmd; // define o comando SQL para o SqlDataAdapter
+                adapter.Fill(dt); // preenche o DataTable com os resultados da consulta
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        /// <summary>
+        /// Método para inserir cliente.
+        /// </summary>
+        /// <param name="Nome"></param>
+        /// <param name="Cpf"></param>
+        /// <param name="DataNascimento"></param>
+        /// <param name="NumeroTelefone"></param>
+        /// <param name="Email"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public bool INSERIR_CLIENTE(string Nome, string Cpf, string DataNascimento, string NumeroTelefone, string Email)
+        {
+            // Cria a conexão com o banco
+            SqlConnection conn = new SqlConnection(MarchPark.DAD.ConnectionFactory.connectionString);
+            conn.Open();
+
+            try
+            {
+                string sql = $@"
+                                INSERT INTO MarchPark_TBL_CLIENTE (NOME_CLIENTE, CPF_CLIENTE, CPF_CONTROLE, DATA_NASCIMENTO, NUMERO_DDD, NUMERO_TELEFONE, ENDERECO_EMAIL) 
+                                VALUES (@nome, @cpf, @cpf_controle, @data_nascimento, @num_ddd, @num_telefone, @email)
+                                ";
+
+                // Usando a conexão com o banco
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@nome", Nome);
+                    cmd.Parameters.AddWithValue("@cpf", Cpf.Substring(0, 9));
+                    cmd.Parameters.AddWithValue("@cpf_controle", Cpf.Substring(9, 2));
+                    cmd.Parameters.AddWithValue("@data_nascimento", DataNascimento);
+
+                    // Aqui, verifica se o telefone é null
+                    if (string.IsNullOrEmpty(NumeroTelefone))
+                    {
+                        cmd.Parameters.AddWithValue("@num_ddd", DBNull.Value); // Passa NULL para o SQL
+                        cmd.Parameters.AddWithValue("@num_telefone", DBNull.Value); // Passa NULL para o SQL
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@num_ddd", NumeroTelefone.Substring(0, 2)); // Passa NULL para o SQL
+                        cmd.Parameters.AddWithValue("@num_telefone", NumeroTelefone.Substring(2, 9)); // Passa NULL para o SQL
+                    }
+                 
+                    // Aqui, verifica se o email é null
+                    if (string.IsNullOrEmpty(Email))
+                    {
+                        cmd.Parameters.AddWithValue("@email", DBNull.Value); // Passa NULL para o SQL
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@email", Email); // Passa o valor do email
+                    }
+
+                    // Executa a consulta e verifica o número de linhas afetadas
+                    int rowsAffected = cmd.ExecuteNonQuery();
+
+                    // Retorna true se uma linha foi atualizada, false caso contrário
+                    return rowsAffected > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        
 
         #endregion
     }

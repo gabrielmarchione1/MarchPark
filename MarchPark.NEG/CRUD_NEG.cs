@@ -220,11 +220,78 @@ namespace MarchPark.NEG
             }
         }
 
+        /// <summary>
+        /// Faz chamada da função "DELETAR_USUARIOS_MARCH_PARK" na camada de dados.
+        /// </summary>
+        /// <param name="ListaUsuarios"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
         public bool DELETAR_USUARIOS_MARCH_PARK(List<string> ListaUsuarios)
         {
             try
             {
                 return ObjDAD.DELETAR_USUARIOS_MARCH_PARK(ListaUsuarios);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+        }
+
+        #endregion
+
+        #region CAD CLIENTE
+
+        /// <summary>
+        /// Faz chamada da função "SELECT_CLIENTES" na camada de dados.
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public DataTable SELECT_CLIENTES()
+        {
+            try
+            {
+                return ObjDAD.SELECT_CLIENTES();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+        }
+
+        /// <summary>
+        /// Faz chamada da função "PESQUISAR_CLIENTES_ESPECIFICO" na camada de dados.
+        /// </summary>
+        /// <param name="NomeDigitado"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public DataTable PESQUISAR_CLIENTES_ESPECIFICO(string NomeDigitado)
+        {
+            try
+            {
+                return ObjDAD.PESQUISAR_CLIENTES_ESPECIFICO(NomeDigitado);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+        }
+
+        /// <summary>
+        /// Faz chamada da função "INSERIR_CLIENTE" na camada de dados.
+        /// </summary>
+        /// <param name="Nome"></param>
+        /// <param name="Cpf"></param>
+        /// <param name="DataNascimento"></param>
+        /// <param name="NumeroTelefone"></param>
+        /// <param name="Email"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public bool INSERIR_CLIENTE(string Nome, string Cpf, string DataNascimento, string NumeroTelefone, string Email)
+        {
+            try
+            {
+                return ObjDAD.INSERIR_CLIENTE(Nome, Cpf, DataNascimento, NumeroTelefone, Email);
             }
             catch (Exception ex)
             {

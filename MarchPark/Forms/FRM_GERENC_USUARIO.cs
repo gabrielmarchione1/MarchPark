@@ -74,6 +74,7 @@ namespace MarchPark.Forms
             try
             {
                 DGV_DADOS.DataSource = ObjNEG.SELECT_USUARIOS_MARCH_PARK();
+                DGV_DADOS.CurrentCell = null;
             }
             catch (Exception ex)
             {
@@ -111,6 +112,11 @@ namespace MarchPark.Forms
             }
         }
 
+        /// <summary>
+        /// Evento de preenchimento do GridView.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void DGV_DADOS_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             try
@@ -151,6 +157,16 @@ namespace MarchPark.Forms
             {
                 Cursor = Cursors.Default;
             }
+        }
+
+        /// <summary>
+        /// Evento de quando o formulario aparece pela primeira vez.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void FRM_GERENC_USUARIO_Shown(object sender, EventArgs e)
+        {
+            DGV_DADOS.CurrentCell = null;
         }
     }
 }
