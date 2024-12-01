@@ -299,6 +299,24 @@ namespace MarchPark.NEG
             }
         }
 
+        /// <summary>
+        /// Faz chamada da função "SELECT_CLIENTE_EXISTENTE" na camada de dados.
+        /// </summary>
+        /// <param name="Cpf"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public bool SELECT_CLIENTE_EXISTENTE(string Cpf)
+        {
+            try
+            {
+                return ObjDAD.SELECT_CLIENTE_EXISTENTE(Cpf);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+        }
+
         #endregion
     }
 }

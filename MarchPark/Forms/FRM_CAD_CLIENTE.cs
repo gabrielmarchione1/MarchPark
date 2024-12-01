@@ -18,6 +18,7 @@ namespace MarchPark.Forms
     public partial class FRM_CAD_CLIENTE : Form
     {
         MarchPark.NEG.CRUD_NEG ObjNEG = new NEG.CRUD_NEG();
+        private int ID_CLIENTE;
 
         /// <summary>
         /// Construtor da classe FRM_CAD_CLIENTE
@@ -29,6 +30,35 @@ namespace MarchPark.Forms
         }
 
         /// <summary>
+        /// Método para trazer pra tela os dados do cliente a ser alterado.
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public void MONTAR_ALTERACAO()
+        {
+            try
+            {
+                BTN_ADICIONAR.Enabled = false;
+                BTN_DELETAR.Enabled = false;
+                MBX_CPF.Enabled = false;
+                MBX_DATA_NASCIMENTO.Enabled = false;
+
+                BTN_LIMPAR_DADOS.Text = "Limpar/Desfazer";
+
+                ID_CLIENTE = Convert.ToInt32(DGV_DADOS.CurrentRow.Cells["ID_CLIENTE"].Value.ToString());
+                TXT_NOME.Text = DGV_DADOS.CurrentRow.Cells["NOME"].Value.ToString();
+                MBX_CPF.Text = DGV_DADOS.CurrentRow.Cells["CPF"].Value.ToString();
+                MBX_DATA_NASCIMENTO.Text = DGV_DADOS.CurrentRow.Cells["NASCIMENTO"].Value.ToString();
+                MBX_TELEFONE.Text = DGV_DADOS.CurrentRow.Cells["TELEFONE"].Value.ToString();
+                TXT_EMAIL.Text = DGV_DADOS.CurrentRow.Cells["EMAIL"].Value.ToString();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+        }
+
+        /// <summary>
         /// Método para inserir cliente.
         /// </summary>
         /// <returns></returns>
@@ -37,12 +67,41 @@ namespace MarchPark.Forms
         {
             try
             {
+
                 if (TXT_NOME.Text.Length == 0)
                 {
+                    TXT_NOME.Focus();
+                    return false;
+                }
+
+                if (MBX_CPF.Text.Replace(".", "").Replace("-", "").Replace(" ", "").Length != 11)
+                {
+                    MBX_CPF.Focus();
+                    return false;
+                }
+
+                if (MBX_DATA_NASCIMENTO.Text.Replace("/", "").Replace(" ", "").Length != 8 || Convert.ToInt32(MBX_DATA_NASCIMENTO.Text.Substring(0, 2)) > 31 || Convert.ToInt32(MBX_DATA_NASCIMENTO.Text.Substring(3, 2)) > 12 || Convert.ToInt32(MBX_DATA_NASCIMENTO.Text.Substring(6, 4)) >= 2024)
+                {
+                    MBX_DATA_NASCIMENTO.Focus();
+                    return false;
+                }
+
+                if ((MBX_TELEFONE.Text.Replace("(", "").Replace(")", "").Replace("-", "").Replace(" ", "").Length != 0) && (MBX_TELEFONE.Text.Replace("(", "").Replace(")", "").Replace("-", "").Replace(" ", "").Length != 11))
+                {
+                    MBX_TELEFONE.Focus();
+                    return false;
+                }
+
+                if ((TXT_EMAIL.Text.Length != 0) && (!TXT_EMAIL.Text.Contains("@") || !TXT_EMAIL.Text.Contains(".com")))
+                {
+                    TXT_EMAIL.Focus();
                     return false;
                 }
 
                 ObjNEG.INSERIR_CLIENTE(TXT_NOME.Text, MBX_CPF.Text.Replace(".", "").Replace("-", ""), MBX_DATA_NASCIMENTO.Text, MBX_TELEFONE.Text.Replace("(", "").Replace(")", "").Replace("-", "").Replace(" ", ""), TXT_EMAIL.Text);
+                MessageBox.Show("Cliente inserido com sucesso!", " MarchPark ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                CONSULTAR_CLIENTES();
+                LIMPAR_DADOS();
                 return true;
             }
             catch (Exception ex)
@@ -115,12 +174,28 @@ namespace MarchPark.Forms
         {
             try
             {
+                BTN_ADICIONAR.Enabled = true;
+                BTN_DELETAR.Enabled = true;
+                MBX_CPF.Enabled = true;
+                MBX_DATA_NASCIMENTO.Enabled = true;
+
+                BTN_LIMPAR_DADOS.Text = "Limpar";
+
                 TXT_NOME.Text = "";
                 MBX_CPF.Text = "";
                 TXT_PESQUISAR_NOME.Text = "";
                 MBX_DATA_NASCIMENTO.Text = "";
                 MBX_TELEFONE.Text = "";
                 TXT_EMAIL.Text = "";
+
+                foreach (DataGridViewRow row in DGV_DADOS.Rows)
+                {
+                    row.Cells["checkBoxColumn"].Value = false;
+                }
+
+                DGV_DADOS.CurrentCell = null;
+               
+                TXT_NOME.Focus();
             }
             catch (Exception ex)
             {
@@ -251,7 +326,7 @@ namespace MarchPark.Forms
         {
             try
             {
-                CONSULTAR_CLIENTES();               
+                CONSULTAR_CLIENTES();
             }
             catch (Exception ex)
             {
@@ -301,7 +376,41 @@ namespace MarchPark.Forms
             try
             {
                 Cursor = Cursors.WaitCursor;
-                INSERIR_CLIENTE();
+
+                if (!ObjNEG.SELECT_CLIENTE_EXISTENTE(MBX_CPF.Text.Replace(".", "").Replace("-", "").Replace(" ", "")))
+                {
+                    if (!INSERIR_CLIENTE())
+                    {
+                        MessageBox.Show("Preencha corretamente os campos!", " MarchPark ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Este CPF já existe!", " MarchPark ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MBX_CPF.Focus();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, " MarchPark ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                Cursor = Cursors.Default;
+            }
+        }
+
+        /// <summary>
+        /// Evento de duplo clique na linha selecionada do GridView.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DGV_DADOS_DoubleClick(object sender, EventArgs e)
+        {
+            try
+            {
+                Cursor = Cursors.WaitCursor;
+                MONTAR_ALTERACAO();
             }
             catch (Exception ex)
             {

@@ -642,7 +642,7 @@ namespace MarchPark.DAD
                         cmd.Parameters.AddWithValue("@num_ddd", NumeroTelefone.Substring(0, 2)); // Passa NULL para o SQL
                         cmd.Parameters.AddWithValue("@num_telefone", NumeroTelefone.Substring(2, 9)); // Passa NULL para o SQL
                     }
-                 
+
                     // Aqui, verifica se o email é null
                     if (string.IsNullOrEmpty(Email))
                     {
@@ -670,7 +670,45 @@ namespace MarchPark.DAD
             }
         }
 
-        
+        /// <summary>
+        /// Método para verificar se o cliente já existe.
+        /// </summary>
+        /// <param name="Cpf"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public bool SELECT_CLIENTE_EXISTENTE(string Cpf)
+        {
+            // Cria a conexão com o banco
+            SqlConnection conn = new SqlConnection(MarchPark.DAD.ConnectionFactory.connectionString);
+            conn.Open();
+
+            try
+            {
+                string sql = $@"
+                                SELECT *
+                                FROM MarchPark_TBL_CLIENTE
+                                WHERE CONCAT(CPF_CLIENTE, CPF_CONTROLE) = '{Cpf}'
+                                ";
+
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    // Executa a consulta e obtém os resultados
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        // Retorna true se houver resultados, false caso contrário
+                        return reader.HasRows;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
 
         #endregion
     }
