@@ -317,6 +317,66 @@ namespace MarchPark.NEG
             }
         }
 
+        /// <summary>
+        /// Faz chamada da função "ALTERAR_CLIENTE" na camada de dados.
+        /// </summary>
+        /// <param name="Nome"></param>
+        /// <param name="Cpf"></param>
+        /// <param name="DataNascimento"></param>
+        /// <param name="NumeroTelefone"></param>
+        /// <param name="Email"></param>
+        /// <param name="IdCliente"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public bool ALTERAR_CLIENTE(string Nome, string Cpf, string DataNascimento, string NumeroTelefone, string Email, int IdCliente)
+        {
+            try
+            {
+                return ObjDAD.ALTERAR_CLIENTE(Nome, Cpf, DataNascimento, NumeroTelefone, Email, IdCliente);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+        }
+
+        /// <summary>
+        /// Faz chamada da função "SELECT_CLIENTE_EXISTENTE_ALTERAR" na camada de dados.
+        /// </summary>
+        /// <param name="Cpf"></param>
+        /// <param name="Nome"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public bool SELECT_CLIENTE_EXISTENTE_ALTERAR(string Cpf, string Nome)
+        {
+            try
+            {
+                return ObjDAD.SELECT_CLIENTE_EXISTENTE_ALTERAR(Cpf, Nome);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+        }
+
+        /// <summary>
+        /// Faz chamada da função "DELETAR_CLIENTES" na camada de dados.
+        /// </summary>
+        /// <param name="IdClientes"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public bool DELETAR_CLIENTES(List<string> IdClientes)
+        {
+            try
+            {
+                return ObjDAD.DELETAR_CLIENTES(IdClientes);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+        }
+
         #endregion
     }
 }

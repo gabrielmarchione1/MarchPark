@@ -19,6 +19,7 @@ namespace MarchPark.Forms
     {
         MarchPark.NEG.CRUD_NEG ObjNEG = new NEG.CRUD_NEG();
         private int ID_CLIENTE;
+        private List<string> listaCampos = new List<string>();
 
         /// <summary>
         /// Construtor da classe FRM_CAD_CLIENTE
@@ -27,6 +28,114 @@ namespace MarchPark.Forms
         public FRM_CAD_CLIENTE()
         {
             InitializeComponent();
+        }
+
+        /// <summary>
+        /// Método para deletar clientes.
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public bool DELETAR_CLIENTES()
+        {
+            try
+            {
+                if (MessageBox.Show("Deseja realmente deletar este(s) cliente(s)?", " MarchPark ", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    List<string> idClientes = new List<string>();
+
+                    foreach (DataGridViewRow item in DGV_DADOS.Rows)
+                    {
+                        if (Convert.ToBoolean(item.Cells["checkBoxColumn"].Value) == true)
+                        {
+                            idClientes.Add(item.Cells["ID_CLIENTE"].Value.ToString());
+                        }
+                    }
+
+                    if (idClientes.Count > 0)
+                    {
+                        ObjNEG.DELETAR_CLIENTES(idClientes);
+                        MessageBox.Show("Cliente(s) deletado(s) com sucesso!", " MarchPark ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        CONSULTAR_CLIENTES();
+                        LIMPAR_DADOS();
+                        return true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Selecione pelo menos uma linha!", " MarchPark ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return false;
+                    }
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+        }
+
+        public bool ALTERAR_CLIENTE()
+        {
+            try
+            {
+                bool CamposValidados = true;
+                listaCampos = new List<string>();
+
+                if (TXT_NOME.Text.Length == 0)
+                {
+                    listaCampos.Add("Nome");
+                    CamposValidados = false;
+                }
+
+                if (MBX_CPF.Text.Replace(".", "").Replace("-", "").Replace(" ", "").Length != 11)
+                {
+                    listaCampos.Add("CPF");
+                    CamposValidados = false;
+                }
+
+                if (MBX_DATA_NASCIMENTO.Text.Replace("/", "").Replace(" ", "").Length != 8 || Convert.ToInt32(MBX_DATA_NASCIMENTO.Text.Substring(0, 2)) > 31 || Convert.ToInt32(MBX_DATA_NASCIMENTO.Text.Substring(3, 2)) > 12 || Convert.ToInt32(MBX_DATA_NASCIMENTO.Text.Substring(6, 4)) >= 2024)
+                {
+                    listaCampos.Add("Data Nascimento");
+                    CamposValidados = false;
+                }
+
+                if ((MBX_TELEFONE.Text.Replace("(", "").Replace(")", "").Replace("-", "").Replace(" ", "").Length != 0) && (MBX_TELEFONE.Text.Replace("(", "").Replace(")", "").Replace("-", "").Replace(" ", "").Length != 11))
+                {
+                    listaCampos.Add("Telefone");
+                    CamposValidados = false;
+                }
+
+                if ((TXT_EMAIL.Text.Length != 0) && (!TXT_EMAIL.Text.Contains("@") || !TXT_EMAIL.Text.Contains(".com")))
+                {
+                    listaCampos.Add("Email");
+                    CamposValidados = false;
+                }
+
+
+                if (CamposValidados)
+                {
+                    ObjNEG.ALTERAR_CLIENTE(TXT_NOME.Text, MBX_CPF.Text.Replace(".", "").Replace("-", ""), MBX_DATA_NASCIMENTO.Text, MBX_TELEFONE.Text.Replace("(", "").Replace(")", "").Replace("-", "").Replace(" ", ""), TXT_EMAIL.Text, ID_CLIENTE);
+                    MessageBox.Show("Cliente alterado com sucesso!", " MarchPark ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    CONSULTAR_CLIENTES();
+                    LIMPAR_DADOS();
+                    listaCampos = null;
+                    ID_CLIENTE = 0;
+                    return true;
+                }
+                else
+                {
+                    string camposInvalidos = string.Join(", ", listaCampos.ConvertAll(u => $"{u}"));
+
+                    MessageBox.Show($"Campos Incorretos: {camposInvalidos}", " MarchPark ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
         }
 
         /// <summary>
@@ -42,6 +151,7 @@ namespace MarchPark.Forms
                 BTN_DELETAR.Enabled = false;
                 MBX_CPF.Enabled = false;
                 MBX_DATA_NASCIMENTO.Enabled = false;
+                DGV_DADOS.Enabled = false;
 
                 BTN_LIMPAR_DADOS.Text = "Limpar/Desfazer";
 
@@ -67,42 +177,65 @@ namespace MarchPark.Forms
         {
             try
             {
+                bool CamposValidados = true;
+                listaCampos = new List<string>();
 
                 if (TXT_NOME.Text.Length == 0)
                 {
-                    TXT_NOME.Focus();
-                    return false;
+                    listaCampos.Add("Nome");
+                    CamposValidados = false;
                 }
 
                 if (MBX_CPF.Text.Replace(".", "").Replace("-", "").Replace(" ", "").Length != 11)
                 {
-                    MBX_CPF.Focus();
-                    return false;
+                    listaCampos.Add("CPF");
+                    CamposValidados = false;
                 }
 
                 if (MBX_DATA_NASCIMENTO.Text.Replace("/", "").Replace(" ", "").Length != 8 || Convert.ToInt32(MBX_DATA_NASCIMENTO.Text.Substring(0, 2)) > 31 || Convert.ToInt32(MBX_DATA_NASCIMENTO.Text.Substring(3, 2)) > 12 || Convert.ToInt32(MBX_DATA_NASCIMENTO.Text.Substring(6, 4)) >= 2024)
                 {
-                    MBX_DATA_NASCIMENTO.Focus();
-                    return false;
+                    listaCampos.Add("Data Nascimento");
+                    CamposValidados = false;
                 }
 
                 if ((MBX_TELEFONE.Text.Replace("(", "").Replace(")", "").Replace("-", "").Replace(" ", "").Length != 0) && (MBX_TELEFONE.Text.Replace("(", "").Replace(")", "").Replace("-", "").Replace(" ", "").Length != 11))
                 {
-                    MBX_TELEFONE.Focus();
-                    return false;
+                    listaCampos.Add("Telefone");
+                    CamposValidados = false;
                 }
 
                 if ((TXT_EMAIL.Text.Length != 0) && (!TXT_EMAIL.Text.Contains("@") || !TXT_EMAIL.Text.Contains(".com")))
                 {
-                    TXT_EMAIL.Focus();
-                    return false;
+                    listaCampos.Add("Email");
+                    CamposValidados = false;
                 }
 
-                ObjNEG.INSERIR_CLIENTE(TXT_NOME.Text, MBX_CPF.Text.Replace(".", "").Replace("-", ""), MBX_DATA_NASCIMENTO.Text, MBX_TELEFONE.Text.Replace("(", "").Replace(")", "").Replace("-", "").Replace(" ", ""), TXT_EMAIL.Text);
-                MessageBox.Show("Cliente inserido com sucesso!", " MarchPark ", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                CONSULTAR_CLIENTES();
-                LIMPAR_DADOS();
-                return true;
+
+                if (CamposValidados)
+                {
+                    if (!ObjNEG.SELECT_CLIENTE_EXISTENTE(MBX_CPF.Text.Replace(".", "").Replace("-", "").Replace(" ", "")))
+                    {
+                        ObjNEG.INSERIR_CLIENTE(TXT_NOME.Text, MBX_CPF.Text.Replace(".", "").Replace("-", ""), MBX_DATA_NASCIMENTO.Text, MBX_TELEFONE.Text.Replace("(", "").Replace(")", "").Replace("-", "").Replace(" ", ""), TXT_EMAIL.Text);
+                        MessageBox.Show("Cliente inserido com sucesso!", " MarchPark ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        CONSULTAR_CLIENTES();
+                        LIMPAR_DADOS();
+                        listaCampos = null;
+                        return true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Este CPF já existe!", " MarchPark ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MBX_CPF.Focus();
+                        return false;
+                    }                  
+                }
+                else
+                {
+                    string camposInvalidos = string.Join(", ", listaCampos.ConvertAll(u => $"{u}"));
+
+                    MessageBox.Show($"Campos Incorretos: {camposInvalidos}", " MarchPark ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return false;
+                }
             }
             catch (Exception ex)
             {
@@ -178,6 +311,7 @@ namespace MarchPark.Forms
                 BTN_DELETAR.Enabled = true;
                 MBX_CPF.Enabled = true;
                 MBX_DATA_NASCIMENTO.Enabled = true;
+                DGV_DADOS.Enabled = true;
 
                 BTN_LIMPAR_DADOS.Text = "Limpar";
 
@@ -194,7 +328,7 @@ namespace MarchPark.Forms
                 }
 
                 DGV_DADOS.CurrentCell = null;
-               
+
                 TXT_NOME.Focus();
             }
             catch (Exception ex)
@@ -367,7 +501,7 @@ namespace MarchPark.Forms
         }
 
         /// <summary>
-        /// Evento para cada ação da "BTN_ADICIONAR".
+        /// Evento de clique no botão "BTN_ADICIONAR".
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -376,19 +510,7 @@ namespace MarchPark.Forms
             try
             {
                 Cursor = Cursors.WaitCursor;
-
-                if (!ObjNEG.SELECT_CLIENTE_EXISTENTE(MBX_CPF.Text.Replace(".", "").Replace("-", "").Replace(" ", "")))
-                {
-                    if (!INSERIR_CLIENTE())
-                    {
-                        MessageBox.Show("Preencha corretamente os campos!", " MarchPark ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Este CPF já existe!", " MarchPark ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    MBX_CPF.Focus();
-                }
+                INSERIR_CLIENTE();
             }
             catch (Exception ex)
             {
@@ -419,6 +541,67 @@ namespace MarchPark.Forms
             finally
             {
                 Cursor = Cursors.Default;
+            }
+        }
+
+        /// <summary>
+        /// Evento de clique no botão "BTN_ALTERAR".
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BTN_ALTERAR_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Cursor = Cursors.WaitCursor;
+                if (MessageBox.Show("Deseja realmente alterar este cliente?", " MarchPark ", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    ALTERAR_CLIENTE();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, " MarchPark ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                Cursor = Cursors.Default;
+            }
+        }
+
+        /// <summary>
+        /// Evento de clique no botão "BTN_DELETAR".
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BTN_DELETAR_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Cursor = Cursors.WaitCursor;
+                DELETAR_CLIENTES(); 
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, " MarchPark ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                Cursor = Cursors.Default;
+            }
+        }
+
+        /// <summary>
+        /// Evento KeyPress da "TXT_NOME".
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void TXT_NOME_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Permite apenas letras e a tecla de backspace
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true; // Bloqueia a tecla
             }
         }
     }

@@ -710,6 +710,168 @@ namespace MarchPark.DAD
             }
         }
 
+        /// <summary>
+        /// Método para alterar cliente.
+        /// </summary>
+        /// <param name="Nome"></param>
+        /// <param name="Cpf"></param>
+        /// <param name="DataNascimento"></param>
+        /// <param name="NumeroTelefone"></param>
+        /// <param name="Email"></param>
+        /// <param name="IdCliente"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public bool ALTERAR_CLIENTE(string Nome, string Cpf, string DataNascimento, string NumeroTelefone, string Email, int IdCliente)
+        {
+            // Cria a conexão com o banco
+            SqlConnection conn = new SqlConnection(MarchPark.DAD.ConnectionFactory.connectionString);
+            conn.Open();
+
+            try
+            {
+                string sql = $@"
+                                UPDATE MarchPark_TBL_CLIENTE
+	                                SET 
+		                                NOME_CLIENTE = @nome,
+		                                CPF_CLIENTE = @cpf,
+		                                CPF_CONTROLE = @cpf_controle,
+		                                DATA_NASCIMENTO = @data_nascimento,
+		                                NUMERO_DDD = @num_ddd,
+		                                NUMERO_TELEFONE = @num_telefone,
+		                                ENDERECO_EMAIL = @email
+                                WHERE ID_CLIENTE = {IdCliente}
+                                ";
+
+                // Usando a conexão com o banco
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@nome", Nome);
+                    cmd.Parameters.AddWithValue("@cpf", Cpf.Substring(0, 9));
+                    cmd.Parameters.AddWithValue("@cpf_controle", Cpf.Substring(9, 2));
+                    cmd.Parameters.AddWithValue("@data_nascimento", DataNascimento);
+
+                    // Aqui, verifica se o telefone é null
+                    if (string.IsNullOrEmpty(NumeroTelefone))
+                    {
+                        cmd.Parameters.AddWithValue("@num_ddd", DBNull.Value); // Passa NULL para o SQL
+                        cmd.Parameters.AddWithValue("@num_telefone", DBNull.Value); // Passa NULL para o SQL
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@num_ddd", NumeroTelefone.Substring(0, 2)); // Passa NULL para o SQL
+                        cmd.Parameters.AddWithValue("@num_telefone", NumeroTelefone.Substring(2, 9)); // Passa NULL para o SQL
+                    }
+
+                    // Aqui, verifica se o email é null
+                    if (string.IsNullOrEmpty(Email))
+                    {
+                        cmd.Parameters.AddWithValue("@email", DBNull.Value); // Passa NULL para o SQL
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@email", Email); // Passa o valor do email
+                    }
+
+                    // Executa a consulta e verifica o número de linhas afetadas
+                    int rowsAffected = cmd.ExecuteNonQuery();
+
+                    // Retorna true se uma linha foi atualizada, false caso contrário
+                    return rowsAffected > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        /// <summary>
+        /// Método para verificar se o cliente já existe (para alteração).
+        /// </summary>
+        /// <param name="Cpf"></param>
+        /// <param name="Nome"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public bool SELECT_CLIENTE_EXISTENTE_ALTERAR(string Cpf, string Nome)
+        {
+            // Cria a conexão com o banco
+            SqlConnection conn = new SqlConnection(MarchPark.DAD.ConnectionFactory.connectionString);
+            conn.Open();
+
+            try
+            {
+                string sql = $@"
+                                SELECT *
+                                FROM MarchPark_TBL_CLIENTE
+                                WHERE CONCAT(CPF_CLIENTE, CPF_CONTROLE) = '{Cpf}'
+                                AND NOME_CLIENTE <> '{Nome}'
+                                ";
+
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    // Executa a consulta e obtém os resultados
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        // Retorna true se houver resultados, false caso contrário
+                        return reader.HasRows;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        /// <summary>
+        /// Método para deletar clientes.
+        /// </summary>
+        /// <param name="ListaUsuarios"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public bool DELETAR_CLIENTES(List<string> IdClientes)
+        {
+            // Cria a conexão com o banco
+            SqlConnection conn = new SqlConnection(MarchPark.DAD.ConnectionFactory.connectionString);
+            conn.Open();
+
+            try
+            {
+                string idClientes = string.Join(", ", IdClientes.ConvertAll(u => $"'{u}'"));
+
+                string sql = $@"
+                                DELETE 
+                                FROM MarchPark_TBL_CLIENTE
+                                WHERE ID_CLIENTE IN ({idClientes})
+                                ";
+
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    // Executa a consulta e verifica o número de linhas afetadas
+                    int rowsAffected = cmd.ExecuteNonQuery();
+
+                    // Retorna true se uma linha foi atualizada, false caso contrário
+                    return rowsAffected > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
         #endregion
     }
 }

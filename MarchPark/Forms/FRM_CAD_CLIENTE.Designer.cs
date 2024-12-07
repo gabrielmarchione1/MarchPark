@@ -175,6 +175,7 @@
             this.TXT_NOME.Name = "TXT_NOME";
             this.TXT_NOME.Size = new System.Drawing.Size(129, 20);
             this.TXT_NOME.TabIndex = 0;
+            this.TXT_NOME.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TXT_NOME_KeyPress);
             // 
             // label1
             // 
@@ -225,6 +226,7 @@
             this.BTN_ALTERAR.Name = "BTN_ALTERAR";
             this.BTN_ALTERAR.Size = new System.Drawing.Size(62, 22);
             this.BTN_ALTERAR.Text = "Alterar";
+            this.BTN_ALTERAR.Click += new System.EventHandler(this.BTN_ALTERAR_Click);
             // 
             // toolStripSeparator2
             // 
@@ -238,6 +240,7 @@
             this.BTN_DELETAR.Name = "BTN_DELETAR";
             this.BTN_DELETAR.Size = new System.Drawing.Size(64, 22);
             this.BTN_DELETAR.Text = "Deletar";
+            this.BTN_DELETAR.Click += new System.EventHandler(this.BTN_DELETAR_Click);
             // 
             // toolStripSeparator6
             // 
