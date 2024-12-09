@@ -121,10 +121,10 @@ namespace MarchPark.NEG
         /// <param name="Ent"></param>
         /// <exception cref="Exception"></exception>
         public bool VALIDAR_SENHA_ATUAL_USUARIO_ATIVO(string Usuario, string Senha)
-        {            
+        {
             try
             {
-                return ObjDAD.VALIDAR_SENHA_ATUAL_USUARIO_ATIVO(Usuario, Senha);    
+                return ObjDAD.VALIDAR_SENHA_ATUAL_USUARIO_ATIVO(Usuario, Senha);
             }
             catch (Exception ex)
             {
@@ -376,6 +376,104 @@ namespace MarchPark.NEG
                 throw new Exception(ex.Message.ToString());
             }
         }
+
+        #endregion
+
+        #region CAD VEICULO
+
+        /// <summary>
+        /// Faz chamada da função "CARREGAR_COMBO_CLIENTES" na camada de dados.
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public DataTable CARREGAR_COMBO_CLIENTES()
+        {
+            try
+            {
+                return ObjDAD.CARREGAR_COMBO_CLIENTES();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+        }
+
+        /// <summary>
+        /// Faz chamada da função "SELECT_VEICULOS" na camada de dados.
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public DataTable SELECT_VEICULOS()
+        {
+            try
+            {
+                return ObjDAD.SELECT_VEICULOS();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+        }
+
+        /// <summary>
+        /// Faz chamada da função "SELECT_CPF_CLIENTE_SELECIONADO" na camada de dados.
+        /// </summary>
+        /// <param name="IdCliente"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public string SELECT_CPF_CLIENTE_SELECIONADO(int IdCliente)
+        {
+            try
+            {
+                return ObjDAD.SELECT_CPF_CLIENTE_SELECIONADO(IdCliente);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+        }
+
+        /// <summary>
+        /// Faz chamada da função "INSERIR_VEICULO" na camada de dados.
+        /// </summary>
+        /// <param name="IdCliente"></param>
+        /// <param name="Placa"></param>
+        /// <param name="TipoPlaca"></param>
+        /// <param name="Marca"></param>
+        /// <param name="Modelo"></param>
+        /// <param name="Cor"></param>
+        /// <param name="TipoVeiculo"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public bool INSERIR_VEICULO(int IdCliente, string Placa, string TipoPlaca, string Marca, string Modelo, string Cor, string TipoVeiculo)
+        {
+            try
+            {
+                return ObjDAD.INSERIR_VEICULO(IdCliente, Placa, TipoPlaca, Marca, Modelo, Cor, TipoVeiculo);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+        }
+
+        ///// <summary>
+        ///// Faz chamada da função "PESQUISAR_CLIENTES_COMBO_VEIC" na camada de dados.
+        ///// </summary>
+        ///// <param name="NomeDigitado"></param>
+        ///// <returns></returns>
+        ///// <exception cref="Exception"></exception>
+        //public DataTable PESQUISAR_CLIENTES_COMBO_VEIC(string NomeDigitado)
+        //{
+        //    try
+        //    {
+        //        return ObjDAD.PESQUISAR_CLIENTES_COMBO_VEIC(NomeDigitado);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw new Exception(ex.Message.ToString());
+        //    }
+        //}
 
         #endregion
     }

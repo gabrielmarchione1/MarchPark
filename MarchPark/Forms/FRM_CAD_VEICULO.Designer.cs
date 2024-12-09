@@ -48,8 +48,6 @@
             this.BTN_ADICIONAR = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.BTN_ALTERAR = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.BTN_CONSULTAR = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.BTN_DELETAR = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
@@ -60,6 +58,8 @@
             this.DGV_DADOS = new System.Windows.Forms.DataGridView();
             this.checkBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.label7 = new System.Windows.Forms.Label();
+            this.MBX_CPF = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -91,6 +91,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.MBX_CPF);
+            this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.RBTN_ANTIGA);
             this.groupBox1.Controls.Add(this.RBTN_MERCOSUL);
             this.groupBox1.Controls.Add(this.CBX_TIPO_VEICULO);
@@ -115,7 +117,7 @@
             // RBTN_ANTIGA
             // 
             this.RBTN_ANTIGA.AutoSize = true;
-            this.RBTN_ANTIGA.Location = new System.Drawing.Point(242, 33);
+            this.RBTN_ANTIGA.Location = new System.Drawing.Point(391, 32);
             this.RBTN_ANTIGA.Name = "RBTN_ANTIGA";
             this.RBTN_ANTIGA.Size = new System.Drawing.Size(55, 17);
             this.RBTN_ANTIGA.TabIndex = 3;
@@ -127,7 +129,7 @@
             // 
             this.RBTN_MERCOSUL.AutoSize = true;
             this.RBTN_MERCOSUL.Checked = true;
-            this.RBTN_MERCOSUL.Location = new System.Drawing.Point(242, 10);
+            this.RBTN_MERCOSUL.Location = new System.Drawing.Point(391, 9);
             this.RBTN_MERCOSUL.Name = "RBTN_MERCOSUL";
             this.RBTN_MERCOSUL.Size = new System.Drawing.Size(68, 17);
             this.RBTN_MERCOSUL.TabIndex = 2;
@@ -165,7 +167,7 @@
             // 
             this.TXT_COR.Location = new System.Drawing.Point(309, 75);
             this.TXT_COR.Name = "TXT_COR";
-            this.TXT_COR.Size = new System.Drawing.Size(72, 20);
+            this.TXT_COR.Size = new System.Drawing.Size(69, 20);
             this.TXT_COR.TabIndex = 6;
             // 
             // label4
@@ -204,7 +206,7 @@
             // 
             // MBX_PLACA
             // 
-            this.MBX_PLACA.Location = new System.Drawing.Point(160, 29);
+            this.MBX_PLACA.Location = new System.Drawing.Point(309, 28);
             this.MBX_PLACA.Name = "MBX_PLACA";
             this.MBX_PLACA.Size = new System.Drawing.Size(69, 20);
             this.MBX_PLACA.TabIndex = 1;
@@ -212,7 +214,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(157, 13);
+            this.label2.Location = new System.Drawing.Point(306, 12);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(37, 13);
             this.label2.TabIndex = 13;
@@ -226,6 +228,7 @@
             this.CBX_NOME.Name = "CBX_NOME";
             this.CBX_NOME.Size = new System.Drawing.Size(129, 21);
             this.CBX_NOME.TabIndex = 0;
+            this.CBX_NOME.SelectionChangeCommitted += new System.EventHandler(this.CBX_NOME_SelectionChangeCommitted);
             // 
             // label1
             // 
@@ -242,8 +245,6 @@
             this.BTN_ADICIONAR,
             this.toolStripSeparator1,
             this.BTN_ALTERAR,
-            this.toolStripSeparator2,
-            this.BTN_CONSULTAR,
             this.toolStripSeparator3,
             this.BTN_DELETAR,
             this.toolStripSeparator6,
@@ -264,6 +265,7 @@
             this.BTN_ADICIONAR.Name = "BTN_ADICIONAR";
             this.BTN_ADICIONAR.Size = new System.Drawing.Size(78, 22);
             this.BTN_ADICIONAR.Text = "Adicionar";
+            this.BTN_ADICIONAR.Click += new System.EventHandler(this.BTN_ADICIONAR_Click);
             // 
             // toolStripSeparator1
             // 
@@ -277,19 +279,6 @@
             this.BTN_ALTERAR.Name = "BTN_ALTERAR";
             this.BTN_ALTERAR.Size = new System.Drawing.Size(62, 22);
             this.BTN_ALTERAR.Text = "Alterar";
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
-            // BTN_CONSULTAR
-            // 
-            this.BTN_CONSULTAR.Image = global::MarchPark.Properties.Resources.consultar1;
-            this.BTN_CONSULTAR.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BTN_CONSULTAR.Name = "BTN_CONSULTAR";
-            this.BTN_CONSULTAR.Size = new System.Drawing.Size(78, 22);
-            this.BTN_CONSULTAR.Text = "Consultar";
             // 
             // toolStripSeparator3
             // 
@@ -316,6 +305,7 @@
             this.BTN_LIMPAR_DADOS.Name = "BTN_LIMPAR_DADOS";
             this.BTN_LIMPAR_DADOS.Size = new System.Drawing.Size(64, 22);
             this.BTN_LIMPAR_DADOS.Text = "Limpar";
+            this.BTN_LIMPAR_DADOS.Click += new System.EventHandler(this.BTN_LIMPAR_DADOS_Click);
             // 
             // toolStripSeparator4
             // 
@@ -353,11 +343,32 @@
             this.DGV_DADOS.Size = new System.Drawing.Size(641, 369);
             this.DGV_DADOS.TabIndex = 5;
             this.DGV_DADOS.TabStop = false;
+            this.DGV_DADOS.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV_DADOS_CellClick);
+            this.DGV_DADOS.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DGV_DADOS_CellFormatting);
+            this.DGV_DADOS.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.DGV_DADOS_DataBindingComplete);
             // 
             // checkBoxColumn
             // 
             this.checkBoxColumn.HeaderText = "";
             this.checkBoxColumn.Name = "checkBoxColumn";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(157, 13);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(65, 13);
+            this.label7.TabIndex = 34;
+            this.label7.Text = "CPF Cliente:";
+            // 
+            // MBX_CPF
+            // 
+            this.MBX_CPF.Enabled = false;
+            this.MBX_CPF.Location = new System.Drawing.Point(160, 28);
+            this.MBX_CPF.Mask = "000,000,000-00";
+            this.MBX_CPF.Name = "MBX_CPF";
+            this.MBX_CPF.Size = new System.Drawing.Size(120, 20);
+            this.MBX_CPF.TabIndex = 35;
             // 
             // FRM_CAD_VEICULO
             // 
@@ -375,6 +386,7 @@
             this.Text = "FRM_CAD_VEICULO";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FRM_CAD_VEICULO_Load);
+            this.Shown += new System.EventHandler(this.FRM_CAD_VEICULO_Shown);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -397,8 +409,6 @@
         private System.Windows.Forms.ToolStripButton BTN_ADICIONAR;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton BTN_ALTERAR;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripButton BTN_CONSULTAR;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripButton BTN_DELETAR;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
@@ -423,5 +433,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private System.Windows.Forms.ToolStripTextBox TXT_PESQUISAR_PLACA;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.MaskedTextBox MBX_CPF;
     }
 }

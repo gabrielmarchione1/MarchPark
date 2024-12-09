@@ -76,6 +76,11 @@ namespace MarchPark.Forms
             }
         }
 
+        /// <summary>
+        /// Método para alterar cliente.
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
         public bool ALTERAR_CLIENTE()
         {
             try
@@ -128,7 +133,7 @@ namespace MarchPark.Forms
                 {
                     string camposInvalidos = string.Join(", ", listaCampos.ConvertAll(u => $"{u}"));
 
-                    MessageBox.Show($"Campos Incorretos: {camposInvalidos}", " MarchPark ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show($"Campos Inválidos: {camposInvalidos}", " MarchPark ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return false;
                 }
             }
@@ -233,7 +238,7 @@ namespace MarchPark.Forms
                 {
                     string camposInvalidos = string.Join(", ", listaCampos.ConvertAll(u => $"{u}"));
 
-                    MessageBox.Show($"Campos Incorretos: {camposInvalidos}", " MarchPark ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show($"Campos Inválidos: {camposInvalidos}", " MarchPark ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return false;
                 }
             }
@@ -474,8 +479,15 @@ namespace MarchPark.Forms
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void FRM_CAD_CLIENTE_Shown(object sender, EventArgs e)
-        {
-            DGV_DADOS.CurrentCell = null;
+        {          
+            try
+            {
+                DGV_DADOS.CurrentCell = null;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, " MarchPark ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         /// <summary>

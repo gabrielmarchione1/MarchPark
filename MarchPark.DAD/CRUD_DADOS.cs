@@ -873,5 +873,227 @@ namespace MarchPark.DAD
         }
 
         #endregion
+
+        #region CAD VEICULO
+
+        /// <summary>
+        /// Método para carregar a ComboBox com o nome dos clientes.
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public DataTable CARREGAR_COMBO_CLIENTES()
+        {
+            // Cria a conexão com o banco
+            SqlConnection conn = new SqlConnection(MarchPark.DAD.ConnectionFactory.connectionString);
+            conn.Open();
+
+            try
+            {
+                DataTable dt = new DataTable();
+                SqlDataAdapter adapter = new SqlDataAdapter();
+
+                string sql = $@"
+                                 SELECT
+                                    ID_CLIENTE,
+	                                NOME_CLIENTE
+	                             FROM MarchPark_TBL_CLIENTE
+                                 ORDER BY NOME_CLIENTE
+                                 ";
+
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.CommandTimeout = 30000;
+                adapter.SelectCommand = cmd; // define o comando SQL para o SqlDataAdapter
+                adapter.Fill(dt); // preenche o DataTable com os resultados da consulta
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        /// <summary>
+        /// Método para consultar clientes.
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public DataTable SELECT_VEICULOS()
+        {
+            // Cria a conexão com o banco
+            SqlConnection conn = new SqlConnection(MarchPark.DAD.ConnectionFactory.connectionString);
+            conn.Open();
+
+            try
+            {
+                DataTable dt = new DataTable();
+                SqlDataAdapter adapter = new SqlDataAdapter();
+
+                string sql = $@"
+                                 SELECT
+	                                VEI.ID_VEICULO,
+	                                CLI.NOME_CLIENTE AS 'NOME CLIENTE',
+	                                CONCAT(CLI.CPF_CLIENTE, CLI.CPF_CONTROLE) AS 'CPF',
+	                                VEI.PLACA_VEICULO AS 'PLACA',
+	                                VEI.MARCA_VEICULO AS 'MARCA',
+	                                VEI.MODELO_VEICULO AS 'MODELO',
+	                                VEI.COR_VEICULO AS 'COR',
+	                                VEI.TIPO_VEICULO AS 'TIPO'
+                                FROM MarchPark_TBL_VEICULO AS VEI
+                                INNER JOIN MarchPark_TBL_CLIENTE AS CLI
+	                                ON VEI.ID_CLIENTE = CLI.ID_CLIENTE
+                                 ";
+
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.CommandTimeout = 30000;
+                adapter.SelectCommand = cmd; // define o comando SQL para o SqlDataAdapter
+                adapter.Fill(dt); // preenche o DataTable com os resultados da consulta
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        /// <summary>
+        /// Método para selecionar o CPF do cliente escolhido na combobox.
+        /// </summary>
+        /// <param name="VeiculoTarifa"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public string SELECT_CPF_CLIENTE_SELECIONADO(int IdCliente)
+        {
+            // Cria a conexão com o banco
+            SqlConnection conn = new SqlConnection(MarchPark.DAD.ConnectionFactory.connectionString);
+            conn.Open();
+
+            try
+            {
+                string sql = $@"
+                                SELECT 
+	                                CONCAT(CPF_CLIENTE, CPF_CONTROLE)
+                                FROM MarchPark_TBL_CLIENTE
+                                WHERE ID_CLIENTE = {IdCliente}
+                                 ";
+
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    string a = cmd.ExecuteScalar().ToString();
+                    return cmd.ExecuteScalar().ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        /// <summary>
+        /// Método para cadastrar veiculos.
+        /// </summary>
+        /// <param name="IdCliente"></param>
+        /// <param name="Placa"></param>
+        /// <param name="TipoPlaca"></param>
+        /// <param name="Marca"></param>
+        /// <param name="Modelo"></param>
+        /// <param name="Cor"></param>
+        /// <param name="TipoVeiculo"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public bool INSERIR_VEICULO(int IdCliente, string Placa, string TipoPlaca, string Marca, string Modelo, string Cor, string TipoVeiculo)
+        {
+            // Cria a conexão com o banco
+            SqlConnection conn = new SqlConnection(MarchPark.DAD.ConnectionFactory.connectionString);
+            conn.Open();
+
+            try
+            {
+                string sql = $@"
+                                INSERT INTO MarchPark_TBL_VEICULO (ID_CLIENTE, PLACA_VEICULO, TIPO_PLACA, MARCA_VEICULO, MODELO_VEICULO, COR_VEICULO, TIPO_VEICULO) 
+                                VALUES (@id_cliente, @placa, @tipo_placa, @marca, @modelo, @cor, @tipo_veiculo)
+                                ";
+
+                // Usando a conexão com o banco
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@id_cliente", IdCliente);
+                    cmd.Parameters.AddWithValue("@placa", Placa);
+                    cmd.Parameters.AddWithValue("@tipo_placa", TipoPlaca);
+                    cmd.Parameters.AddWithValue("@marca", Marca);
+                    cmd.Parameters.AddWithValue("@modelo", Modelo);
+                    cmd.Parameters.AddWithValue("@cor", Cor);
+                    cmd.Parameters.AddWithValue("@tipo_veiculo", TipoVeiculo);
+
+                    // Executa a consulta e verifica o número de linhas afetadas
+                    int rowsAffected = cmd.ExecuteNonQuery();
+
+                    // Retorna true se uma linha foi atualizada, false caso contrário
+                    return rowsAffected > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+
+        ///// <summary>
+        ///// Método para pesquisar os clientes na ComboBox de cadastro de veículos.
+        ///// </summary>
+        ///// <param name="NomeDigitado"></param>
+        ///// <returns></returns>
+        ///// <exception cref="Exception"></exception>
+        //public DataTable PESQUISAR_CLIENTES_COMBO_VEIC(string NomeDigitado)
+        //{
+        //    // Cria a conexão com o banco
+        //    SqlConnection conn = new SqlConnection(MarchPark.DAD.ConnectionFactory.connectionString);
+        //    conn.Open();
+
+        //    try
+        //    {
+        //        DataTable dt = new DataTable();
+        //        SqlDataAdapter adapter = new SqlDataAdapter();
+
+        //        string sql = $@"
+        //                         SELECT
+        //                         NOME_CLIENTE
+        //                        FROM MarchPark_TBL_CLIENTE
+        //                        WHERE NOME_CLIENTE LIKE '{NomeDigitado}%'
+        //                         ";
+
+        //        SqlCommand cmd = new SqlCommand(sql, conn);
+        //        cmd.CommandTimeout = 30000;
+        //        adapter.SelectCommand = cmd; // define o comando SQL para o SqlDataAdapter
+        //        adapter.Fill(dt); // preenche o DataTable com os resultados da consulta
+        //        return dt;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw new Exception(ex.Message.ToString());
+        //    }
+        //    finally
+        //    {
+        //        conn.Close();
+        //    }
+        //}
+
+        #endregion
     }
 }
