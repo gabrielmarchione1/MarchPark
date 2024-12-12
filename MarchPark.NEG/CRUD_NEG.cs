@@ -517,6 +517,24 @@ namespace MarchPark.NEG
             }
         }
 
+        /// <summary>
+        /// Faz chamada da função "DELETAR_VEICULOS" na camada de dados.
+        /// </summary>
+        /// <param name="IdVeiculos"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public bool DELETAR_VEICULOS(List<string> IdVeiculos)
+        {
+            try
+            {
+                return ObjDAD.DELETAR_VEICULOS(IdVeiculos);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+        }
+
         ///// <summary>
         ///// Faz chamada da função "PESQUISAR_CLIENTES_COMBO_VEIC" na camada de dados.
         ///// </summary>

@@ -29,6 +29,58 @@ namespace MarchPark.Forms
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Método para deletar veículos.
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public bool DELETAR_VEICULOS()
+        {
+            try
+            {
+                if (MessageBox.Show("Deseja realmente deletar este(s) veículo(s)?", " MarchPark ", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    List<string> idVeiculos = new List<string>();
+
+                    foreach (DataGridViewRow item in DGV_DADOS.Rows)
+                    {
+                        if (Convert.ToBoolean(item.Cells["checkBoxColumn"].Value) == true)
+                        {
+                            idVeiculos.Add(item.Cells["ID_VEICULO"].Value.ToString());
+                        }
+                    }
+
+                    if (idVeiculos.Count > 0)
+                    {
+                        ObjNEG.DELETAR_VEICULOS(idVeiculos);
+                        MessageBox.Show("Veículo(s) deletado(s) com sucesso!", " MarchPark ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        CONSULTAR_VEICULOS();
+                        LIMPAR_DADOS();
+                        idVeiculos = null;  
+                        return true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Selecione pelo menos uma linha!", " MarchPark ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return false;
+                    }
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+        }
+
+        /// <summary>
+        /// Método para alterar veículos.
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
         public bool ALTERAR_VEICULO()
         {
             try
@@ -365,6 +417,7 @@ namespace MarchPark.Forms
             try
             {
                 MBX_PLACA.Mask = "AAA0A00";
+                MBX_PLACA.Focus();
             }
             catch (Exception ex)
             {
@@ -382,6 +435,7 @@ namespace MarchPark.Forms
             try
             {
                 MBX_PLACA.Mask = "AAA-0000";
+                MBX_PLACA.Focus();
             }
             catch (Exception ex)
             {
@@ -640,6 +694,28 @@ namespace MarchPark.Forms
                 {
                     ALTERAR_VEICULO();
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, " MarchPark ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                Cursor = Cursors.Default;
+            }
+        }
+
+        /// <summary>
+        /// Evento de clique no botão "BTN_DELETAR".
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BTN_DELETAR_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Cursor = Cursors.WaitCursor;
+                DELETAR_VEICULOS();
             }
             catch (Exception ex)
             {

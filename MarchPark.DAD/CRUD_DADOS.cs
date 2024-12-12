@@ -1213,6 +1213,47 @@ namespace MarchPark.DAD
             }
         }
 
+        /// <summary>
+        /// Método para deletar veículos.
+        /// </summary>
+        /// <param name="ListaUsuarios"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public bool DELETAR_VEICULOS(List<string> IdVeiculos)
+        {
+            // Cria a conexão com o banco
+            SqlConnection conn = new SqlConnection(MarchPark.DAD.ConnectionFactory.connectionString);
+            conn.Open();
+
+            try
+            {
+                string idVeiculos = string.Join(", ", IdVeiculos.ConvertAll(u => $"'{u}'"));
+
+                string sql = $@"
+                                DELETE 
+                                FROM MarchPark_TBL_VEICULO
+                                WHERE ID_VEICULO IN ({idVeiculos})
+                                ";
+
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    // Executa a consulta e verifica o número de linhas afetadas
+                    int rowsAffected = cmd.ExecuteNonQuery();
+
+                    // Retorna true se uma linha foi atualizada, false caso contrário
+                    return rowsAffected > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
         ///// <summary>
         ///// Método para pesquisar os clientes na ComboBox de cadastro de veículos.
         ///// </summary>

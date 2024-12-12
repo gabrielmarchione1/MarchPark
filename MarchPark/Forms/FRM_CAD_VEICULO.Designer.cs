@@ -311,6 +311,7 @@
             this.BTN_DELETAR.Name = "BTN_DELETAR";
             this.BTN_DELETAR.Size = new System.Drawing.Size(64, 22);
             this.BTN_DELETAR.Text = "Deletar";
+            this.BTN_DELETAR.Click += new System.EventHandler(this.BTN_DELETAR_Click);
             // 
             // toolStripSeparator6
             // 
