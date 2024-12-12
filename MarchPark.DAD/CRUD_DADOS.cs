@@ -935,6 +935,7 @@ namespace MarchPark.DAD
                 string sql = $@"
                                  SELECT
 	                                VEI.ID_VEICULO,
+                                    CLI.ID_CLIENTE,
 	                                CLI.NOME_CLIENTE AS 'NOME CLIENTE',
 	                                CONCAT(CLI.CPF_CLIENTE, CLI.CPF_CONTROLE) AS 'CPF',
 	                                VEI.PLACA_VEICULO AS 'PLACA',
@@ -1053,6 +1054,164 @@ namespace MarchPark.DAD
             }
         }
 
+        /// <summary>
+        /// Método para pesquisar veículos específicos.
+        /// </summary>
+        /// <param name="PlacaDigitado"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public DataTable PESQUISAR_VEICULOS_ESPECIFICO(string PlacaDigitada)
+        {
+            // Cria a conexão com o banco
+            SqlConnection conn = new SqlConnection(MarchPark.DAD.ConnectionFactory.connectionString);
+            conn.Open();
+
+            try
+            {
+                DataTable dt = new DataTable();
+                SqlDataAdapter adapter = new SqlDataAdapter();
+
+                string sql = $@"
+                                  SELECT
+                                    VEI.ID_VEICULO,
+                                    CLI.ID_CLIENTE,
+                                    CLI.NOME_CLIENTE AS 'NOME CLIENTE',
+                                    CONCAT(CLI.CPF_CLIENTE, CLI.CPF_CONTROLE) AS 'CPF',
+                                    VEI.PLACA_VEICULO AS 'PLACA',
+                                    VEI.MARCA_VEICULO AS 'MARCA',
+                                    VEI.MODELO_VEICULO AS 'MODELO',
+                                    VEI.COR_VEICULO AS 'COR',
+                                    VEI.TIPO_VEICULO AS 'TIPO'
+                                FROM MarchPark_TBL_VEICULO AS VEI
+                                INNER JOIN MarchPark_TBL_CLIENTE AS CLI
+                                    ON VEI.ID_CLIENTE = CLI.ID_CLIENTE
+                                WHERE VEI.PLACA_VEICULO LIKE '{PlacaDigitada}%'
+                                 ";
+
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.CommandTimeout = 30000;
+                adapter.SelectCommand = cmd; // define o comando SQL para o SqlDataAdapter
+                adapter.Fill(dt); // preenche o DataTable com os resultados da consulta
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        /// <summary>
+        /// Método para pesquisar veiculos de clientes da ComboBox.
+        /// </summary>
+        /// <param name="IdCliente"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public DataTable PESQUISAR_VEICULOS_CLIENTE_ESPECIFICO(int IdCliente)
+        {
+            // Cria a conexão com o banco
+            SqlConnection conn = new SqlConnection(MarchPark.DAD.ConnectionFactory.connectionString);
+            conn.Open();
+
+            try
+            {
+                DataTable dt = new DataTable();
+                SqlDataAdapter adapter = new SqlDataAdapter();
+
+                string sql = $@"
+                                  SELECT
+                                    VEI.ID_VEICULO,
+                                    CLI.ID_CLIENTE,
+                                    CLI.NOME_CLIENTE AS 'NOME CLIENTE',
+                                    CONCAT(CLI.CPF_CLIENTE, CLI.CPF_CONTROLE) AS 'CPF',
+                                    VEI.PLACA_VEICULO AS 'PLACA',
+                                    VEI.MARCA_VEICULO AS 'MARCA',
+                                    VEI.MODELO_VEICULO AS 'MODELO',
+                                    VEI.COR_VEICULO AS 'COR',
+                                    VEI.TIPO_VEICULO AS 'TIPO'
+                                FROM MarchPark_TBL_VEICULO AS VEI
+                                INNER JOIN MarchPark_TBL_CLIENTE AS CLI
+                                    ON VEI.ID_CLIENTE = CLI.ID_CLIENTE
+                                WHERE CLI.ID_CLIENTE = {IdCliente}
+                                 ";
+
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.CommandTimeout = 30000;
+                adapter.SelectCommand = cmd; // define o comando SQL para o SqlDataAdapter
+                adapter.Fill(dt); // preenche o DataTable com os resultados da consulta
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        /// <summary>
+        /// Método para alterar veículo.
+        /// </summary>
+        /// <param name="IdVeiculo"></param>
+        /// <param name="Placa"></param>
+        /// <param name="TipoPlaca"></param>
+        /// <param name="Marca"></param>
+        /// <param name="Modelo"></param>
+        /// <param name="Cor"></param>
+        /// <param name="TipoVeiculo"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public bool ALTERAR_VEICULO(int IdVeiculo, string Placa, string TipoPlaca, string Marca, string Modelo, string Cor, string TipoVeiculo)
+        {
+            // Cria a conexão com o banco
+            SqlConnection conn = new SqlConnection(MarchPark.DAD.ConnectionFactory.connectionString);
+            conn.Open();
+
+            try
+            {
+                string sql = $@"
+                                UPDATE MarchPark_TBL_VEICULO
+	                                SET
+		                                PLACA_VEICULO = @placa,
+		                                TIPO_PLACA = @tipo_placa,
+		                                MARCA_VEICULO = @marca,
+		                                MODELO_VEICULO = @modelo,
+		                                COR_VEICULO = @cor,
+		                                TIPO_VEICULO = @tipo_veiculo
+                                  WHERE ID_VEICULO = {IdVeiculo}
+                                ";
+
+                // Usando a conexão com o banco
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@placa", Placa);
+                    cmd.Parameters.AddWithValue("@tipo_placa", TipoPlaca);
+                    cmd.Parameters.AddWithValue("@marca", Marca);
+                    cmd.Parameters.AddWithValue("@modelo", Modelo);
+                    cmd.Parameters.AddWithValue("@cor", Cor);
+                    cmd.Parameters.AddWithValue("@tipo_veiculo", TipoVeiculo);
+
+                    // Executa a consulta e verifica o número de linhas afetadas
+                    int rowsAffected = cmd.ExecuteNonQuery();
+
+                    // Retorna true se uma linha foi atualizada, false caso contrário
+                    return rowsAffected > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
 
         ///// <summary>
         ///// Método para pesquisar os clientes na ComboBox de cadastro de veículos.

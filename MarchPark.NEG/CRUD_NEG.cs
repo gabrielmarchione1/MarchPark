@@ -457,6 +457,66 @@ namespace MarchPark.NEG
             }
         }
 
+        /// <summary>
+        /// Faz chamada da função "PESQUISAR_VEICULOS_ESPECIFICO" na camada de dados.
+        /// </summary>
+        /// <param name="PlacaDigitada"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public DataTable PESQUISAR_VEICULOS_ESPECIFICO(string PlacaDigitada)
+        {
+            try
+            {
+                return ObjDAD.PESQUISAR_VEICULOS_ESPECIFICO(PlacaDigitada);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+        }
+
+        /// <summary>
+        /// Faz chamada da função "PESQUISAR_VEICULOS_CLIENTE_ESPECIFICO" na camada de dados.
+        /// </summary>
+        /// <param name="IdCliente"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public DataTable PESQUISAR_VEICULOS_CLIENTE_ESPECIFICO(int IdCliente)
+        {
+            try
+            {
+                return ObjDAD.PESQUISAR_VEICULOS_CLIENTE_ESPECIFICO(IdCliente);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+        }
+
+        /// <summary>
+        /// Faz chamada da função "ALTERAR_VEICULO" na camada de dados.
+        /// </summary>
+        /// <param name="IdVeiculo"></param>
+        /// <param name="Placa"></param>
+        /// <param name="TipoPlaca"></param>
+        /// <param name="Marca"></param>
+        /// <param name="Modelo"></param>
+        /// <param name="Cor"></param>
+        /// <param name="TipoVeiculo"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public bool ALTERAR_VEICULO(int IdVeiculo, string Placa, string TipoPlaca, string Marca, string Modelo, string Cor, string TipoVeiculo)
+        {
+            try
+            {
+                return ObjDAD.ALTERAR_VEICULO(IdVeiculo, Placa, TipoPlaca, Marca, Modelo, Cor, TipoVeiculo);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+        }
+
         ///// <summary>
         ///// Faz chamada da função "PESQUISAR_CLIENTES_COMBO_VEIC" na camada de dados.
         ///// </summary>

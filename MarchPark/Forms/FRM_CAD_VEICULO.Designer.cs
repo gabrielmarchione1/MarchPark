@@ -30,6 +30,8 @@
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.MBX_CPF = new System.Windows.Forms.MaskedTextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.RBTN_ANTIGA = new System.Windows.Forms.RadioButton();
             this.RBTN_MERCOSUL = new System.Windows.Forms.RadioButton();
             this.CBX_TIPO_VEICULO = new System.Windows.Forms.ComboBox();
@@ -58,8 +60,6 @@
             this.DGV_DADOS = new System.Windows.Forms.DataGridView();
             this.checkBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
-            this.label7 = new System.Windows.Forms.Label();
-            this.MBX_CPF = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -113,6 +113,24 @@
             this.groupBox1.Size = new System.Drawing.Size(641, 105);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
+            // 
+            // MBX_CPF
+            // 
+            this.MBX_CPF.Enabled = false;
+            this.MBX_CPF.Location = new System.Drawing.Point(160, 28);
+            this.MBX_CPF.Mask = "000,000,000-00";
+            this.MBX_CPF.Name = "MBX_CPF";
+            this.MBX_CPF.Size = new System.Drawing.Size(120, 20);
+            this.MBX_CPF.TabIndex = 35;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(157, 13);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(65, 13);
+            this.label7.TabIndex = 34;
+            this.label7.Text = "CPF Cliente:";
             // 
             // RBTN_ANTIGA
             // 
@@ -279,6 +297,7 @@
             this.BTN_ALTERAR.Name = "BTN_ALTERAR";
             this.BTN_ALTERAR.Size = new System.Drawing.Size(62, 22);
             this.BTN_ALTERAR.Text = "Alterar";
+            this.BTN_ALTERAR.Click += new System.EventHandler(this.BTN_ALTERAR_Click);
             // 
             // toolStripSeparator3
             // 
@@ -325,6 +344,7 @@
             this.TXT_PESQUISAR_PLACA.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.TXT_PESQUISAR_PLACA.Name = "TXT_PESQUISAR_PLACA";
             this.TXT_PESQUISAR_PLACA.Size = new System.Drawing.Size(100, 25);
+            this.TXT_PESQUISAR_PLACA.TextChanged += new System.EventHandler(this.TXT_PESQUISAR_PLACA_TextChanged);
             // 
             // DGV_DADOS
             // 
@@ -346,29 +366,12 @@
             this.DGV_DADOS.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV_DADOS_CellClick);
             this.DGV_DADOS.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DGV_DADOS_CellFormatting);
             this.DGV_DADOS.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.DGV_DADOS_DataBindingComplete);
+            this.DGV_DADOS.DoubleClick += new System.EventHandler(this.DGV_DADOS_DoubleClick);
             // 
             // checkBoxColumn
             // 
             this.checkBoxColumn.HeaderText = "";
             this.checkBoxColumn.Name = "checkBoxColumn";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(157, 13);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(65, 13);
-            this.label7.TabIndex = 34;
-            this.label7.Text = "CPF Cliente:";
-            // 
-            // MBX_CPF
-            // 
-            this.MBX_CPF.Enabled = false;
-            this.MBX_CPF.Location = new System.Drawing.Point(160, 28);
-            this.MBX_CPF.Mask = "000,000,000-00";
-            this.MBX_CPF.Name = "MBX_CPF";
-            this.MBX_CPF.Size = new System.Drawing.Size(120, 20);
-            this.MBX_CPF.TabIndex = 35;
             // 
             // FRM_CAD_VEICULO
             // 
