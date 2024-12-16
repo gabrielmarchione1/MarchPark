@@ -554,5 +554,61 @@ namespace MarchPark.NEG
         //}
 
         #endregion
+
+        #region ENTRADA/SAIDA
+
+        /// <summary>
+        /// Faz chamada da função "SELECT_ENTRADA_SAIDA" na camada de dados.
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public DataTable SELECT_VEICULOS_ESTACIONADOS()
+        {
+            try
+            {
+                return ObjDAD.SELECT_VEICULOS_ESTACIONADOS();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+        }
+
+        /// <summary>
+        /// Faz chamada da função "CARREGAR_COMBO_CLIENTES_ENTRADA" na camada de dados.
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public DataTable CARREGAR_COMBO_CLIENTES_ENTRADA()
+        {
+            try
+            {
+                return ObjDAD.CARREGAR_COMBO_CLIENTES_ENTRADA();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+        }
+
+        /// <summary>
+        /// Faz chamada da função "CARREGAR_COMBO_PLACAS" na camada de dados.
+        /// </summary>
+        /// <param name="IdCliente"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public DataTable CARREGAR_COMBO_PLACAS(int IdCliente)
+        {
+            try
+            {
+                return ObjDAD.CARREGAR_COMBO_PLACAS(IdCliente);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+        }
+
+        #endregion
     }
 }

@@ -30,10 +30,7 @@
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.TXT_MARCA = new System.Windows.Forms.TextBox();
-            this.TXT_MODELO = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.TXT_MARCA_MODELO = new System.Windows.Forms.TextBox();
             this.CBX_PLACA = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.CBX_NOME = new System.Windows.Forms.ComboBox();
@@ -48,6 +45,8 @@
             this.DGV_DADOS = new System.Windows.Forms.DataGridView();
             this.checkBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.pageSetupDialog1 = new System.Windows.Forms.PageSetupDialog();
+            this.MBX_CPF = new System.Windows.Forms.MaskedTextBox();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -79,10 +78,9 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.TXT_MARCA);
-            this.groupBox1.Controls.Add(this.TXT_MODELO);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.MBX_CPF);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.TXT_MARCA_MODELO);
             this.groupBox1.Controls.Add(this.CBX_PLACA);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.CBX_NOME);
@@ -94,45 +92,20 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             // 
-            // TXT_MARCA
+            // TXT_MARCA_MODELO
             // 
-            this.TXT_MARCA.Enabled = false;
-            this.TXT_MARCA.Location = new System.Drawing.Point(305, 34);
-            this.TXT_MARCA.Name = "TXT_MARCA";
-            this.TXT_MARCA.Size = new System.Drawing.Size(92, 20);
-            this.TXT_MARCA.TabIndex = 33;
-            // 
-            // TXT_MODELO
-            // 
-            this.TXT_MODELO.Enabled = false;
-            this.TXT_MODELO.Location = new System.Drawing.Point(420, 34);
-            this.TXT_MODELO.Name = "TXT_MODELO";
-            this.TXT_MODELO.Size = new System.Drawing.Size(81, 20);
-            this.TXT_MODELO.TabIndex = 34;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(417, 18);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(45, 13);
-            this.label5.TabIndex = 38;
-            this.label5.Text = "Modelo:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(302, 16);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(40, 13);
-            this.label3.TabIndex = 37;
-            this.label3.Text = "Marca:";
+            this.TXT_MARCA_MODELO.Enabled = false;
+            this.TXT_MARCA_MODELO.Location = new System.Drawing.Point(434, 34);
+            this.TXT_MARCA_MODELO.Name = "TXT_MARCA_MODELO";
+            this.TXT_MARCA_MODELO.Size = new System.Drawing.Size(195, 20);
+            this.TXT_MARCA_MODELO.TabIndex = 33;
             // 
             // CBX_PLACA
             // 
             this.CBX_PLACA.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CBX_PLACA.Enabled = false;
             this.CBX_PLACA.FormattingEnabled = true;
-            this.CBX_PLACA.Location = new System.Drawing.Point(200, 34);
+            this.CBX_PLACA.Location = new System.Drawing.Point(334, 34);
             this.CBX_PLACA.Name = "CBX_PLACA";
             this.CBX_PLACA.Size = new System.Drawing.Size(79, 21);
             this.CBX_PLACA.TabIndex = 3;
@@ -140,7 +113,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(197, 18);
+            this.label2.Location = new System.Drawing.Point(331, 18);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(77, 13);
             this.label2.TabIndex = 2;
@@ -154,6 +127,7 @@
             this.CBX_NOME.Name = "CBX_NOME";
             this.CBX_NOME.Size = new System.Drawing.Size(157, 21);
             this.CBX_NOME.TabIndex = 1;
+            this.CBX_NOME.SelectionChangeCommitted += new System.EventHandler(this.CBX_NOME_SelectionChangeCommitted);
             // 
             // label1
             // 
@@ -241,6 +215,24 @@
             this.checkBoxColumn.HeaderText = "";
             this.checkBoxColumn.Name = "checkBoxColumn";
             // 
+            // MBX_CPF
+            // 
+            this.MBX_CPF.Enabled = false;
+            this.MBX_CPF.Location = new System.Drawing.Point(190, 34);
+            this.MBX_CPF.Mask = "000,000,000-00";
+            this.MBX_CPF.Name = "MBX_CPF";
+            this.MBX_CPF.Size = new System.Drawing.Size(120, 20);
+            this.MBX_CPF.TabIndex = 40;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(187, 18);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(65, 13);
+            this.label7.TabIndex = 39;
+            this.label7.Text = "CPF Cliente:";
+            // 
             // FRM_INICIAL
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -256,6 +248,7 @@
             this.Name = "FRM_INICIAL";
             this.Text = "ste";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.FRM_INICIAL_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -286,11 +279,10 @@
         private System.Windows.Forms.ComboBox CBX_PLACA;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox CBX_NOME;
-        private System.Windows.Forms.TextBox TXT_MARCA;
-        private System.Windows.Forms.TextBox TXT_MODELO;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox TXT_MARCA_MODELO;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripButton BTN_LIMPAR_DADOS;
+        private System.Windows.Forms.MaskedTextBox MBX_CPF;
+        private System.Windows.Forms.Label label7;
     }
 }
