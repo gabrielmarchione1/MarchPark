@@ -30,6 +30,8 @@
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.MBX_CPF = new System.Windows.Forms.MaskedTextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.TXT_MARCA_MODELO = new System.Windows.Forms.TextBox();
             this.CBX_PLACA = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -45,8 +47,6 @@
             this.DGV_DADOS = new System.Windows.Forms.DataGridView();
             this.checkBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.pageSetupDialog1 = new System.Windows.Forms.PageSetupDialog();
-            this.MBX_CPF = new System.Windows.Forms.MaskedTextBox();
-            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -92,6 +92,24 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             // 
+            // MBX_CPF
+            // 
+            this.MBX_CPF.Enabled = false;
+            this.MBX_CPF.Location = new System.Drawing.Point(190, 34);
+            this.MBX_CPF.Mask = "000,000,000-00";
+            this.MBX_CPF.Name = "MBX_CPF";
+            this.MBX_CPF.Size = new System.Drawing.Size(120, 20);
+            this.MBX_CPF.TabIndex = 40;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(187, 18);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(65, 13);
+            this.label7.TabIndex = 39;
+            this.label7.Text = "CPF Cliente:";
+            // 
             // TXT_MARCA_MODELO
             // 
             this.TXT_MARCA_MODELO.Enabled = false;
@@ -109,6 +127,7 @@
             this.CBX_PLACA.Name = "CBX_PLACA";
             this.CBX_PLACA.Size = new System.Drawing.Size(79, 21);
             this.CBX_PLACA.TabIndex = 3;
+            this.CBX_PLACA.SelectionChangeCommitted += new System.EventHandler(this.CBX_PLACA_SelectionChangeCommitted);
             // 
             // label2
             // 
@@ -160,6 +179,7 @@
             this.BTN_REGISTRAR_ENTRADA.Name = "BTN_REGISTRAR_ENTRADA";
             this.BTN_REGISTRAR_ENTRADA.Size = new System.Drawing.Size(116, 22);
             this.BTN_REGISTRAR_ENTRADA.Text = "Registrar Entrada";
+            this.BTN_REGISTRAR_ENTRADA.Click += new System.EventHandler(this.BTN_REGISTRAR_ENTRADA_Click);
             // 
             // toolStripSeparator1
             // 
@@ -178,6 +198,7 @@
             this.TXT_BUSCAR_PLACA.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.TXT_BUSCAR_PLACA.Name = "TXT_BUSCAR_PLACA";
             this.TXT_BUSCAR_PLACA.Size = new System.Drawing.Size(100, 25);
+            this.TXT_BUSCAR_PLACA.TextChanged += new System.EventHandler(this.TXT_BUSCAR_PLACA_TextChanged);
             // 
             // toolStripSeparator2
             // 
@@ -192,6 +213,7 @@
             this.BTN_LIMPAR_DADOS.Name = "BTN_LIMPAR_DADOS";
             this.BTN_LIMPAR_DADOS.Size = new System.Drawing.Size(64, 22);
             this.BTN_LIMPAR_DADOS.Text = "Limpar";
+            this.BTN_LIMPAR_DADOS.Click += new System.EventHandler(this.BTN_LIMPAR_DADOS_Click);
             // 
             // DGV_DADOS
             // 
@@ -209,29 +231,14 @@
             this.DGV_DADOS.ShowCellToolTips = false;
             this.DGV_DADOS.Size = new System.Drawing.Size(641, 395);
             this.DGV_DADOS.TabIndex = 3;
+            this.DGV_DADOS.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV_DADOS_CellClick);
+            this.DGV_DADOS.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DGV_DADOS_CellFormatting);
+            this.DGV_DADOS.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.DGV_DADOS_DataBindingComplete);
             // 
             // checkBoxColumn
             // 
             this.checkBoxColumn.HeaderText = "";
             this.checkBoxColumn.Name = "checkBoxColumn";
-            // 
-            // MBX_CPF
-            // 
-            this.MBX_CPF.Enabled = false;
-            this.MBX_CPF.Location = new System.Drawing.Point(190, 34);
-            this.MBX_CPF.Mask = "000,000,000-00";
-            this.MBX_CPF.Name = "MBX_CPF";
-            this.MBX_CPF.Size = new System.Drawing.Size(120, 20);
-            this.MBX_CPF.TabIndex = 40;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(187, 18);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(65, 13);
-            this.label7.TabIndex = 39;
-            this.label7.Text = "CPF Cliente:";
             // 
             // FRM_INICIAL
             // 
@@ -249,6 +256,7 @@
             this.Text = "ste";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FRM_INICIAL_Load);
+            this.Shown += new System.EventHandler(this.FRM_INICIAL_Shown);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);

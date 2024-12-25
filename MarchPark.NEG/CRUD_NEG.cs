@@ -609,6 +609,62 @@ namespace MarchPark.NEG
             }
         }
 
+        /// <summary>
+        /// Faz chamada da função "SELECT_INFORMACOES_VEICULO_SELECIONADO" na camada de dados.
+        /// </summary>
+        /// <param name="IdCliente"></param>
+        /// <param name="Placa"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public string SELECT_INFORMACOES_VEICULO_SELECIONADO(int IdCliente, string Placa)
+        {
+            try
+            {
+                return ObjDAD.SELECT_INFORMACOES_VEICULO_SELECIONADO(IdCliente, Placa);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+        }
+
+        /// <summary>
+        /// Faz chamada da função "REGISTRAR_ENTRADA" na camada de dados.
+        /// </summary>
+        /// <param name="IdCliente"></param>
+        /// <param name="IdVeiculo"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public bool REGISTRAR_ENTRADA(int IdCliente, int IdVeiculo)
+        {
+            try
+            {
+                return ObjDAD.REGISTRAR_ENTRADA(IdCliente, IdVeiculo);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+        }
+
+        /// <summary>
+        /// Faz chamada da função "PESQUISAR_VEICULOS_ESTACIONADOS" na camada de dados.
+        /// </summary>
+        /// <param name="PlacaDigitada"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public DataTable PESQUISAR_VEICULOS_ESTACIONADOS(string PlacaDigitada)
+        {
+            try
+            {
+                return ObjDAD.PESQUISAR_VEICULOS_ESTACIONADOS(PlacaDigitada);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+        }
+
         #endregion
     }
 }

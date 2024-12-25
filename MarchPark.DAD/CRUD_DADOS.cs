@@ -5,7 +5,10 @@ using System.Data;
 using System.Data.Linq.Mapping;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Reflection;
+using System.Runtime.ConstrainedExecution;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace MarchPark.DAD
@@ -1411,6 +1414,141 @@ namespace MarchPark.DAD
 	                                 PLACA_VEICULO
                                  FROM MarchPark_TBL_VEICULO
                                  WHERE ID_CLIENTE = {IdCliente}
+                                 ";
+
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.CommandTimeout = 30000;
+                adapter.SelectCommand = cmd; // define o comando SQL para o SqlDataAdapter
+                adapter.Fill(dt); // preenche o DataTable com os resultados da consulta
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        /// <summary>
+        /// Método para trazer as informações do veiculo selecionado na tela de entrada e saida.
+        /// </summary>
+        /// <param name="IdCliente"></param>
+        /// <param name="Placa"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public string SELECT_INFORMACOES_VEICULO_SELECIONADO(int IdCliente, string Placa)
+        {
+            // Cria a conexão com o banco
+            SqlConnection conn = new SqlConnection(MarchPark.DAD.ConnectionFactory.connectionString);
+            conn.Open();
+
+            try
+            {
+                string sql = $@"
+                                SELECT 
+	                                CONCAT(VEI.MARCA_VEICULO, ' ', VEI.MODELO_VEICULO, ' ', VEI.COR_VEICULO)
+                                FROM MarchPark_TBL_CLIENTE AS CLI
+                                INNER JOIN MarchPark_TBL_VEICULO AS VEI
+	                                ON CLI.ID_CLIENTE = VEI.ID_CLIENTE
+                                WHERE CLI.ID_CLIENTE = {IdCliente} AND VEI.PLACA_VEICULO = '{Placa}'
+                                 ";
+
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    string a = cmd.ExecuteScalar().ToString();
+                    return cmd.ExecuteScalar().ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        /// <summary>
+        /// Método para registrar entrada de veículo.
+        /// </summary>
+        /// <param name="IdCliente"></param>
+        /// <param name="IdVeiculo"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public bool REGISTRAR_ENTRADA(int IdCliente, int IdVeiculo)
+        {
+            // Cria a conexão com o banco
+            SqlConnection conn = new SqlConnection(MarchPark.DAD.ConnectionFactory.connectionString);
+            conn.Open();
+
+            try
+            {
+                string sql = $@"
+                                INSERT INTO MarchPark_TBL_ENTRADA (ID_CLIENTE, ID_VEICULO, ENTRADA) 
+                                VALUES (@id_cliente, @id_veiculo, CONVERT(DATETIME, GETDATE(), 120))
+                                ";
+
+                // Usando a conexão com o banco
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@id_cliente", IdCliente);
+                    cmd.Parameters.AddWithValue("@id_veiculo", IdVeiculo);
+                    
+                    // Executa a consulta e verifica o número de linhas afetadas
+                    int rowsAffected = cmd.ExecuteNonQuery();
+
+                    // Retorna true se uma linha foi atualizada, false caso contrário
+                    return rowsAffected > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        /// <summary>
+        /// Método para pesquisar veículos estacionados específicos a partir da placa digitada.
+        /// </summary>
+        /// <param name="PlacaDigitada"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public DataTable PESQUISAR_VEICULOS_ESTACIONADOS(string PlacaDigitada)
+        {
+            // Cria a conexão com o banco
+            SqlConnection conn = new SqlConnection(MarchPark.DAD.ConnectionFactory.connectionString);
+            conn.Open();
+
+            try
+            {
+                DataTable dt = new DataTable();
+                SqlDataAdapter adapter = new SqlDataAdapter();
+
+                string sql = $@"
+                                  SELECT
+                                       ENT.ID_CLIENTE,
+                                       ENT.ID_VEICULO,
+                                       CLI.NOME_CLIENTE AS 'NOME CLIENTE',
+                                       CONCAT(CLI.CPF_CLIENTE, CLI.CPF_CONTROLE) AS 'CPF',
+                                       VEI.PLACA_VEICULO AS 'PLACA',
+                                       VEI.MARCA_VEICULO AS 'MARCA',
+                                       VEI.MODELO_VEICULO AS 'MODELO',
+                                       VEI.COR_VEICULO 'COR',
+                                       ENT.ENTRADA
+                                   FROM MarchPark_TBL_ENTRADA AS ENT
+                                   INNER JOIN MarchPark_TBL_CLIENTE AS CLI
+                                       ON ENT.ID_CLIENTE = CLI.ID_CLIENTE
+                                   INNER JOIN MarchPark_TBL_VEICULO AS VEI
+                                       ON ENT.ID_VEICULO = VEI.ID_VEICULO
+                                   WHERE VEI.PLACA_VEICULO LIKE '{PlacaDigitada}%'
                                  ";
 
                 SqlCommand cmd = new SqlCommand(sql, conn);
