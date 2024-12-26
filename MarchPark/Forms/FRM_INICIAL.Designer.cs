@@ -234,6 +234,7 @@
             this.DGV_DADOS.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV_DADOS_CellClick);
             this.DGV_DADOS.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DGV_DADOS_CellFormatting);
             this.DGV_DADOS.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.DGV_DADOS_DataBindingComplete);
+            this.DGV_DADOS.DoubleClick += new System.EventHandler(this.DGV_DADOS_DoubleClick);
             // 
             // checkBoxColumn
             // 

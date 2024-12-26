@@ -55,6 +55,12 @@
     <Compile Include="Forms\FRM_GERENC_USUARIO.Designer.cs">
       <DependentUpon>FRM_GERENC_USUARIO.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FRM_RECIBO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FRM_RECIBO.Designer.cs">
+      <DependentUpon>FRM_RECIBO.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Login\FRM_PERMISSAO.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,6 +131,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\FRM_GERENC_USUARIO.resx">
       <DependentUpon>FRM_GERENC_USUARIO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FRM_RECIBO.resx">
+      <DependentUpon>FRM_RECIBO.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Login\FRM_PERMISSAO.resx">
       <DependentUpon>FRM_PERMISSAO.cs</DependentUpon>

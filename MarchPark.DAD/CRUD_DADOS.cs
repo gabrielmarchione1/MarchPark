@@ -1319,6 +1319,7 @@ namespace MarchPark.DAD
 
                 string sql = $@"
                                  SELECT
+                                     ENT.ID_ENTRADA,
 	                                 ENT.ID_CLIENTE,
 	                                 ENT.ID_VEICULO,
 	                                 CLI.NOME_CLIENTE AS 'NOME CLIENTE',
@@ -1326,7 +1327,8 @@ namespace MarchPark.DAD
 	                                 VEI.PLACA_VEICULO AS 'PLACA',
 	                                 VEI.MARCA_VEICULO AS 'MARCA',
 	                                 VEI.MODELO_VEICULO AS 'MODELO',
-	                                 VEI.COR_VEICULO 'COR',
+	                                 VEI.COR_VEICULO AS 'COR',
+                                     VEI.TIPO_VEICULO AS 'TIPO VEICULO',
 	                                 ENT.ENTRADA
                                  FROM MarchPark_TBL_ENTRADA AS ENT
                                  INNER JOIN MarchPark_TBL_CLIENTE AS CLI
@@ -1534,6 +1536,7 @@ namespace MarchPark.DAD
 
                 string sql = $@"
                                   SELECT
+                                       ENT.ID_ENTRADA,
                                        ENT.ID_CLIENTE,
                                        ENT.ID_VEICULO,
                                        CLI.NOME_CLIENTE AS 'NOME CLIENTE',
@@ -1541,7 +1544,8 @@ namespace MarchPark.DAD
                                        VEI.PLACA_VEICULO AS 'PLACA',
                                        VEI.MARCA_VEICULO AS 'MARCA',
                                        VEI.MODELO_VEICULO AS 'MODELO',
-                                       VEI.COR_VEICULO 'COR',
+                                       VEI.COR_VEICULO AS 'COR',
+                                       VEI.TIPO_VEICULO AS 'TIPO VEICULO',
                                        ENT.ENTRADA
                                    FROM MarchPark_TBL_ENTRADA AS ENT
                                    INNER JOIN MarchPark_TBL_CLIENTE AS CLI

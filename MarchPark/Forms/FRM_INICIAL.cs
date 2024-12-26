@@ -16,6 +16,7 @@ namespace MarchPark.Forms
     public partial class FRM_INICIAL : Form
     {
         MarchPark.NEG.CRUD_NEG ObjNEG = new NEG.CRUD_NEG();
+        MarchPark.NEG.FRM_INICIAL_NEG ObjNEG_SAIDA = new NEG.FRM_INICIAL_NEG();
 
         /// <summary>
         /// Construtor da classe FRM_INICIAL
@@ -24,6 +25,37 @@ namespace MarchPark.Forms
         public FRM_INICIAL()
         {
             InitializeComponent();
+        }
+
+        public void REGISTRAR_SAIDA()
+        {
+            try
+            {
+                string tipoVeiculo;
+
+                if (DGV_DADOS.CurrentRow.Cells["TIPO VEICULO"].Value.ToString() == "Carro")
+                {
+                    tipoVeiculo = "Carro";
+                }
+                else
+                {
+                    tipoVeiculo = "Moto";
+                }
+
+                string tarifa = ObjNEG.SELECT_VALOR_TARIFA_ATUAL(tipoVeiculo);
+                decimal tarifaConvertida = decimal.Parse(tarifa);
+
+                ObjNEG_SAIDA.REGISTRAR_SAIDA_VEICULO(Convert.ToInt32(DGV_DADOS.CurrentRow.Cells["ID_ENTRADA"].Value.ToString()), Convert.ToInt32(DGV_DADOS.CurrentRow.Cells["ID_CLIENTE"].Value.ToString()), Convert.ToInt32(DGV_DADOS.CurrentRow.Cells["ID_VEICULO"].Value.ToString()), DGV_DADOS.CurrentRow.Cells["ENTRADA"].Value.ToString(), tarifaConvertida);
+
+                //MarchPark.Forms.FRM_RECIBO FRM_RECIBO = new MarchPark.Forms.FRM_RECIBO();
+                //FRM_RECIBO.MdiParent = this;
+                //FRM_RECIBO.ShowDialog();
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
         }
 
         /// <summary>
@@ -156,8 +188,10 @@ namespace MarchPark.Forms
         {
             try
             {
+                DGV_DADOS.Columns["ID_ENTRADA"].Visible = false;
                 DGV_DADOS.Columns["ID_VEICULO"].Visible = false;
                 DGV_DADOS.Columns["ID_CLIENTE"].Visible = false;
+                DGV_DADOS.Columns["TIPO VEICULO"].Visible = false;
                 DGV_DADOS.Columns["PLACA"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
                 // Configurar o DataGridView para não quebrar o texto no cabeçalho
@@ -409,6 +443,34 @@ namespace MarchPark.Forms
             {
                 Cursor = Cursors.WaitCursor;
                 REGISTRAR_ENTRADA();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, " MarchPark ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                Cursor = Cursors.Default;
+            }
+        }
+
+        /// <summary>
+        /// Evento de duplo clique na linha selecionada do GridView.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DGV_DADOS_DoubleClick(object sender, EventArgs e)
+        {
+            try
+            {
+                Cursor = Cursors.WaitCursor;
+                string nomeVeiculo = DGV_DADOS.CurrentRow.Cells["MARCA"].Value.ToString() + " " + DGV_DADOS.CurrentRow.Cells["MODELO"].Value.ToString() + " " + DGV_DADOS.CurrentRow.Cells["COR"].Value.ToString();
+
+                if (MessageBox.Show($"Deseja realmente registrar a saída do veículo {nomeVeiculo} da placa: {DGV_DADOS.CurrentRow.Cells["PLACA"].Value.ToString()}?", " MarchPark ", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    REGISTRAR_SAIDA();
+                }
+
             }
             catch (Exception ex)
             {
