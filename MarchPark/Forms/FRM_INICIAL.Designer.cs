@@ -47,6 +47,7 @@
             this.DGV_DADOS = new System.Windows.Forms.DataGridView();
             this.checkBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.pageSetupDialog1 = new System.Windows.Forms.PageSetupDialog();
+            this.LBL_TARIFA = new System.Windows.Forms.ToolStripLabel();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -165,7 +166,8 @@
             this.toolStripLabel1,
             this.TXT_BUSCAR_PLACA,
             this.toolStripSeparator2,
-            this.BTN_LIMPAR_DADOS});
+            this.BTN_LIMPAR_DADOS,
+            this.LBL_TARIFA});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(641, 25);
@@ -241,6 +243,14 @@
             this.checkBoxColumn.HeaderText = "";
             this.checkBoxColumn.Name = "checkBoxColumn";
             // 
+            // LBL_TARIFA
+            // 
+            this.LBL_TARIFA.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.LBL_TARIFA.Font = new System.Drawing.Font("Segoe UI", 9.5F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.LBL_TARIFA.Name = "LBL_TARIFA";
+            this.LBL_TARIFA.Size = new System.Drawing.Size(46, 22);
+            this.LBL_TARIFA.Text = "Tarifa";
+            // 
             // FRM_INICIAL
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -293,5 +303,6 @@
         private System.Windows.Forms.ToolStripButton BTN_LIMPAR_DADOS;
         private System.Windows.Forms.MaskedTextBox MBX_CPF;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ToolStripLabel LBL_TARIFA;
     }
 }

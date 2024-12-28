@@ -1370,10 +1370,12 @@ namespace MarchPark.DAD
                 SqlDataAdapter adapter = new SqlDataAdapter();
 
                 string sql = $@"
-                                 SELECT
-                                    ID_CLIENTE,
-	                                NOME_CLIENTE
-	                             FROM MarchPark_TBL_CLIENTE
+                                 SELECT DISTINCT
+                                    CLI.ID_CLIENTE,
+                                    CLI.NOME_CLIENTE
+                                 FROM MarchPark_TBL_CLIENTE AS CLI
+                                 INNER JOIN MarchPark_TBL_VEICULO AS VEI
+	                                 ON CLI.ID_CLIENTE = VEI.ID_CLIENTE
                                  ORDER BY NOME_CLIENTE
                                  ";
 
@@ -1553,6 +1555,96 @@ namespace MarchPark.DAD
                                    INNER JOIN MarchPark_TBL_VEICULO AS VEI
                                        ON ENT.ID_VEICULO = VEI.ID_VEICULO
                                    WHERE VEI.PLACA_VEICULO LIKE '{PlacaDigitada}%'
+                                 ";
+
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.CommandTimeout = 30000;
+                adapter.SelectCommand = cmd; // define o comando SQL para o SqlDataAdapter
+                adapter.Fill(dt); // preenche o DataTable com os resultados da consulta
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        /// <summary>
+        /// Método para retornar o tipo do veículo selecionado.
+        /// </summary>
+        /// <param name="IdVeiculo"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public string TIPO_VEICULO(int IdVeiculo)
+        {
+            // Cria a conexão com o banco
+            SqlConnection conn = new SqlConnection(MarchPark.DAD.ConnectionFactory.connectionString);
+            conn.Open();
+
+            try
+            {
+
+                string sql = $@"
+                                SELECT
+                                    TIPO_VEICULO
+                                FROM MarchPark_TBL_VEICULO
+                                WHERE ID_VEICULO = '{IdVeiculo}'
+                                 ";
+
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    string a = cmd.ExecuteScalar().ToString();
+                    return cmd.ExecuteScalar().ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        #endregion
+
+        #region CHECKOUT
+
+        /// <summary>
+        /// Método para trazer os dados do cliente que saiu do estacionamento.
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public DataTable SELECT_DADOS_CLIENTE_SAIDA()
+        {
+            // Cria a conexão com o banco
+            SqlConnection conn = new SqlConnection(MarchPark.DAD.ConnectionFactory.connectionString);
+            conn.Open();
+
+            try
+            {
+                DataTable dt = new DataTable();
+                SqlDataAdapter adapter = new SqlDataAdapter();
+
+                string sql = $@"
+                                SELECT TOP (1)
+	                                CLI.NOME_CLIENTE,
+	                                CONCAT(CLI.CPF_CLIENTE, CLI.CPF_CONTROLE) AS CPF,
+	                                CONCAT(VEI.MARCA_VEICULO, ' ', VEI.MODELO_VEICULO, ' ', VEI.COR_VEICULO) AS VEICULO,
+	                                HIS.ENTRADA,
+	                                HIS.SAIDA,
+	                                HIS.VALOR_PAGO
+                                FROM MarchPark_TBL_HISTORICO AS HIS
+                                INNER JOIN MarchPark_TBL_CLIENTE AS CLI
+	                                ON HIS.ID_CLIENTE = CLI.ID_CLIENTE
+                                INNER JOIN MarchPark_TBL_VEICULO AS VEI
+	                                ON HIS.ID_VEICULO = VEI.ID_VEICULO
+                                ORDER BY ID_HISTORICO DESC
                                  ";
 
                 SqlCommand cmd = new SqlCommand(sql, conn);

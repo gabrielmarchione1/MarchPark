@@ -157,6 +157,7 @@ namespace MarchPark.Forms
                 MBX_CPF.Enabled = false;
                 MBX_DATA_NASCIMENTO.Enabled = false;
                 DGV_DADOS.Enabled = false;
+                TXT_PESQUISAR_NOME.Enabled = false;
 
                 BTN_LIMPAR_DADOS.Text = "Limpar/Desfazer";
 
@@ -317,6 +318,7 @@ namespace MarchPark.Forms
                 MBX_CPF.Enabled = true;
                 MBX_DATA_NASCIMENTO.Enabled = true;
                 DGV_DADOS.Enabled = true;
+                TXT_PESQUISAR_NOME.Enabled = true;
 
                 BTN_LIMPAR_DADOS.Text = "Limpar";
 

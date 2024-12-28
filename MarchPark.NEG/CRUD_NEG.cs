@@ -665,6 +665,41 @@ namespace MarchPark.NEG
             }
         }
 
+        /// <summary>
+        /// Faz chamada da função "TIPO_VEICULO" na camada de dados.
+        /// </summary>
+        /// <param name="IdVeiculo"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public string TIPO_VEICULO(int IdVeiculo)
+        {
+            try
+            {
+                return ObjDAD.TIPO_VEICULO(IdVeiculo);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+        }
+
+        /// <summary>
+        /// Faz chamada da função "SELECT_DADOS_CLIENTE_SAIDA" na camada de dados.
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public DataTable SELECT_DADOS_CLIENTE_SAIDA()
+        {
+            try
+            {
+                return ObjDAD.SELECT_DADOS_CLIENTE_SAIDA();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+        }
+
         #endregion
 
 

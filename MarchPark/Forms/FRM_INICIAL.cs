@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Media;
 
 namespace MarchPark.Forms
 {
@@ -27,6 +28,10 @@ namespace MarchPark.Forms
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Método para registrar a saída do veículo.
+        /// </summary>
+        /// <exception cref="Exception"></exception>
         public void REGISTRAR_SAIDA()
         {
             try
@@ -46,10 +51,11 @@ namespace MarchPark.Forms
                 decimal tarifaConvertida = decimal.Parse(tarifa);
 
                 ObjNEG_SAIDA.REGISTRAR_SAIDA_VEICULO(Convert.ToInt32(DGV_DADOS.CurrentRow.Cells["ID_ENTRADA"].Value.ToString()), Convert.ToInt32(DGV_DADOS.CurrentRow.Cells["ID_CLIENTE"].Value.ToString()), Convert.ToInt32(DGV_DADOS.CurrentRow.Cells["ID_VEICULO"].Value.ToString()), DGV_DADOS.CurrentRow.Cells["ENTRADA"].Value.ToString(), tarifaConvertida);
+                CONSULTAR_VEICULOS_ESTACIONADOS();
 
-                //MarchPark.Forms.FRM_RECIBO FRM_RECIBO = new MarchPark.Forms.FRM_RECIBO();
-                //FRM_RECIBO.MdiParent = this;
-                //FRM_RECIBO.ShowDialog();
+                MarchPark.Forms.FRM_CHECKOUT FRM_CHECKOUT = new MarchPark.Forms.FRM_CHECKOUT();
+                SystemSounds.Asterisk.Play();
+                FRM_CHECKOUT.ShowDialog();
 
             }
             catch (Exception ex)
@@ -163,6 +169,7 @@ namespace MarchPark.Forms
                 CBX_PLACA.SelectedIndex = -1;
                 TXT_MARCA_MODELO.Text = "";
                 TXT_BUSCAR_PLACA.Text = "";
+                LBL_TARIFA.Text = "";
 
                 CBX_PLACA.Enabled = false;
 
@@ -257,6 +264,7 @@ namespace MarchPark.Forms
 
                 CBX_PLACA.SelectedIndex = -1;
                 CBX_PLACA.Enabled = true;
+                TXT_MARCA_MODELO.Text = "";
             }
             catch (Exception ex)
             {
@@ -404,6 +412,8 @@ namespace MarchPark.Forms
                 {
                     TXT_MARCA_MODELO.Text = ObjNEG.SELECT_INFORMACOES_VEICULO_SELECIONADO(Convert.ToInt32(CBX_NOME.SelectedValue), CBX_PLACA.Text);
                 }
+
+                LBL_TARIFA.Text = "R$ " + ObjNEG.SELECT_VALOR_TARIFA_ATUAL(ObjNEG.TIPO_VEICULO(Convert.ToInt32(CBX_PLACA.SelectedValue))) + "/h";
             }
             catch (Exception ex)
             {

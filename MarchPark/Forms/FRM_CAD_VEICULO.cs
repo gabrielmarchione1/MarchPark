@@ -174,6 +174,7 @@ namespace MarchPark.Forms
                 BTN_DELETAR.Enabled = false;
                 DGV_DADOS.Enabled = false;
                 CBX_NOME.Enabled = false;
+                TXT_PESQUISAR_PLACA.Enabled = false;
 
                 BTN_LIMPAR_DADOS.Text = "Limpar/Desfazer";
                               
@@ -356,6 +357,7 @@ namespace MarchPark.Forms
                 BTN_ADICIONAR.Enabled = true;
                 BTN_DELETAR.Enabled = true;
                 DGV_DADOS.Enabled = true;
+                TXT_PESQUISAR_PLACA.Enabled = true;
 
                 BTN_LIMPAR_DADOS.Text = "Limpar";
 
