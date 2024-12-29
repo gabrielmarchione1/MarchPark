@@ -397,6 +397,8 @@ namespace MarchPark.Forms
                 {
                     case "Data Entrada":
 
+                        CONSULTAR_HISTORICO();
+
                         BTN_CONSULTAR.Visible = false;
                         SEP_CONSULTAR.Visible = false;
                         LBL_ENTRADA_RANGE.Visible = false;
@@ -414,6 +416,8 @@ namespace MarchPark.Forms
                         break;
 
                     case "Range Data Entrada":
+
+                        CONSULTAR_HISTORICO();
 
                         LBL_PLACA.Visible = false;
                         TXT_PLACA.Visible = false;
@@ -433,6 +437,8 @@ namespace MarchPark.Forms
 
                     case "Placa":
 
+                        CONSULTAR_HISTORICO();
+
                         BTN_CONSULTAR.Visible = false;
                         SEP_CONSULTAR.Visible = false;
                         LBL_CPF.Visible = false;
@@ -450,6 +456,8 @@ namespace MarchPark.Forms
                         break;
 
                     case "CPF":
+
+                        CONSULTAR_HISTORICO();
 
                         BTN_CONSULTAR.Visible = false;
                         SEP_CONSULTAR.Visible = false;
