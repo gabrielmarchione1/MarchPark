@@ -13,11 +13,11 @@ namespace MarchPark.DAD
         /// <summary>
         /// String de conexão
         /// </summary>
-        public static string connectionString = "Server=DESKTOP-FFELNCC;Database=PROJETOS;Trusted_Connection=True;"; // "Server=*servidor*;Database=*nome_db*;Trusted_Connection=True;"
+        public static string connectionString = "Server=*servidor*;Database=*nome_db*;Trusted_Connection=True;"; // "Server=*servidor*;Database=*nome_db*;Trusted_Connection=True;"
         /// <summary>
         /// String de conexão
         /// </summary>
-        public ConnectionFactory() : base("Server=DESKTOP-FFELNCC;Database=PROJETOS;Trusted_Connection=True;") { }
+        public ConnectionFactory() : base("Server=*servidor*;Database=*nome_db*;Trusted_Connection=True;") { }
 
         /// <summary>
         /// Função para executar uma procedure sem retorno.

@@ -1705,7 +1705,7 @@ namespace MarchPark.DAD
 	                                 ON HIS.ID_CLIENTE = CLI.ID_CLIENTE
                                  INNER JOIN MarchPark_TBL_VEICULO AS VEI	
 	                                 ON HIS.ID_VEICULO = VEI.ID_VEICULO
-                                 ORDER BY HIS.ENTRADA DESC
+                                 ORDER BY HIS.SAIDA DESC
                                  ";
 
                 SqlCommand cmd = new SqlCommand(sql, conn);
@@ -1757,7 +1757,7 @@ namespace MarchPark.DAD
                                  INNER JOIN MarchPark_TBL_VEICULO AS VEI	
                                      ON HIS.ID_VEICULO = VEI.ID_VEICULO
                                  WHERE FORMAT(HIS.ENTRADA, 'yyyy-MM-dd') = FORMAT((CONVERT(DATETIME, '{DataEntrada}')), 'yyyy-MM-dd')
-                                 ORDER BY HIS.ENTRADA DESC
+                                 ORDER BY HIS.SAIDA DESC
                                  ";
 
                 SqlCommand cmd = new SqlCommand(sql, conn);
@@ -1811,7 +1811,7 @@ namespace MarchPark.DAD
                                      ON HIS.ID_VEICULO = VEI.ID_VEICULO
                                  WHERE FORMAT(HIS.ENTRADA, 'yyyy-MM-dd') >= FORMAT((CONVERT(DATETIME, '{DataInicio}')), 'yyyy-MM-dd') 
                                  AND FORMAT(HIS.ENTRADA, 'yyyy-MM-dd') <= FORMAT((CONVERT(DATETIME, '{DataFim}')), 'yyyy-MM-dd')
-                                 ORDER BY HIS.ENTRADA DESC
+                                 ORDER BY HIS.SAIDA DESC
                                  ";
 
                 SqlCommand cmd = new SqlCommand(sql, conn);
@@ -1863,7 +1863,7 @@ namespace MarchPark.DAD
                                  INNER JOIN MarchPark_TBL_VEICULO AS VEI	
                                      ON HIS.ID_VEICULO = VEI.ID_VEICULO
                                  WHERE VEI.PLACA_VEICULO LIKE '{PlacaDigitada}%'
-                                 ORDER BY HIS.ENTRADA DESC
+                                 ORDER BY HIS.SAIDA DESC
                                  ";
 
                 SqlCommand cmd = new SqlCommand(sql, conn);
@@ -1915,7 +1915,7 @@ namespace MarchPark.DAD
                                  INNER JOIN MarchPark_TBL_VEICULO AS VEI	
                                      ON HIS.ID_VEICULO = VEI.ID_VEICULO
                                  WHERE CONCAT(CPF_CLIENTE, CPF_CONTROLE) LIKE '{CPFDigitado}%'
-                                 ORDER BY HIS.ENTRADA DESC
+                                 ORDER BY HIS.SAIDA DESC
                                  ";
 
                 SqlCommand cmd = new SqlCommand(sql, conn);
