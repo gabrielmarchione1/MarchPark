@@ -683,6 +683,10 @@ namespace MarchPark.NEG
             }
         }
 
+        #endregion
+
+        #region CHECKOUT
+
         /// <summary>
         /// Faz chamada da função "SELECT_DADOS_CLIENTE_SAIDA" na camada de dados.
         /// </summary>
@@ -702,6 +706,99 @@ namespace MarchPark.NEG
 
         #endregion
 
+        #region RELATÓRIO
+
+        /// <summary>
+        /// Faz chamada da função "SELECT_HISTORICO" na camada de dados.
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public DataTable SELECT_HISTORICO()
+        {
+            try
+            {
+                return ObjDAD.SELECT_HISTORICO();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+        }
+
+        /// <summary>
+        /// Faz chamada da função "SELECT_HISTORICO_DATA_ENTRADA" na camada de dados.
+        /// </summary>
+        /// <param name="DataEntrada"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public DataTable SELECT_HISTORICO_DATA_ENTRADA(string DataEntrada)
+        {
+            try
+            {
+                return ObjDAD.SELECT_HISTORICO_DATA_ENTRADA(DataEntrada);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+        }
+
+        /// <summary>
+        /// Faz chamada da função "SELECT_HISTORICO_DATA_ENTRADA_RANGE" na camada de dados.
+        /// </summary>
+        /// <param name="DataInicio"></param>
+        /// <param name="DataFim"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public DataTable SELECT_HISTORICO_DATA_ENTRADA_RANGE(string DataInicio, string DataFim)
+        {
+            try
+            {
+                return ObjDAD.SELECT_HISTORICO_DATA_ENTRADA_RANGE(DataInicio, DataFim);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+        }
+
+        /// <summary>
+        /// Faz chamada da função "SELECT_HISTORICO_PLACA" na camada de dados.
+        /// </summary>
+        /// <param name="PlacaDigitada"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public DataTable SELECT_HISTORICO_PLACA(string PlacaDigitada)
+        {
+            try
+            {
+                return ObjDAD.SELECT_HISTORICO_PLACA(PlacaDigitada);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+        }
+
+        /// <summary>
+        /// Faz chamada da função "SELECT_HISTORICO_CPF" na camada de dados.
+        /// </summary>
+        /// <param name="CPFDigitado"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public DataTable SELECT_HISTORICO_CPF(string CPFDigitado)
+        {
+            try
+            {
+                return ObjDAD.SELECT_HISTORICO_CPF(CPFDigitado);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+        }
+
+        #endregion
 
     }
 }

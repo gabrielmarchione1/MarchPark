@@ -1664,5 +1664,264 @@ namespace MarchPark.DAD
         }
 
         #endregion
+
+        #region RELATÓRIO
+
+        /// <summary>
+        /// Método para consultar o histórico do estacionamento.
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public DataTable SELECT_HISTORICO()
+        {
+            // Cria a conexão com o banco
+            SqlConnection conn = new SqlConnection(MarchPark.DAD.ConnectionFactory.connectionString);
+            conn.Open();
+
+            try
+            {
+                DataTable dt = new DataTable();
+                SqlDataAdapter adapter = new SqlDataAdapter();
+
+                string sql = $@"
+                                 SELECT
+	                                 CLI.NOME_CLIENTE AS 'NOME CLIENTE',
+	                                 CONCAT(CPF_CLIENTE, CPF_CONTROLE) AS 'CPF',
+	                                 VEI.PLACA_VEICULO AS 'PLACA',
+	                                 CONCAT(VEI.MARCA_VEICULO, ' ', VEI.MODELO_VEICULO, ' ', VEI.COR_VEICULO) AS 'VEÍCULO',
+	                                 HIS.VALOR_PAGO AS 'VALOR PAGO',
+	                                 HIS.ENTRADA,
+	                                 HIS.SAIDA AS 'SAÍDA',
+                                     HIS.NUM_ENTRADA_DIA AS 'Nº'
+                                 FROM MarchPark_TBL_HISTORICO AS HIS
+                                 INNER JOIN MarchPark_TBL_CLIENTE AS CLI
+	                                 ON HIS.ID_CLIENTE = CLI.ID_CLIENTE
+                                 INNER JOIN MarchPark_TBL_VEICULO AS VEI	
+	                                 ON HIS.ID_VEICULO = VEI.ID_VEICULO
+                                 ";
+
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.CommandTimeout = 30000;
+                adapter.SelectCommand = cmd; // define o comando SQL para o SqlDataAdapter
+                adapter.Fill(dt); // preenche o DataTable com os resultados da consulta
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        /// <summary>
+        /// Método para consultar o histórico do estacionamento a partir da data de entrada.
+        /// </summary>
+        /// <param name="DataEntrada"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public DataTable SELECT_HISTORICO_DATA_ENTRADA(string DataEntrada)
+        {
+            // Cria a conexão com o banco
+            SqlConnection conn = new SqlConnection(MarchPark.DAD.ConnectionFactory.connectionString);
+            conn.Open();
+
+            try
+            {
+                DataTable dt = new DataTable();
+                SqlDataAdapter adapter = new SqlDataAdapter();
+
+                string sql = $@"
+                                 SELECT
+                                     CLI.NOME_CLIENTE AS 'NOME CLIENTE',
+                                     CONCAT(CPF_CLIENTE, CPF_CONTROLE) AS 'CPF',
+                                     VEI.PLACA_VEICULO AS 'PLACA',
+                                     CONCAT(VEI.MARCA_VEICULO, ' ', VEI.MODELO_VEICULO, ' ', VEI.COR_VEICULO) AS 'VEÍCULO',
+                                     HIS.VALOR_PAGO AS 'VALOR PAGO',
+                                     HIS.ENTRADA,
+                                     HIS.SAIDA AS 'SAÍDA',
+                                     HIS.NUM_ENTRADA_DIA AS 'Nº'
+                                 FROM MarchPark_TBL_HISTORICO AS HIS
+                                 INNER JOIN MarchPark_TBL_CLIENTE AS CLI
+                                     ON HIS.ID_CLIENTE = CLI.ID_CLIENTE
+                                 INNER JOIN MarchPark_TBL_VEICULO AS VEI	
+                                     ON HIS.ID_VEICULO = VEI.ID_VEICULO
+                                 WHERE FORMAT(HIS.ENTRADA, 'yyyy-MM-dd') = FORMAT((CONVERT(DATETIME, '{DataEntrada}')), 'yyyy-MM-dd')
+                                 ";
+
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.CommandTimeout = 30000;
+                adapter.SelectCommand = cmd; // define o comando SQL para o SqlDataAdapter
+                adapter.Fill(dt); // preenche o DataTable com os resultados da consulta
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        /// <summary>
+        /// Método para consultar o histórico do estacionamento a partir de um range de data de entrada.
+        /// </summary>
+        /// <param name="DataInicio"></param>
+        /// <param name="DataFim"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public DataTable SELECT_HISTORICO_DATA_ENTRADA_RANGE(string DataInicio, string DataFim)
+        {
+            // Cria a conexão com o banco
+            SqlConnection conn = new SqlConnection(MarchPark.DAD.ConnectionFactory.connectionString);
+            conn.Open();
+
+            try
+            {
+                DataTable dt = new DataTable();
+                SqlDataAdapter adapter = new SqlDataAdapter();
+
+                string sql = $@"
+                                 SELECT
+                                     CLI.NOME_CLIENTE AS 'NOME CLIENTE',
+                                     CONCAT(CPF_CLIENTE, CPF_CONTROLE) AS 'CPF',
+                                     VEI.PLACA_VEICULO AS 'PLACA',
+                                     CONCAT(VEI.MARCA_VEICULO, ' ', VEI.MODELO_VEICULO, ' ', VEI.COR_VEICULO) AS 'VEÍCULO',
+                                     HIS.VALOR_PAGO AS 'VALOR PAGO',
+                                     HIS.ENTRADA,
+                                     HIS.SAIDA AS 'SAÍDA',
+                                     HIS.NUM_ENTRADA_DIA AS 'Nº'
+                                 FROM MarchPark_TBL_HISTORICO AS HIS
+                                 INNER JOIN MarchPark_TBL_CLIENTE AS CLI
+                                     ON HIS.ID_CLIENTE = CLI.ID_CLIENTE
+                                 INNER JOIN MarchPark_TBL_VEICULO AS VEI	
+                                     ON HIS.ID_VEICULO = VEI.ID_VEICULO
+                                 WHERE FORMAT(HIS.ENTRADA, 'yyyy-MM-dd') >= FORMAT((CONVERT(DATETIME, '{DataInicio}')), 'yyyy-MM-dd') 
+                                 AND FORMAT(HIS.ENTRADA, 'yyyy-MM-dd') <= FORMAT((CONVERT(DATETIME, '{DataFim}')), 'yyyy-MM-dd')
+                                 ";
+
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.CommandTimeout = 30000;
+                adapter.SelectCommand = cmd; // define o comando SQL para o SqlDataAdapter
+                adapter.Fill(dt); // preenche o DataTable com os resultados da consulta
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        /// <summary>
+        /// Método para consultar o histórico do estacionamento a partir da placa do veículo.
+        /// </summary>
+        /// <param name="Placa"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public DataTable SELECT_HISTORICO_PLACA(string PlacaDigitada)
+        {
+            // Cria a conexão com o banco
+            SqlConnection conn = new SqlConnection(MarchPark.DAD.ConnectionFactory.connectionString);
+            conn.Open();
+
+            try
+            {
+                DataTable dt = new DataTable();
+                SqlDataAdapter adapter = new SqlDataAdapter();
+
+                string sql = $@"
+                                 SELECT
+                                     CLI.NOME_CLIENTE AS 'NOME CLIENTE',
+                                     CONCAT(CPF_CLIENTE, CPF_CONTROLE) AS 'CPF',
+                                     VEI.PLACA_VEICULO AS 'PLACA',
+                                     CONCAT(VEI.MARCA_VEICULO, ' ', VEI.MODELO_VEICULO, ' ', VEI.COR_VEICULO) AS 'VEÍCULO',
+                                     HIS.VALOR_PAGO AS 'VALOR PAGO',
+                                     HIS.ENTRADA,
+                                     HIS.SAIDA AS 'SAÍDA',
+                                     HIS.NUM_ENTRADA_DIA AS 'Nº'
+                                 FROM MarchPark_TBL_HISTORICO AS HIS
+                                 INNER JOIN MarchPark_TBL_CLIENTE AS CLI
+                                     ON HIS.ID_CLIENTE = CLI.ID_CLIENTE
+                                 INNER JOIN MarchPark_TBL_VEICULO AS VEI	
+                                     ON HIS.ID_VEICULO = VEI.ID_VEICULO
+                                 WHERE VEI.PLACA_VEICULO LIKE '{PlacaDigitada}%'
+                                 ";
+
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.CommandTimeout = 30000;
+                adapter.SelectCommand = cmd; // define o comando SQL para o SqlDataAdapter
+                adapter.Fill(dt); // preenche o DataTable com os resultados da consulta
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        /// <summary>
+        /// Método para consultar o histórico do estacionamento a partir do CPF do cliente.
+        /// </summary>
+        /// <param name="CPFDigitado"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public DataTable SELECT_HISTORICO_CPF(string CPFDigitado)
+        {
+            // Cria a conexão com o banco
+            SqlConnection conn = new SqlConnection(MarchPark.DAD.ConnectionFactory.connectionString);
+            conn.Open();
+
+            try
+            {
+                DataTable dt = new DataTable();
+                SqlDataAdapter adapter = new SqlDataAdapter();
+
+                string sql = $@"
+                                 SELECT
+                                     CLI.NOME_CLIENTE AS 'NOME CLIENTE',
+                                     CONCAT(CPF_CLIENTE, CPF_CONTROLE) AS 'CPF',
+                                     VEI.PLACA_VEICULO AS 'PLACA',
+                                     CONCAT(VEI.MARCA_VEICULO, ' ', VEI.MODELO_VEICULO, ' ', VEI.COR_VEICULO) AS 'VEÍCULO',
+                                     HIS.VALOR_PAGO AS 'VALOR PAGO',
+                                     HIS.ENTRADA,
+                                     HIS.SAIDA AS 'SAÍDA',
+                                     HIS.NUM_ENTRADA_DIA AS 'Nº'
+                                 FROM MarchPark_TBL_HISTORICO AS HIS
+                                 INNER JOIN MarchPark_TBL_CLIENTE AS CLI
+                                     ON HIS.ID_CLIENTE = CLI.ID_CLIENTE
+                                 INNER JOIN MarchPark_TBL_VEICULO AS VEI	
+                                     ON HIS.ID_VEICULO = VEI.ID_VEICULO
+                                 WHERE CONCAT(CPF_CLIENTE, CPF_CONTROLE) LIKE '{CPFDigitado}%'
+                                 ";
+
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.CommandTimeout = 30000;
+                adapter.SelectCommand = cmd; // define o comando SQL para o SqlDataAdapter
+                adapter.Fill(dt); // preenche o DataTable com os resultados da consulta
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        #endregion
     }
 }

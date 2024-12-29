@@ -58,7 +58,7 @@ namespace MarchPark.Forms
             {
                 foreach (Form form in this.MdiChildren)
                 {
-                    if (form.Text == "FRM_CAD_VEICULO")
+                    if (form.Name == "FRM_CAD_VEICULO")
                     {
                         return;
                     }
@@ -100,7 +100,7 @@ namespace MarchPark.Forms
             {
                 foreach (Form form in this.MdiChildren)
                 {
-                    if (form.Text == "FRM_CAD_CLIENTE")
+                    if (form.Name == "FRM_CAD_CLIENTE")
                     {
                         return;
                     }
@@ -170,8 +170,8 @@ namespace MarchPark.Forms
             {
                 foreach (Form form in this.MdiChildren)
                 {
-                    if (form.Text == "FRM_INICIAL")
-                    {
+                    if (form.Name == "FRM_INICIAL")
+                    {                       
                         return;
                     }
                 }
@@ -212,7 +212,7 @@ namespace MarchPark.Forms
             {
                 foreach (Form form in this.MdiChildren)
                 {
-                    if (form.Text == "FRM_RELATORIO")
+                    if (form.Name == "FRM_RELATORIO")
                     {
                         return;
                     }
@@ -254,7 +254,7 @@ namespace MarchPark.Forms
             {
                 foreach (Form form in this.MdiChildren)
                 {
-                    if (form.Text == "FRM_GERENCIAMENTO")
+                    if (form.Name == "FRM_GERENCIAMENTO")
                     {
                         return;
                     }
@@ -328,7 +328,7 @@ namespace MarchPark.Forms
             {
                 foreach (Form form in this.MdiChildren)
                 {
-                    if (form.Text == "FRM_USUARIO_ATIVO")
+                    if (form.Name == "FRM_USUARIO_ATIVO")
                     {
                         return;
                     }

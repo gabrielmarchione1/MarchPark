@@ -421,7 +421,7 @@ namespace MarchPark.Forms
         }
 
         /// <summary>
-        /// Evento para formatar a celula.
+        /// Evento para formatar as celulas.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

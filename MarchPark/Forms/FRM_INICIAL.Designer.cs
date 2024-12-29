@@ -44,10 +44,10 @@
             this.TXT_BUSCAR_PLACA = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.BTN_LIMPAR_DADOS = new System.Windows.Forms.ToolStripButton();
+            this.LBL_TARIFA = new System.Windows.Forms.ToolStripLabel();
             this.DGV_DADOS = new System.Windows.Forms.DataGridView();
             this.checkBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.pageSetupDialog1 = new System.Windows.Forms.PageSetupDialog();
-            this.LBL_TARIFA = new System.Windows.Forms.ToolStripLabel();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -217,6 +217,14 @@
             this.BTN_LIMPAR_DADOS.Text = "Limpar";
             this.BTN_LIMPAR_DADOS.Click += new System.EventHandler(this.BTN_LIMPAR_DADOS_Click);
             // 
+            // LBL_TARIFA
+            // 
+            this.LBL_TARIFA.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.LBL_TARIFA.Font = new System.Drawing.Font("Segoe UI", 9.5F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.LBL_TARIFA.Name = "LBL_TARIFA";
+            this.LBL_TARIFA.Size = new System.Drawing.Size(46, 22);
+            this.LBL_TARIFA.Text = "Tarifa";
+            // 
             // DGV_DADOS
             // 
             this.DGV_DADOS.AllowUserToAddRows = false;
@@ -243,14 +251,6 @@
             this.checkBoxColumn.HeaderText = "";
             this.checkBoxColumn.Name = "checkBoxColumn";
             // 
-            // LBL_TARIFA
-            // 
-            this.LBL_TARIFA.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.LBL_TARIFA.Font = new System.Drawing.Font("Segoe UI", 9.5F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            this.LBL_TARIFA.Name = "LBL_TARIFA";
-            this.LBL_TARIFA.Size = new System.Drawing.Size(46, 22);
-            this.LBL_TARIFA.Text = "Tarifa";
-            // 
             // FRM_INICIAL
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -264,7 +264,7 @@
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(641, 500);
             this.Name = "FRM_INICIAL";
-            this.Text = "ste";
+            this.Text = "aa";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FRM_INICIAL_Load);
             this.Shown += new System.EventHandler(this.FRM_INICIAL_Shown);
