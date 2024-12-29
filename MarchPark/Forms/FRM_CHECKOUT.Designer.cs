@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FRM_CHECKOUT));
             this.BTN_FECHAR = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -174,13 +175,14 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.BTN_FECHAR);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(341, 375);
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(341, 375);
             this.Name = "FRM_CHECKOUT";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FRM_CHECKOUT";
+            this.Text = "Checkout";
             this.Load += new System.EventHandler(this.FRM_CHECKOUT_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

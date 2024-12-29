@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FRM_GERENC_USUARIO));
             this.checkBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.DGV_DADOS = new System.Windows.Forms.DataGridView();
             this.BTN_DELETAR = new System.Windows.Forms.ToolStripButton();
@@ -91,12 +92,12 @@
             this.Controls.Add(this.DGV_DADOS);
             this.Controls.Add(this.toolStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(641, 500);
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(641, 500);
             this.Name = "FRM_GERENC_USUARIO";
-            this.Text = "FRM_GERENC_USUARIO";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FRM_GERENC_USUARIO_Load);
             this.Shown += new System.EventHandler(this.FRM_GERENC_USUARIO_Shown);

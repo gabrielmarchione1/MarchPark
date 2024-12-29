@@ -612,8 +612,8 @@ namespace MarchPark.Forms
         /// <param name="e"></param>
         private void TXT_NOME_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // Permite apenas letras e a tecla de backspace
-            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
+            // Permite apenas letras, espaço e a tecla de backspace
+            if (!char.IsLetter(e.KeyChar) && e.KeyChar != ' ' && !char.IsControl(e.KeyChar))
             {
                 e.Handled = true; // Bloqueia a tecla
             }

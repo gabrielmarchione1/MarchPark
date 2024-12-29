@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FRM_CAD_CLIENTE));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.MBX_DATA_NASCIMENTO = new System.Windows.Forms.MaskedTextBox();
@@ -310,12 +311,12 @@
             this.ControlBox = false;
             this.Controls.Add(this.splitContainer1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(641, 500);
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(641, 500);
             this.Name = "FRM_CAD_CLIENTE";
-            this.Text = "FRM_CAD_CLIENTE";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FRM_CAD_CLIENTE_Load);
             this.Shown += new System.EventHandler(this.FRM_CAD_CLIENTE_Shown);

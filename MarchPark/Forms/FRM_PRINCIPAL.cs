@@ -78,6 +78,7 @@ namespace MarchPark.Forms
                 }
 
                 BTN_CAD_VEICULO.BackColor = Color.Silver;
+                LBL_TIPO_TELA.Text = BTN_CAD_VEICULO.Text;
             }
             catch (Exception ex)
             {
@@ -120,6 +121,7 @@ namespace MarchPark.Forms
                 }
 
                 BTN_CAD_CLIENTE.BackColor = Color.Silver;
+                LBL_TIPO_TELA.Text = BTN_CAD_CLIENTE.Text;
             }
             catch (Exception ex)
             {
@@ -148,6 +150,7 @@ namespace MarchPark.Forms
                 child.Show();
 
                 BTN_INICIAL.BackColor = Color.Silver;
+                LBL_TIPO_TELA.Text = "Veículos Estacionados";
             }
             catch (Exception ex)
             {
@@ -190,6 +193,7 @@ namespace MarchPark.Forms
                 }
 
                 BTN_INICIAL.BackColor = Color.Silver;
+                LBL_TIPO_TELA.Text = BTN_INICIAL.Text;
             }
             catch (Exception ex)
             {
@@ -232,6 +236,7 @@ namespace MarchPark.Forms
                 }
 
                 BTN_RELATORIO.BackColor = Color.Silver;
+                LBL_TIPO_TELA.Text = BTN_RELATORIO.Text;
             }
             catch (Exception ex)
             {
@@ -274,6 +279,7 @@ namespace MarchPark.Forms
                 }
 
                 BTN_GERENCIAMENTO.BackColor = Color.Silver;
+                LBL_TIPO_TELA.Text = BTN_GERENCIAMENTO.Text;
             }
             catch (Exception ex)
             {
@@ -346,6 +352,8 @@ namespace MarchPark.Forms
                 {
                     botao.BackColor = SystemColors.ControlLight;
                 }
+
+                LBL_TIPO_TELA.Text = "Gestão de Usuário";
             }
             catch (Exception ex)
             {

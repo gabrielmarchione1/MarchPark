@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FRM_RELATORIO));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.LBL_CPF = new System.Windows.Forms.Label();
@@ -43,12 +44,12 @@
             this.CBX_CONSULTAR_POR = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.BTN_LIMPAR_DADOS = new System.Windows.Forms.ToolStripButton();
-            this.DGV_DADOS = new System.Windows.Forms.DataGridView();
-            this.pageSetupDialog1 = new System.Windows.Forms.PageSetupDialog();
-            this.LBL_REGISTROS = new System.Windows.Forms.ToolStripLabel();
             this.BTN_CONSULTAR = new System.Windows.Forms.ToolStripButton();
             this.SEP_CONSULTAR = new System.Windows.Forms.ToolStripSeparator();
+            this.BTN_LIMPAR_DADOS = new System.Windows.Forms.ToolStripButton();
+            this.LBL_REGISTROS = new System.Windows.Forms.ToolStripLabel();
+            this.DGV_DADOS = new System.Windows.Forms.DataGridView();
+            this.pageSetupDialog1 = new System.Windows.Forms.PageSetupDialog();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -201,7 +202,7 @@
             this.CBX_CONSULTAR_POR.FormattingEnabled = true;
             this.CBX_CONSULTAR_POR.Location = new System.Drawing.Point(12, 30);
             this.CBX_CONSULTAR_POR.Name = "CBX_CONSULTAR_POR";
-            this.CBX_CONSULTAR_POR.Size = new System.Drawing.Size(121, 21);
+            this.CBX_CONSULTAR_POR.Size = new System.Drawing.Size(125, 21);
             this.CBX_CONSULTAR_POR.TabIndex = 1;
             this.CBX_CONSULTAR_POR.SelectionChangeCommitted += new System.EventHandler(this.CBX_CONSULTAR_POR_SelectionChangeCommitted);
             // 
@@ -227,6 +228,22 @@
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
+            // BTN_CONSULTAR
+            // 
+            this.BTN_CONSULTAR.Image = global::MarchPark.Properties.Resources.consultar1;
+            this.BTN_CONSULTAR.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BTN_CONSULTAR.Name = "BTN_CONSULTAR";
+            this.BTN_CONSULTAR.Size = new System.Drawing.Size(78, 22);
+            this.BTN_CONSULTAR.Text = "Consultar";
+            this.BTN_CONSULTAR.Visible = false;
+            this.BTN_CONSULTAR.Click += new System.EventHandler(this.BTN_CONSULTAR_Click);
+            // 
+            // SEP_CONSULTAR
+            // 
+            this.SEP_CONSULTAR.Name = "SEP_CONSULTAR";
+            this.SEP_CONSULTAR.Size = new System.Drawing.Size(6, 25);
+            this.SEP_CONSULTAR.Visible = false;
+            // 
             // BTN_LIMPAR_DADOS
             // 
             this.BTN_LIMPAR_DADOS.Image = global::MarchPark.Properties.Resources.limpar;
@@ -235,6 +252,14 @@
             this.BTN_LIMPAR_DADOS.Size = new System.Drawing.Size(113, 22);
             this.BTN_LIMPAR_DADOS.Text = "Limpar/Desfazer";
             this.BTN_LIMPAR_DADOS.Click += new System.EventHandler(this.BTN_LIMPAR_DADOS_Click);
+            // 
+            // LBL_REGISTROS
+            // 
+            this.LBL_REGISTROS.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.LBL_REGISTROS.Font = new System.Drawing.Font("Segoe UI", 9.5F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.LBL_REGISTROS.Name = "LBL_REGISTROS";
+            this.LBL_REGISTROS.Size = new System.Drawing.Size(64, 22);
+            this.LBL_REGISTROS.Text = "Registros";
             // 
             // DGV_DADOS
             // 
@@ -254,30 +279,6 @@
             this.DGV_DADOS.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DGV_DADOS_CellFormatting);
             this.DGV_DADOS.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.DGV_DADOS_DataBindingComplete);
             // 
-            // LBL_REGISTROS
-            // 
-            this.LBL_REGISTROS.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.LBL_REGISTROS.Font = new System.Drawing.Font("Segoe UI", 9.5F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            this.LBL_REGISTROS.Name = "LBL_REGISTROS";
-            this.LBL_REGISTROS.Size = new System.Drawing.Size(64, 22);
-            this.LBL_REGISTROS.Text = "Registros";
-            // 
-            // BTN_CONSULTAR
-            // 
-            this.BTN_CONSULTAR.Image = global::MarchPark.Properties.Resources.consultar1;
-            this.BTN_CONSULTAR.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BTN_CONSULTAR.Name = "BTN_CONSULTAR";
-            this.BTN_CONSULTAR.Size = new System.Drawing.Size(78, 22);
-            this.BTN_CONSULTAR.Text = "Consultar";
-            this.BTN_CONSULTAR.Visible = false;
-            this.BTN_CONSULTAR.Click += new System.EventHandler(this.BTN_CONSULTAR_Click);
-            // 
-            // SEP_CONSULTAR
-            // 
-            this.SEP_CONSULTAR.Name = "SEP_CONSULTAR";
-            this.SEP_CONSULTAR.Size = new System.Drawing.Size(6, 25);
-            this.SEP_CONSULTAR.Visible = false;
-            // 
             // FRM_RELATORIO
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -286,12 +287,12 @@
             this.ControlBox = false;
             this.Controls.Add(this.splitContainer1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(641, 500);
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(641, 500);
             this.Name = "FRM_RELATORIO";
-            this.Text = "FRM_RELATORIO";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FRM_RELATORIO_Load);
             this.Shown += new System.EventHandler(this.FRM_RELATORIO_Shown);

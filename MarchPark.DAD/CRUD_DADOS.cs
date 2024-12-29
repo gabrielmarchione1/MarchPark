@@ -540,6 +540,7 @@ namespace MarchPark.DAD
 	                                CONCAT(NUMERO_DDD, NUMERO_TELEFONE) AS TELEFONE,
 	                                ENDERECO_EMAIL AS EMAIL
                                 FROM MarchPark_TBL_CLIENTE
+                                ORDER BY NOME_CLIENTE ASC
                                  ";
 
                 SqlCommand cmd = new SqlCommand(sql, conn);
@@ -585,6 +586,7 @@ namespace MarchPark.DAD
                                       ENDERECO_EMAIL AS EMAIL
                                   FROM MarchPark_TBL_CLIENTE
                                   WHERE NOME_CLIENTE LIKE '{NomeDigitado}%'
+                                  ORDER BY NOME_CLIENTE ASC
                                  ";
 
                 SqlCommand cmd = new SqlCommand(sql, conn);
@@ -949,6 +951,7 @@ namespace MarchPark.DAD
                                 FROM MarchPark_TBL_VEICULO AS VEI
                                 INNER JOIN MarchPark_TBL_CLIENTE AS CLI
 	                                ON VEI.ID_CLIENTE = CLI.ID_CLIENTE
+                                ORDER BY CLI.NOME_CLIENTE ASC
                                  ";
 
                 SqlCommand cmd = new SqlCommand(sql, conn);
@@ -1089,6 +1092,7 @@ namespace MarchPark.DAD
                                 INNER JOIN MarchPark_TBL_CLIENTE AS CLI
                                     ON VEI.ID_CLIENTE = CLI.ID_CLIENTE
                                 WHERE VEI.PLACA_VEICULO LIKE '{PlacaDigitada}%'
+                                ORDER BY CLI.NOME_CLIENTE ASC
                                  ";
 
                 SqlCommand cmd = new SqlCommand(sql, conn);
@@ -1139,6 +1143,7 @@ namespace MarchPark.DAD
                                 INNER JOIN MarchPark_TBL_CLIENTE AS CLI
                                     ON VEI.ID_CLIENTE = CLI.ID_CLIENTE
                                 WHERE CLI.ID_CLIENTE = {IdCliente}
+                                ORDER BY CLI.NOME_CLIENTE ASC
                                  ";
 
                 SqlCommand cmd = new SqlCommand(sql, conn);
@@ -1335,6 +1340,7 @@ namespace MarchPark.DAD
 	                                 ON ENT.ID_CLIENTE = CLI.ID_CLIENTE
                                  INNER JOIN MarchPark_TBL_VEICULO AS VEI
 	                                 ON ENT.ID_VEICULO = VEI.ID_VEICULO
+                                 ORDER BY ENT.ENTRADA DESC
                                  ";
 
                 SqlCommand cmd = new SqlCommand(sql, conn);
@@ -1555,6 +1561,7 @@ namespace MarchPark.DAD
                                    INNER JOIN MarchPark_TBL_VEICULO AS VEI
                                        ON ENT.ID_VEICULO = VEI.ID_VEICULO
                                    WHERE VEI.PLACA_VEICULO LIKE '{PlacaDigitada}%'
+                                   ORDER BY ENT.ENTRADA DESC
                                  ";
 
                 SqlCommand cmd = new SqlCommand(sql, conn);
@@ -1698,6 +1705,7 @@ namespace MarchPark.DAD
 	                                 ON HIS.ID_CLIENTE = CLI.ID_CLIENTE
                                  INNER JOIN MarchPark_TBL_VEICULO AS VEI	
 	                                 ON HIS.ID_VEICULO = VEI.ID_VEICULO
+                                 ORDER BY HIS.ENTRADA DESC
                                  ";
 
                 SqlCommand cmd = new SqlCommand(sql, conn);
@@ -1749,6 +1757,7 @@ namespace MarchPark.DAD
                                  INNER JOIN MarchPark_TBL_VEICULO AS VEI	
                                      ON HIS.ID_VEICULO = VEI.ID_VEICULO
                                  WHERE FORMAT(HIS.ENTRADA, 'yyyy-MM-dd') = FORMAT((CONVERT(DATETIME, '{DataEntrada}')), 'yyyy-MM-dd')
+                                 ORDER BY HIS.ENTRADA DESC
                                  ";
 
                 SqlCommand cmd = new SqlCommand(sql, conn);
@@ -1802,6 +1811,7 @@ namespace MarchPark.DAD
                                      ON HIS.ID_VEICULO = VEI.ID_VEICULO
                                  WHERE FORMAT(HIS.ENTRADA, 'yyyy-MM-dd') >= FORMAT((CONVERT(DATETIME, '{DataInicio}')), 'yyyy-MM-dd') 
                                  AND FORMAT(HIS.ENTRADA, 'yyyy-MM-dd') <= FORMAT((CONVERT(DATETIME, '{DataFim}')), 'yyyy-MM-dd')
+                                 ORDER BY HIS.ENTRADA DESC
                                  ";
 
                 SqlCommand cmd = new SqlCommand(sql, conn);
@@ -1853,6 +1863,7 @@ namespace MarchPark.DAD
                                  INNER JOIN MarchPark_TBL_VEICULO AS VEI	
                                      ON HIS.ID_VEICULO = VEI.ID_VEICULO
                                  WHERE VEI.PLACA_VEICULO LIKE '{PlacaDigitada}%'
+                                 ORDER BY HIS.ENTRADA DESC
                                  ";
 
                 SqlCommand cmd = new SqlCommand(sql, conn);
@@ -1904,6 +1915,7 @@ namespace MarchPark.DAD
                                  INNER JOIN MarchPark_TBL_VEICULO AS VEI	
                                      ON HIS.ID_VEICULO = VEI.ID_VEICULO
                                  WHERE CONCAT(CPF_CLIENTE, CPF_CONTROLE) LIKE '{CPFDigitado}%'
+                                 ORDER BY HIS.ENTRADA DESC
                                  ";
 
                 SqlCommand cmd = new SqlCommand(sql, conn);

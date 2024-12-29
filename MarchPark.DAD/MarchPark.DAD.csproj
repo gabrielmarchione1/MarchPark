@@ -52,5 +52,9 @@
       <Name>MarchPark.ENT</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Procedures\MarchPark_SP_REGISTRAR_SAIDA_VEICULO.sql" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

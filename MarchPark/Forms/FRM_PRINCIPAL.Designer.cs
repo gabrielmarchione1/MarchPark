@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FRM_PRINCIPAL));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.BTN_SAIR = new System.Windows.Forms.ToolStripButton();
             this.BTN_USUARIO_ATIVO = new System.Windows.Forms.ToolStripButton();
@@ -39,6 +40,7 @@
             this.BTN_CAD_VEICULO = new System.Windows.Forms.ToolStripMenuItem();
             this.BTN_RELATORIO = new System.Windows.Forms.ToolStripMenuItem();
             this.BTN_GERENCIAMENTO = new System.Windows.Forms.ToolStripMenuItem();
+            this.LBL_TIPO_TELA = new System.Windows.Forms.ToolStripLabel();
             this.toolStrip1.SuspendLayout();
             this.toolStrip2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -84,7 +86,8 @@
             this.toolStrip2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.toolStrip2.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripLabel1});
+            this.toolStripLabel1,
+            this.LBL_TIPO_TELA});
             this.toolStrip2.Location = new System.Drawing.Point(0, 0);
             this.toolStrip2.Name = "toolStrip2";
             this.toolStrip2.Size = new System.Drawing.Size(838, 25);
@@ -166,6 +169,14 @@
             this.BTN_GERENCIAMENTO.Text = "Gerenciamento";
             this.BTN_GERENCIAMENTO.Click += new System.EventHandler(this.BTN_GERENCIAMENTO_Click);
             // 
+            // LBL_TIPO_TELA
+            // 
+            this.LBL_TIPO_TELA.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.LBL_TIPO_TELA.Margin = new System.Windows.Forms.Padding(310, 1, 0, 2);
+            this.LBL_TIPO_TELA.Name = "LBL_TIPO_TELA";
+            this.LBL_TIPO_TELA.Size = new System.Drawing.Size(40, 22);
+            this.LBL_TIPO_TELA.Text = "TELA";
+            // 
             // FRM_PRINCIPAL
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -175,6 +186,7 @@
             this.Controls.Add(this.toolStrip2);
             this.Controls.Add(this.toolStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
@@ -182,7 +194,7 @@
             this.MinimumSize = new System.Drawing.Size(854, 589);
             this.Name = "FRM_PRINCIPAL";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FRM_PRINCIPAL";
+            this.Text = "MarchPark";
             this.Load += new System.EventHandler(this.FRM_PRINCIPAL_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
@@ -207,5 +219,6 @@
         private System.Windows.Forms.ToolStripMenuItem BTN_GERENCIAMENTO;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private System.Windows.Forms.ToolStripButton BTN_USUARIO_ATIVO;
+        private System.Windows.Forms.ToolStripLabel LBL_TIPO_TELA;
     }
 }

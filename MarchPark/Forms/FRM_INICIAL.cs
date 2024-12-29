@@ -413,7 +413,7 @@ namespace MarchPark.Forms
                     TXT_MARCA_MODELO.Text = ObjNEG.SELECT_INFORMACOES_VEICULO_SELECIONADO(Convert.ToInt32(CBX_NOME.SelectedValue), CBX_PLACA.Text);
                 }
 
-                LBL_TARIFA.Text = "R$ " + ObjNEG.SELECT_VALOR_TARIFA_ATUAL(ObjNEG.TIPO_VEICULO(Convert.ToInt32(CBX_PLACA.SelectedValue))) + "/h";
+                LBL_TARIFA.Text = "R$ " + ObjNEG.SELECT_VALOR_TARIFA_ATUAL(ObjNEG.TIPO_VEICULO(Convert.ToInt32(CBX_PLACA.SelectedValue))) + "/1h";
             }
             catch (Exception ex)
             {

@@ -18,7 +18,6 @@ C:\Github\MarchPark\MarchPark\obj\Debug\MarchPark.exe
 C:\Github\MarchPark\MarchPark\obj\Debug\MarchPark.pdb
 C:\Github\MarchPark\MarchPark\obj\Debug\MarchPark.Forms.FRM_PRINCIPAL.resources
 C:\Github\MarchPark\MarchPark\obj\Debug\MarchPark.Forms.FRM_CAD_VEICULO.resources
-C:\Github\MarchPark\MarchPark\obj\Debug\MarchPark.Forms.teste.resources
 C:\Github\MarchPark\MarchPark\obj\Debug\MarchPark.Forms.FRM_CAD_CLIENTE.resources
 C:\Github\MarchPark\MarchPark\obj\Debug\MarchPark.Forms.FRM_INICIAL.resources
 C:\Github\MarchPark\MarchPark\obj\Debug\MarchPark.Forms.FRM_GERENCIAMENTO.resources
