@@ -1,8 +1,10 @@
-﻿using System;
+﻿using OfficeOpenXml;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Runtime.Remoting;
 using System.Text;
@@ -16,7 +18,8 @@ namespace MarchPark.Forms
     /// </summary>
     public partial class FRM_RELATORIO : Form
     {
-        MarchPark.NEG.CRUD_NEG ObjNEG = new NEG.CRUD_NEG();
+        private readonly MarchPark.NEG.CRUD_NEG ObjNEG = new NEG.CRUD_NEG();
+        public string caminhoPasta;
 
         /// <summary>
         /// Construtor da classe FRM_RELATORIO
@@ -25,6 +28,84 @@ namespace MarchPark.Forms
         public FRM_RELATORIO()
         {
             InitializeComponent();
+        }
+
+        /// <summary>
+        /// Método para gerar o relatório do histórico do estacionamento.
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public bool GERAR_RELATORIO()
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+
+                //string caminhoPasta;
+                string nomeArquivo;
+                string caminhoArquivo;
+
+                caminhoPasta = ABRIR_PASTA();
+
+                if (caminhoPasta == "")
+                {
+                    return false;
+                }
+
+                nomeArquivo = "Relatório_" + DateTime.Now.ToString("dd_MM_yyyy_HH_mm_ss") + ".xlsx";
+                caminhoArquivo = System.IO.Path.Combine(caminhoPasta, nomeArquivo);
+
+                dt = (DataTable)DGV_DADOS.DataSource;
+                //dt.Rows.RemoveAt(dt.Rows.Count - 1); // Remove a última linha
+
+                FileInfo fileInfo = new FileInfo(caminhoArquivo);
+
+                ExcelPackage.LicenseContext = OfficeOpenXml.LicenseContext.NonCommercial;
+                using (OfficeOpenXml.ExcelPackage pacote = new OfficeOpenXml.ExcelPackage(fileInfo))
+                {
+                    OfficeOpenXml.ExcelWorksheet sheet = pacote.Workbook.Worksheets.Add("Relatório");
+
+                    sheet.Cells["A1"].LoadFromDataTable(dt, true);
+                    dt = null;
+
+                    sheet.Cells[sheet.Dimension.Address].Style.HorizontalAlignment = OfficeOpenXml.Style.ExcelHorizontalAlignment.Left;
+                    sheet.Cells[sheet.Dimension.Address].AutoFitColumns();
+
+                    pacote.Save();
+                }
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
+        }
+
+        /// <summary>
+        /// Método para selecionar a pasta que deseja salvar o arquivo.
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public static string ABRIR_PASTA()
+        {
+            try
+            {
+                FolderBrowserDialog val = new FolderBrowserDialog();
+                val.Description = "Selecione uma pasta para salvar o arquivo";
+                val.RootFolder = Environment.SpecialFolder.Desktop;
+                val.ShowNewFolderButton = true;
+                if ((int)((CommonDialog)val).ShowDialog() == 2 )
+                {
+                    return "";
+                }
+
+                return val.SelectedPath.ToString();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
         }
 
         /// <summary>
@@ -581,6 +662,37 @@ namespace MarchPark.Forms
             {
                 Cursor = Cursors.WaitCursor;
                 CONSULTAR_HISTORICO_CPF();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, " MarchPark ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                Cursor = Cursors.Default;
+            }
+        }
+
+        /// <summary>
+        /// Evento de clique no botão "BTN_GERAR_RELATORIO".
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BTN_GERAR_RELATORIO_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Cursor = Cursors.WaitCursor;
+
+                if (DGV_DADOS.Rows.Count > 0)
+                {
+                    GERAR_RELATORIO();
+                    MessageBox.Show($"Relatório gerado com sucesso no caminho: {caminhoPasta}", " MarchPark ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Não há dados para exportar.", " MarchPark ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
             catch (Exception ex)
             {

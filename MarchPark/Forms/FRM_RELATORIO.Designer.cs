@@ -50,6 +50,8 @@
             this.LBL_REGISTROS = new System.Windows.Forms.ToolStripLabel();
             this.DGV_DADOS = new System.Windows.Forms.DataGridView();
             this.pageSetupDialog1 = new System.Windows.Forms.PageSetupDialog();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.BTN_GERAR_RELATORIO = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -221,7 +223,9 @@
             this.BTN_CONSULTAR,
             this.SEP_CONSULTAR,
             this.BTN_LIMPAR_DADOS,
-            this.LBL_REGISTROS});
+            this.LBL_REGISTROS,
+            this.toolStripSeparator1,
+            this.BTN_GERAR_RELATORIO});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(641, 25);
@@ -279,6 +283,20 @@
             this.DGV_DADOS.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DGV_DADOS_CellFormatting);
             this.DGV_DADOS.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.DGV_DADOS_DataBindingComplete);
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // BTN_GERAR_RELATORIO
+            // 
+            this.BTN_GERAR_RELATORIO.Image = global::MarchPark.Properties.Resources.excel;
+            this.BTN_GERAR_RELATORIO.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BTN_GERAR_RELATORIO.Name = "BTN_GERAR_RELATORIO";
+            this.BTN_GERAR_RELATORIO.Size = new System.Drawing.Size(105, 22);
+            this.BTN_GERAR_RELATORIO.Text = "Gerar Relatório";
+            this.BTN_GERAR_RELATORIO.Click += new System.EventHandler(this.BTN_GERAR_RELATORIO_Click);
+            // 
             // FRM_RELATORIO
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -333,5 +351,7 @@
         private System.Windows.Forms.ToolStripLabel LBL_REGISTROS;
         private System.Windows.Forms.ToolStripButton BTN_CONSULTAR;
         private System.Windows.Forms.ToolStripSeparator SEP_CONSULTAR;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripButton BTN_GERAR_RELATORIO;
     }
 }
