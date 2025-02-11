@@ -49,10 +49,6 @@ O **MarchPark** é um sistema de gerenciamento de estacionamentos desenvolvido c
 
 O MarchPark foi criado com a intenção de simplificar a gestão de estacionamentos, integrando tecnologia e usabilidade para proporcionar uma experiência completa e funcional.
 
-## TO DO
-
-- Em breve estarei implementando a funcionalidade de exportar os dados do relatório desejado direto para um excel automaticamente.
-
 
 ## Vídeo do projeto no Linkedin:
 
